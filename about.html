@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | Robo AIA Paths</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <style>
+    :root {
+      --tech-blue: #006eff;
+      --dark-navy: #0f172a;
+      --bg-light: #f8fafc;
+      --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+      background-color: var(--bg-light);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--dark-navy);
+      scroll-behavior: smooth;
+    }
+
+    /* Section Headings */
+    #head {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.3;
+      color: var(--tech-blue);
+    }
+
+    #about-label {
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      color: var(--dark-navy);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    /* Profile Cards - Equal Sizing */
+    .profile-container {
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      transition: var(--transition-smooth);
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .profile-container:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 110, 255, 0.1);
+    }
+
+    .profile-img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 20px;
+      transition: var(--transition-smooth);
+    }
+
+    /* Interactive Boxes (Page 4) */
+    .interactive-box {
+      background: white;
+      border: 1px solid #dee2e6;
+      border-radius: 20px;
+      padding: 2.5rem;
+      height: 100%;
+      transition: var(--transition-smooth);
+    }
+
+    .interactive-box:hover {
+      transform: translateY(-8px);
+      border-color: var(--tech-blue);
+      box-shadow: 0 15px 30px rgba(0, 110, 255, 0.08);
+    }
+
+    /* Page 7 Overlay */
+    .cta-bg {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/about/background-AI.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 80vh;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      margin: 60px 0;
+    }
+
+    /* Footer */
+    #footer {
+      background: white;
+      padding: 80px 0 30px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    #footer a {
+      text-decoration: none;
+      color: #64748b;
+      transition: 0.3s;
+    }
+
+    #footer a:hover {
+      color: var(--tech-blue);
+      padding-left: 5px;
+    }
+
+    .social-icon {
+      width: 30px;
+      transition: 0.3s;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.2) rotate(10deg);
+    }
+  </style>
+
+  
+  <style>
+    /* Navbar styling exactly matching your previous interactive pages */
+    .navbar {
+        backdrop-filter: blur(15px);
+        background: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 0.8rem 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-link {
+        position: relative;
+        font-weight: 600;
+        color: #0f172a; /* dark-navy */
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Modern underline hover effect */
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background-color: #006eff; /* tech-blue */
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after {
+        width: 80%;
+    }
+
+    .nav-link:hover {
+        color: #006eff !important;
+    }
+
+    /* Button inside Navbar */
+    .btn-tech {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 50px;
+        font-weight: 700;
+    }
+
+    .btn-tech:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 110, 255, 0.3);
+    }
+</style>
+</head>
+
+<body>
+
+ <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container-fluid">
+      <a href="index.html" class="navbar-brand">
+        <img src="img/logo.jpeg" height="50" class="rounded" alt="Logo">
+      </a>
+      <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#testNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="testNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-1">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link text-primary">About</a></li>
+          <li class="nav-item"><a href="program.html" class="nav-link">Courses</a></li>
+          <!-- <li class="nav-item"><a href="kits.html" class="nav-link">Kits</a></li> -->
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href="join-as-a-trainer.html" class="nav-link">Join Us As A Trainer</a></li>
+          <li class="nav-item"><a href="partner-with-school.html" class="nav-link">Partner with School</a></li>
+          <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li class="nav-item ms-lg-3"><a href="contact.html" class="btn btn-primary btn-tech px-4">Enroll Now</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <section id="page1" class="text-center py-5">
+      <h6 id="about-label">ABOUT US</h6>
+      <h1 id="head">We are here to transform learners into successful professionalism</h1>
+    </section>
+
+    <section id="page2" class="row align-items-center g-5 py-5">
+      <div class="col-lg-6">
+        <img src="img/about/engineer-teaching.jpg" class="img-fluid rounded-5 shadow-lg" alt="STEM Team">
+      </div>
+      <div class="col-lg-6">
+        <h2 class="fw-bold mb-4">Robo AIA Paths: Experienced STEM team brings accessible robotics and AI education.</h2>
+        <p class="text-muted lh-lg">Robo AIA Paths was founded by a team of experienced educators, engineers, and
+          technology enthusiasts who recognized the transformative potential of robotics and artificial intelligence.
+          With backgrounds in STEM education, software development, and robotics engineering, our team is dedicated to
+          creating engaging and accessible learning experiences for students of all ages and backgrounds.</p>
+      </div>
+    </section>
+
+    <section id="page3" class="py-5">
+      <div class="row g-4 align-items-center mb-5">
+        <div class="col-lg-4">
+          <h2 class="fw-bold" style="color: var(--tech-blue);">Founder & <br> Head of Robo AIA Paths</h2>
+          <p class="text-muted mt-3">We saw the transformative potential of robotics and artificial intelligence and
+            knew we had to make this knowledge accessible to everyone.</p>
+        </div>
+        <div class="col-lg-4 text-center">
+          <div class="profile-container p-3">
+            <img src="img/about/rashmi.jpeg" alt="Rashmi Kansal" class="profile-img">
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <p class="text-muted mb-4">Bridging the gap between cutting-edge technology and everyday students is our
+            primary mission.</p>
+          <h3 class="fw-bold fs-4 mb-0">Rashmi Kansal</h3>
+          <p class="text-primary fw-bold small">Founder</p>
+        </div>
+      </div>
+
+      <div class="row g-4 align-items-center mt-5 pt-lg-5">
+        <div class="col-lg-4">
+          <h2 class="fw-bold" style="color: var(--tech-blue);">Sales Director</h2>
+          <p class="text-muted mt-3">A seasoned sales professional, with 38+ years of industry experience across sales,
+            business development, and technology consulting. Proven expertise in driving high-value projects with
+            Defence, Government, PSU, and enterprise clients.</p>
+        </div>
+        <div class="col-lg-4 text-center">
+          <div class="profile-container p-3">
+            <img src="img/about/sanjeev.jpg" alt="Sonjiv Anand" class="profile-img">
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <p class="text-muted mb-4">Brings deep domain knowledge, leadership excellence, and a result oriented approach
+            aligned with the organizational growth.</p>
+          <h3 class="fw-bold fs-4 mb-0">Sonjiv Anand</h3>
+          <p class="text-primary fw-bold small">Sales Director</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="page4" class="row g-4 py-5">
+      <div class="col-lg-3">
+        <div class="interactive-box">
+          <h3 class="fw-bold">Live <br> Classes</h3>
+          <p class="small text-muted mt-4">Focussed learning with interactive and fun live sessions</p>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="interactive-box">
+          <h3 class="fw-bold">Curated <br> Courses</h3>
+          <p class="small text-muted mt-4">Learn what you need the most. We’ll curate it, especially for you</p>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="interactive-box">
+          <h3 class="fw-bold">Integrated <br> Learning</h3>
+          <p class="small text-muted mt-4">Solve problems and prepare for the real world ahead of you</p>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="interactive-box">
+          <h3 class="fw-bold">Interactive <br> Sessions</h3>
+          <p class="small text-muted mt-4">Learn in group, perform activities, take up challenges</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="page5" class="py-5">
+      <div class="row border-bottom border-dark py-5">
+        <div class="col-lg-3 fw-bold text-uppercase letter-spacing-2">Mission</div>
+        <div class="col-lg-9 fs-5 text-muted">Our mission is to transform learners into successful professionals. We
+          equip them with the right skill-set and knowledge to become the best version of themselves.</div>
+      </div>
+      <div class="row py-5">
+        <div class="col-lg-3 fw-bold text-uppercase letter-spacing-2">Vision</div>
+        <div class="col-lg-9 fs-5 text-muted">Our mission is to transform learners into successful professionals. We
+          equip them with the right skill-set and knowledge to become the best version of themselves.</div>
+      </div>
+    </section>
+
+    <section id="page6" class="py-5">
+      <h6 class="text-center fw-bold mb-5 letter-spacing-2">WHAT PARENTS SAY</h6>
+      <div class="row bg-white border border-dark rounded-5 overflow-hidden shadow-sm g-0">
+        <div class="col-lg-4">
+          <img src="img/about/Gemini_Generated_Image_qobql3qobql3qobq.png"
+            class="img-fluid w-100 h-100 object-fit-cover" alt="Parent Feedback">
+        </div>
+        <div class="col-lg-8 p-5 d-flex align-items-center">
+          <div>
+            <p class="fs-4 fst-italic text-muted mb-4">"Robo AIA Paths is outstanding. The instructors—experienced
+              educators and engineers—make complex AI and robotics truly engaging and accessible. My child is thriving,
+              developing crucial critical thinking skills through hands-on projects."</p>
+            <h4 class="fw-bold">Yamini Mehra</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="page7" class="cta-bg text-center shadow-lg">
+      <div>
+        <h1 class="display-4 fw-bold">Ready for robotics? <br> Enroll and shape <br> technology's future!</h1>
+        <button class="btn btn-primary btn-lg rounded-pill px-5 py-3 mt-4 fw-bold">Get Started</button>
+      </div>
+    </section>
+
+    <footer id="footer" class="row g-4 text-start">
+      <div class="col-lg-3">
+        <img src="img/logo.jpeg" class="w-75 rounded mb-4" alt="Robo AIA">
+        <p class="small text-muted lh-lg">We offer a wide range of courses & programs designed to introduce students to
+          the exciting fields of robotics coding and AI.</p>
+      </div>
+      <div class="col-lg-3">
+        <h2 class="fs-4 fw-bold mb-4">Quick Link</h2>
+        <ul class="list-unstyled">
+          <li><a href="#">Demo Test</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Testimonials</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h2 class="fs-4 fw-bold mb-4">Courses</h2>
+        <ul class="list-unstyled">
+          <li><a href="#">Junior Level</a></li>
+          <li><a href="#">Robo Expert</a></li>
+          <li><a href="#">Robo Advance</a></li>
+          <li><a href="#">Coding</a></li>
+          <li><a href="#">Mechatronics</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h2 class="fs-4 fw-bold mb-4">Get in touch</h2>
+        <p class="small text-muted">S7, RPS Savana, Sector 88, Faridabad, Haryana-121002 <br> +91 9990911093 <br>
+          roboaiapaths@gmail.com</p>
+        <div class="d-flex gap-3 mt-4">
+          <a href="#"><img src="img/facebookLogo.png" class="social-icon" alt="Facebook"></a>
+          <a href="#"><img src="img/instagramLogo.png" class="social-icon" alt="Instagram"></a>
+        </div>
+      </div>
+      <div class="col-12 mt-5 border-top pt-4">
+        <p class="text-center small text-muted">Copyright © 2026 roboaiapaths.com. Powered by roboaiapaths.com.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

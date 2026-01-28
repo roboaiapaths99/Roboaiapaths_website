@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog | Robo AIA Paths</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        :root {
+            --tech-blue: #006eff;
+            --dark-navy: #0f172a;
+            --bg-light: #f8fafc;
+            --ease-in-out: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Prevent Horizontal Movement */
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+            background-color: var(--bg-light);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--dark-navy);
+            scroll-behavior: smooth;
+        }
+
+
+
+        /* BLOG POST INTERACTIVE CARD */
+        .blog-card {
+            background: white;
+            border-radius: 30px;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            transition: var(--ease-in-out);
+            overflow: hidden;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 110, 255, 0.1);
+            border-color: var(--tech-blue);
+        }
+
+        .blog-img-wrap {
+            height: 100%;
+            min-height: 300px;
+            overflow: hidden;
+        }
+
+        .blog-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .blog-card:hover .blog-img-wrap img {
+            transform: scale(1.1);
+        }
+
+        /* Content Styling */
+        .blog-content {
+            padding: 2.5rem !important;
+        }
+
+        .blog-title {
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .blog-card:hover .blog-title {
+            color: var(--tech-blue);
+        }
+
+        .meta-link {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--tech-blue);
+            text-decoration: none;
+            margin-right: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .read-more {
+            font-weight: 800;
+            color: var(--dark-navy);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 1.5rem;
+            transition: var(--ease-in-out);
+        }
+
+        .read-more:hover {
+            color: var(--tech-blue);
+            gap: 10px;
+        }
+
+        /* Footer */
+        #footer {
+            background: white;
+            padding: 80px 0 30px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        #footer a {
+            text-decoration: none;
+            color: #64748b;
+            transition: 0.3s;
+        }
+
+        #footer a:hover {
+            color: var(--tech-blue);
+            padding-left: 5px;
+        }
+
+        .social-icon {
+            width: 30px;
+            transition: 0.3s;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+    </style>
+
+
+    <style>
+        /* Navbar styling exactly matching your previous interactive pages */
+        .navbar {
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 0.8rem 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 600;
+            color: #0f172a;
+            /* dark-navy */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Modern underline hover effect */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: #006eff;
+            /* tech-blue */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .nav-link:hover {
+            color: #006eff !important;
+        }
+
+        /* Button inside Navbar */
+        .btn-tech {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 50px;
+            font-weight: 700;
+        }
+
+        .btn-tech:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 110, 255, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand">
+                <img src="img/logo.jpeg" height="50" class="rounded" alt="Logo">
+            </a>
+            <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#testNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="testNav">
+                <ul class="navbar-nav ms-auto align-items-center gap-1">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="program.html" class="nav-link">Courses</a></li>
+                    <!-- <li class="nav-item"><a href="kits.html" class="nav-link">Kits</a></li> -->
+                    <li class="nav-item"><a href="blog.html" class="nav-link text-primary">Blog</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="join-as-a-trainer.html" class="nav-link">Join Us As A Trainer</a></li>
+                    <li class="nav-item"><a href="partner-with-school.html" class="nav-link">Partner with School</a>
+                    </li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li class="nav-item ms-lg-3"><a href="contact.html" class="btn btn-primary btn-tech px-4">Enroll
+                            Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="text-center mb-5 mt-4">
+            <h1 class="display-4 fw-extrabold" style="color: var(--tech-blue);">Insights & Perspectives</h1>
+            <p class="text-muted">Exploring the intersection of education, robotics, and the real world.</p>
+        </div>
+
+        <section class="py-4 text-center">
+            <h4 class="fw-bold mb-4">The Impact of Practical Learning</h4>
+
+            <p class="text-muted mt-3">Robotics isn't just about building machines; it's a framework for critical
+                thinking.</p>
+        </section>
+
+        <div class="row py-5" id="page1">
+            <div class="col-lg-12">
+                <article class="blog-card mb-5">
+                    <div class="row g-0">
+                        <div class="col-lg-4">
+                            <div class="blog-img-wrap">
+                                <img src="img/blog/roboticHand.jpg" alt="Robotic Hand">
+                            </div>
+                        </div>
+                        <div class="col-lg-8 blog-content">
+                            <div class="mb-2">
+                                <a href="#" class="meta-link">1 Comment</a>
+                                <a href="#" class="meta-link">Robotics Courses for Kids</a>
+                            </div>
+                            <h2 class="blog-title">Why Problem Solvers Outshine Toppers in The Real World: A Case For
+                                Robotics Courses!</h2>
+                            <p class="text-muted lh-lg">Nowadays, Indian parents consider high academic performance and
+                                top exam rankings to be the greatest proof of a child’s abilities. To boost their
+                                children’s performance, parents review tuitions, mock tests and competitive materials.
+                                Academic achievement shows something valuable, but success alone can’t be guaranteed by
+                                grades anymore. More often, it’s the problem solvers who flourish, […]</p>
+                            <a href="hello-world.html" class="read-more">Read Full Story <i
+                                    class="fa-solid fa-arrow-right-long ms-2"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <div class="container text-start">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6">
+                    <img src="img/logo.jpeg" class="w-50 mb-4 rounded" alt="Logo">
+                    <p class="small">We offer a wide range of courses & programs designed to introduce students to the
+                        exciting fields of robotics coding and AI.</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-4">Quick Link</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="#">Demo Test</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-4">Courses</h5>
+                    <ul class="list-unstyled small">
+                        <li><a href="#">Junior Level</a></li>
+                        <li><a href="#">Robo Expert</a></li>
+                        <li><a href="#">Robo Advance</a></li>
+                        <li><a href="#">Coding</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-4">Get in touch</h5>
+                    <p class="small text-muted mb-1">S7, RPS Savana, Sector 88, Faridabad</p>
+                    <p class="small text-muted mb-4">+91 9990911093</p>
+                    <div class="d-flex">
+                        <a href="#"><img src="img/facebookLogo.png" class="social-icon" alt="FB"></a>
+                        <a href="#"><img src="img/instagramLogo.png" class="social-icon" alt="IG"></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="opacity-10">
+            <p class="text-center small text-muted mb-0">Copyright © 2026 roboaiapaths.com. Powered by roboaiapaths.com.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

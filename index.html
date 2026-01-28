@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robo AIA Paths | One Stop Destination to Robotics & Coding</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <style>
+    :root {
+      --tech-blue: #006eff;
+      --dark-navy: #0f172a;
+      --bg-light: #f8fafc;
+      /* Smooth timing for all interactions */
+      --ease-in-out: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Prevent Horizontal Movement */
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+      background-color: var(--bg-light);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--dark-navy);
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar - Glass Effect */
+    .navbar {
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 0.8rem 0;
+      transition: var(--ease-in-out);
+    }
+
+    /* Nav Link Hover Interaction */
+    .nav-link {
+      position: relative;
+      font-weight: 600;
+      transition: var(--ease-in-out);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background-color: var(--tech-blue);
+      transition: var(--ease-in-out);
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after {
+      width: 80%;
+    }
+
+    /* Hero Image Interaction */
+    .hero-img-wrap {
+      overflow: hidden;
+      border-radius: 24px;
+      transition: var(--ease-in-out);
+    }
+
+    .hero-img-wrap:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 110, 255, 0.15);
+    }
+
+    .course-grid .card {
+      border: none !important;
+      border-radius: 24px !important;
+      background: white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      transition: var(--ease-in-out);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      /* Makes all cards in a row the same height */
+    }
+
+    .course-grid .card-body {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      /* Pushes the footer/link to the bottom */
+      padding: 1.5rem;
+    }
+
+    .course-grid .card-img-top {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      /* Ensures all images are the exact same dimensions */
+      object-fit: cover;
+      border-radius: 18px !important;
+      transition: transform 0.5s ease;
+    }
+
+    .course-grid .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 110, 255, 0.12);
+    }
+
+    .course-grid .card:hover .card-img-top {
+      transform: scale(1.05);
+    }
+
+    .course-grid .learn-more-link {
+      margin-top: auto;
+      /* Aligns the link at the bottom of the card body */
+      padding-top: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--tech-blue);
+    }
+
+    /* Universal Card Hover (Courses, Why Us, Testimonials) */
+    .card,
+    .p5s,
+    .box,
+    .testimonial-wrap {
+      border: none !important;
+      border-radius: 24px !important;
+      background: white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      transition: var(--ease-in-out) !important;
+      overflow: hidden;
+    }
+
+    .card:hover,
+    .p5s:hover,
+    .box:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 50px rgba(0, 110, 255, 0.12);
+    }
+
+    .card img {
+      transition: transform 0.6s ease;
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Gallery Grid Hover */
+    .gallery-item {
+      border-radius: 18px;
+      overflow: hidden;
+      transition: var(--ease-in-out);
+    }
+
+    .gallery-item img {
+      transition: all 0.5s ease;
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+      filter: brightness(0.8);
+    }
+
+    /* Button Interaction */
+    .btn-tech {
+      transition: var(--ease-in-out);
+      border-radius: 50px;
+      font-weight: 700;
+    }
+
+    .btn-tech:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 110, 255, 0.4);
+      filter: brightness(1.1);
+    }
+
+    /* Footer Links */
+    #footer a {
+      transition: var(--ease-in-out);
+      text-decoration: none;
+      color: #64748b;
+    }
+
+    #footer a:hover {
+      color: var(--tech-blue);
+      padding-left: 5px;
+    }
+
+    .social-icon {
+      width: 35px;
+      height: 35px;
+      margin: 0 10px;
+      transition: var(--ease-in-out);
+    }
+
+    .social-icon:hover {
+      transform: scale(1.3) rotate(10deg);
+    }
+
+    .viewBtn {
+      opacity: 0;
+      background-color: rgba(10, 10, 10, 0.5);
+      transition: opacity 0.3s;
+    }
+  </style>
+
+  <style>
+    .kit-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      height: 50vh;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border: 1px solid rgb(183, 182, 182);
+    }
+
+    .kit-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .kit-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+    }
+
+    .kit-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .kit-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.2));
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 20px;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      text-align: center;
+    }
+
+    .kit-card:hover .kit-overlay {
+      opacity: 1;
+    }
+
+    .kit-overlay h5 {
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container-fluid">
+      <a href="index.html" class="navbar-brand">
+        <img src="img/logo.jpeg" height="50" class="rounded" alt="Logo">
+      </a>
+      <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#testNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="testNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-1">
+          <li class="nav-item"><a href="index.html" class="nav-link text-primary">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="program.html" class="nav-link">Courses</a></li>
+          <!-- <li class="nav-item"><a href="kits.html" class="nav-link">Kits</a></li> -->
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href="join-as-a-trainer.html" class="nav-link">Join Us As A Trainer</a></li>
+          <li class="nav-item"><a href="partner-with-school.html" class="nav-link">Partner with School</a></li>
+          <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li class="nav-item ms-lg-3"><a href="contact.html" class="btn btn-primary btn-tech px-4">Enroll Now</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <section id="page1" class="row align-items-center py-5 mt-4">
+      <div class="col-lg-6">
+        <p class="fw-bold text-primary mb-2">Find Your Way</p>
+        <h1 id="head" class="fw-extrabold" style="color: var(--tech-blue); font-size: 3.5rem;">Your One Stop Destination
+          to Robotics & Coding</h1>
+        <p class="lead text-muted my-4">Taking knowledge up a Notch</p>
+        <div class="d-flex align-items-center gap-4 flex-wrap">
+          <a href="program.html" class="btn btn-dark btn-tech px-5 py-3">Find Courses</a>
+          <div>
+            <div class="text-warning small">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="mb-0 fw-bold">4.8 rating on Google</p>
+          </div>
+        </div>
+        <h3 class="mt-5 fw-bold text-dark">+91-9990911093</h3>
+      </div>
+      <div class="col-lg-6 mt-5 mt-lg-0">
+        <div class="row g-3">
+          <div class="col-7">
+            <div class="hero-img-wrap shadow-lg">
+              <img src="img/home/bannerImage1.png" class="img-fluid w-100" alt="Robotics">
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="hero-img-wrap shadow-lg mt-5">
+              <img src="img/home/banner-coding.jpg" class="img-fluid w-100" alt="Coding">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="page2" class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <p class="fw-bold text-primary text-uppercase">Robo AIA Paths</p>
+          <h1 class="display-5 fw-bold">Kits We Offer</h1>
+          <p class="text-muted">Explore hands-on robotics kits designed for learning & innovation</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Kit Card -->
+          <div class="col-md-4 col-sm-6">
+            <div class="kit-card">
+              <img src="img/kits/fantasyCastle.jpeg" alt="Fantasy Castle Kit">
+              <div class="kit-overlay">
+                <h5>Fantasy Castle Kit</h5>
+                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="kit-card">
+              <img src="img/kits/nonProgrammableKit.jpeg" alt="Non Programmable Kit">
+              <div class="kit-overlay">
+                <h5>Non-Programmable Kit</h5>
+                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="kit-card">
+              <img src="img/kits/MR BOT FOR CLASS 7th.jpeg" alt="MR Bot" style="object-fit:fill;object-position:bottom;"
+                class="img-fluid">
+              <div class="kit-overlay">
+                <h5>MR Bot</h5>
+                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="kit-card">
+              <img src="img/kits/plug&play.jpeg" alt="Plug & Play Kit">
+              <div class="kit-overlay">
+                <h5>Plug & Play Kit</h5>
+                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="kit-card">
+              <img src="img/kits/roboArm.jpeg" alt="Robotic Arm">
+              <div class="kit-overlay">
+                <h5>Robotic Arm</h5>
+                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="kit-card">
+              <img src="img/kits/ottoNinja.jpeg" alt="Otto Ninja" style="object-fit:fill;">
+              <div class="kit-overlay">
+                <h5>Otto Ninja</h5>
+                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="kit-card">
+              <img src="img/kits/SMART IOT HOME FOR CLASS 8th.jpeg" alt="Smart IoT Home">
+              <div class="kit-overlay">
+                <h5>Smart IoT Home</h5>
+                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="kit-card">
+              <img src="img/kits/JETTY BOT FOR CLASS 5th.jpeg" alt="Jetty Bot Car" style="object-fit: cover;">
+              <div class="kit-overlay">
+                <h5>Jetty Bot Car</h5>
+                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="kit-card">
+              <img src="img/kits/PY CARD  FOR CLASS 6th.png" alt="PY Card">
+              <div class="kit-overlay">
+                <h5>PY Card</h5>
+                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="kit-card">
+              <img src="img/kits/PC BOT FOR CLASS 3rd.jpeg" alt="PC Bot" style="object-fit:cover;">
+              <div class="kit-overlay">
+                <h5>PC Bot</h5>
+                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-6">
+            <div class="kit-card">
+              <img src="img/kits/RC DRIFT CAR FOR CLASS 4th.jpeg" alt="RC Drift Car" style="object-fit:fill;">
+              <div class="kit-overlay">
+                <h5>RC Drift Car</h5>
+                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="page3" class="py-5 my-5 bg-white shadow-sm rounded-5 p-5">
+      <div class="row align-items-center">
+        <div class="col-md-3 text-center">
+          <img src="img/about/rashmi.jpeg" class="img-fluid rounded-circle shadow-lg"
+            style="width: 180px; height: 180px; object-fit: cover;" alt="Founder">
+        </div>
+        <div class="col-md-9 mt-4 mt-md-0">
+          <p class="fs-4 fst-italic text-muted">"At Robo AIA Paths, we don’t just teach technology; we equip the next
+            generation with the critical skills and knowledge to unlock their potential and truly shape the future."</p>
+          <h5 class="fw-bold mt-3 mb-0">Rashmi Kansal</h5>
+          <p class="text-primary fw-bold">Founder</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="page4" class="py-5">
+      <div class="text-center mb-5">
+        <p class="fw-bold text-primary text-uppercase">Robo AIA Paths</p>
+        <h1 class="display-5 fw-bold">Courses We Offer</h1>
+      </div>
+
+      <div class="row g-4 course-grid">
+        <div class="col-lg-4 col-md-6">
+          <div class="card">
+            <div class="p-2 overflow-hidden">
+              <img src="img/course/page3-img.jpg" class="card-img-top" alt="Introduction to Robotics">
+            </div>
+            <div class="card-body">
+              <h4 class="fw-bold">Introduction to Robotics</h4>
+              <p class="text-muted small">Learn the fundamentals of robotics, including basic mechanical design,
+                sensors, and hardware implementation.</p>
+              <a href="program.html" class="learn-more-link">Learn more ></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card">
+            <div class="p-2 overflow-hidden">
+              <img src="img/course/page4-img.jpg" class="card-img-top" alt="Robo Expert">
+            </div>
+            <div class="card-body">
+              <h4 class="fw-bold">Robo Expert</h4>
+              <p class="text-muted small">Dive deeper into the world of robotics with advanced topics such as complex
+                robotic systems and integration.</p>
+              <a href="program.html" class="learn-more-link">Learn more ></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card">
+            <div class="p-2 overflow-hidden">
+              <img src="img/course/page5-img.jpg" class="card-img-top" alt="Robo Advance">
+            </div>
+            <div class="card-body">
+              <h4 class="fw-bold">Robo Advance</h4>
+              <p class="text-muted small">Advance programming for robot, machine learning, IOT and AI technologies for
+                the modern world.</p>
+              <a href="program.html" class="learn-more-link">Learn more ></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card">
+            <div class="p-2 overflow-hidden">
+              <img src="img/course/page6-img.jpg" class="card-img-top" alt="Coding">
+            </div>
+            <div class="card-body">
+              <h4 class="fw-bold">Coding</h4>
+              <p class="text-muted small">Master coding skills and dive into logic with our interactive and practical
+                project-based lessons.</p>
+              <a href="program.html" class="learn-more-link">Learn more ></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card">
+            <div class="p-2 overflow-hidden">
+              <img src="img/home/otto.jpg" class="card-img-top" alt="Mechatronics">
+            </div>
+            <div class="card-body">
+              <h4 class="fw-bold">Mechatronics Course</h4>
+              <p class="text-muted small">Learn to design and control advanced robotics and explore the intersection of
+                mechanics and electronics.</p>
+              <a href="program.html" class="learn-more-link">Learn more ></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card">
+            <div class="p-2 overflow-hidden">
+              <img src="img/home/web.avif" class="card-img-top" alt="Web Development">
+            </div>
+            <div class="card-body">
+              <h4 class="fw-bold">Web Development</h4>
+              <p class="text-muted small">Join RoboAIAPaths's comprehensive course from beginner to pro – start your
+                developer journey today!</p>
+              <a href="program.html" class="learn-more-link">Learn more ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="page5" class="py-5">
+      <div class="text-center mb-5">
+        <p class="fw-bold text-primary">ROBO AIA PATHS</p>
+        <h1 class="display-6 fw-bold">Why Choose Us</h1>
+      </div>
+      <div class="row g-4 mb-5">
+        <div class="col-md-4">
+          <div class="p5s text-center p-5">
+            <h2 class="text-muted opacity-25 fw-bold">01</h2>
+            <h4 class="fw-bold text-primary">Experienced Instructors</h4>
+            <p class="text-muted mt-3 small">Our team consists of industry professionals with years of experience in
+              robotics coding and AI.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p5s text-center p-5">
+            <h2 class="text-muted opacity-25 fw-bold">02</h2>
+            <h4 class="fw-bold text-primary">Comprehensive Curriculum</h4>
+            <p class="text-muted mt-3 small">We offer a diverse range of courses covering various aspects of robotics
+              and artificial intelligence.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p5s text-center p-5">
+            <h2 class="text-muted opacity-25 fw-bold">03</h2>
+            <h4 class="fw-bold text-primary">Flexible Learning Options</h4>
+            <p class="text-muted mt-3 small">Whether you prefer in-person classes or online learning, we have options to
+              suit your schedule.</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <p class="fw-bold mb-4">Join a vibrant community of enthusiasts who share your passion for innovation.</p>
+        <a href="program.html" class="btn btn-dark btn-tech rounded-pill px-5 py-3 shadow">Get Started Today</a>
+      </div>
+    </section>
+
+    <section id="page6" class="py-5">
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <p class="text-primary fw-bold">What We Do</p>
+          <h1 class="mb-4">Our Programs: Robotics, Coding, and AI</h1>
+          <p class="text-muted lh-lg">We offer introductory workshops for beginners to advanced courses for aspiring
+            engineers. Our curriculum covers robot programming, machine learning, computer vision, and more.</p>
+          <a href="program.html" class="btn btn-outline-dark btn-tech rounded-pill px-5 mt-4 py-2 fw-bold">Know More</a>
+        </div>
+        <div class="col-lg-6">
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="box p-4 h-100">
+                <h6>Live Classes</h6>
+                <p class="small text-muted mb-0">Interactive fun live sessions</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="box p-4 h-100">
+                <h6>Integrated Learning</h6>
+                <p class="small text-muted mb-0">Solve real-world problems</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="box p-4 h-100">
+                <h6>Curated Courses</h6>
+                <p class="small text-muted mb-0">Specially designed for you</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="box p-4 h-100">
+                <h6>Interactive Sessions</h6>
+                <p class="small text-muted mb-0">Activities and challenges</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="py-5 text-center">
+      <p class="fw-bold text-primary">WHY ROBOAIAPATHS ?</p>
+      <h1 class="display-6 fw-bold mb-5">Shaping Young Minds into Skill based learning</h1>
+
+      <img src="img/home/page8img.png" class="img-fluid rounded-5 shadow-lg w-75 mt-4" alt="Skill based learning">
+    </section>
+
+    <section class="row py-5 g-5">
+      <div class="col-md-6">
+        <div class="p-4 border-start border-4 border-primary bg-white rounded-3 shadow-sm h-100">
+          <h3 class="fw-bold">No-Hassle training</h3>
+          <p class="text-muted mt-3 small">India’s first STEM coaching institute eliminating geographical barriers.
+            Connect with experts globally from your home.</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="p-4 border-start border-4 border-primary bg-white rounded-3 shadow-sm h-100">
+          <h3 class="fw-bold">Flexible batches</h3>
+          <p class="text-muted mt-3 small">Participate in virtual classrooms and engage in discussions with fellow
+            learners at your own pace and timing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 text-center">
+      <p class="text-primary fw-bold">Meet the Team</p>
+      <h1 class="mb-5">Meet Our Educators & Engineers</h1>
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="gallery-item shadow-lg mb-4 mx-auto" style="width: 250px;">
+            <img src="img/about/rashmi.jpeg" class="img-fluid" alt="">
+          </div>
+          <h4 class="fw-bold mb-1">Rashmi Kansal</h4>
+          <p class="small text-muted">15+ years experience | Computer Science, STEM, Psychology M.Ed, M.Sc</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="text-center mb-5">
+        <p class="text-primary fw-bold">What Parent Say</p>
+      </div>
+      <div class="row justify-content-center">
+        <!-- <div class="col-lg-10 testimonial-wrap row align-items-center g-0 p-0 shadow-lg">
+          <div class="col-md-4"><img src="img/home/feedback.png" class="img-fluid w-100" alt="Feedback"></div>
+          <div class="col-md-8 p-5">
+            <i class="fa-solid fa-quote-left text-primary opacity-25 fs-1 mb-4 d-block"></i>
+            <p class="fs-5 text-muted">"I am glad I joined RoboAIApaths. The learning environment and teaching methods
+              are very interesting. This place has helped me find my path. All thanks to Rashmi mam."</p>
+            <h5 class="fw-bold mt-4 mb-0">Priya S</h5>
+          </div>
+        </div> -->
+        <div class="col-10 m-auto">
+          <div id="carousal" class="carousel slide " data-bs-ride="carousel">
+            <!-- indicators -->
+            <div class="carousel-indicators">
+              <button data-bs-target="#carousal" data-bs-slide-to="0" class="active"></button>
+              <button data-bs-target="#carousal" data-bs-slide-to="1"></button>
+              <button data-bs-target="#carousal" data-bs-slide-to="2"></button>
+              <button data-bs-target="#carousal" data-bs-slide-to="3"></button>
+              <button data-bs-target="#carousal" data-bs-slide-to="4"></button>
+            </div>
+            <!-- images -->
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="3000">
+                <div class="testimonial-wrap row align-items-center g-0 p-0">
+                  <!-- <div class="col-md-4"><img src="img/home/feedback.png" class="img-fluid w-100" alt="Feedback"></div> -->
+                  <div class="p-5" style="background-color: #c4c7caa7;">
+                    <i class="fa-solid fa-quote-left text-primary opacity-25 fs-1 mb-4 d-block"></i>
+                    <p class="fs-5 text-muted">"I am glad I joined RoboAIApaths. The learning environment and teaching
+                      methods
+                      are very interesting. This place has helped me find my path. All thanks to Rashmi mam."</p>
+                    <h5 class="fw-bold mt-4 mb-0">Priya</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="3000">
+                <div class="testimonial-wrap row align-items-center g-0 p-0">
+                  <!-- <div class="col-md-4"><img src="img/home/feedback.png" class="img-fluid w-100" alt="Feedback"></div> -->
+                  <div class="p-5" style="background-color: #c4c7caa7;">
+                    <i class="fa-solid fa-quote-left text-primary opacity-25 fs-1 mb-4 d-block"></i>
+                    <p class="fs-5 text-muted">"Joining RoboAIApaths was a great decision. The teaching style and
+                      learning environment are very interesting and motivating. I found my path here, all thanks to
+                      Rashmi mam."</p>
+                    <h5 class="fw-bold mt-4 mb-0">Shweta</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="3000">
+                <div class="testimonial-wrap row align-items-center g-0 p-0">
+                  <!-- <div class="col-md-4"><img src="img/home/feedback.png" class="img-fluid w-100" alt="Feedback"></div> -->
+                  <div class="p-5" style="background-color: #c4c7caa7;">
+                    <i class="fa-solid fa-quote-left text-primary opacity-25 fs-1 mb-4 d-block"></i>
+                    <p class="fs-5 text-muted">"RoboAIApaths provided me with an excellent learning environment and
+                      innovative teaching methods. It played a key role in shaping my journey."</p>
+                    <h5 class="fw-bold mt-4 mb-0">Muskan</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="3000">
+                <div class="testimonial-wrap row align-items-center g-0 p-0">
+                  <!-- <div class="col-md-4"><img src="img/home/feedback.png" class="img-fluid w-100" alt="Feedback"></div> -->
+                  <div class="p-5" style="background-color: #c4c7caa7;">
+                    <i class="fa-solid fa-quote-left text-primary opacity-25 fs-1 mb-4 d-block"></i>
+                    <p class="fs-5 text-muted">"Joined RoboAIAPaths for junior level robotics course was the best
+                      decision for me. The way of training and explaining concepts was outstanding."</p>
+                    <h5 class="fw-bold mt-4 mb-0">Vishal Maheshwari</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="3000">
+                <div class="testimonial-wrap row align-items-center g-0 p-0">
+                  <!-- <div class="col-md-4"><img src="img/home/feedback.png" class="img-fluid w-100" alt="Feedback"></div> -->
+                  <div class="p-5" style="background-color: #c4c7caa7;">
+                    <i class="fa-solid fa-quote-left text-primary opacity-25 fs-1 mb-4 d-block"></i>
+                    <p class="fs-5 text-muted">"I have joined RoboAIAPaths for the Robo Expert Course. Overall
+                      experience was great, they explained complex concepts in a very simple manner. Thank you
+                      RoboAIAPaths."</p>
+                    <h5 class="fw-bold mt-4 mb-0">Deepak Garg</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- buttons -->
+            <button class="carousel-control-prev" data-bs-target="#carousal" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" data-bs-target="#carousal" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 text-center">
+      <div class="rounded-5 shadow-2xl p-5"
+        style="background: linear-gradient(rgba(0,110,255,0.9), rgba(15,23,42,0.9)), url('img/about/background-AI.jpg'); background-size: cover; background-position: center; color: white;">
+        <h1 class="display-5 fw-bold mb-4">Shaping Your Minds Into <br> Skill Based Learning</h1>
+        <a href="contact.html" class="btn btn-primary btn-tech btn-lg px-5 rounded-pill shadow">Enroll Now</a>
+      </div>
+    </section>
+  </div>
+
+  <footer id="footer">
+    <div class="container text-start">
+      <div class="row g-4 mb-5">
+        <div class="col-lg-3 col-md-6">
+          <img src="img/logo.jpeg" class="w-50 mb-4 rounded" alt="Robo AIA">
+          <p class="small">Introduction to the exciting fields of robotics coding and AI through comprehensive courses.
+          </p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="fw-bold mb-4">Quick Link</h5>
+          <ul class="list-unstyled small">
+            <li><a href="#">Demo Test</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="fw-bold mb-4">Courses</h5>
+          <ul class="list-unstyled small">
+            <li><a href="#">Junior Level</a></li>
+            <li><a href="#">Robo Expert</a></li>
+            <li><a href="#">Robo Advance</a></li>
+            <li><a href="#">Coding</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="fw-bold mb-4">Get in touch</h5>
+          <p class="small mb-1 text-muted">S7, RPS Savana, Sector 88, Faridabad</p>
+          <p class="small mb-1 text-muted">+91 9990911093</p>
+          <p class="small mb-3 text-muted">roboaiapaths@gmail.com</p>
+          <div class="d-flex">
+            <a href="#"><img src="img/facebookLogo.png" class="social-icon" alt=""></a>
+            <a href="#"><img src="img/instagramLogo.png" class="social-icon" alt=""></a>
+          </div>
+        </div>
+      </div>
+      <hr class="opacity-10">
+      <p class="text-center small text-muted mb-0">Copyright © 2026 roboaiapaths.com. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

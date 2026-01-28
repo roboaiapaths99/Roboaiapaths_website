@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kits | Robo AIA Paths</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <style>
+    :root {
+      --tech-blue: #006eff;
+      --dark-navy: #0f172a;
+      --bg-light: #f8fafc;
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+      background-color: var(--bg-light);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--dark-navy);
+      scroll-behavior: smooth;
+    }
+
+    /* --- UNIFORM KIT CARD STYLING --- */
+    .kitCard {
+      background: white !important;
+      border: 1px solid #f1f5f9 !important;
+      border-radius: 30px !important;
+      transition: var(--transition);
+      overflow: hidden;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    }
+
+    .kitCard:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(0, 110, 255, 0.1);
+      border-color: var(--tech-blue) !important;
+    }
+
+    /* Fixed Image Frame for Uniformity */
+    .kit-img-frame {
+      height: 300px;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+    }
+
+    .kit-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      /* Keeps kit components fully visible */
+      transition: transform 0.5s ease;
+    }
+
+    .kitCard:hover .kit-img-frame img {
+      transform: scale(1.08);
+    }
+
+    /* Typography */
+    #head {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      color: var(--tech-blue);
+      margin-bottom: 40px;
+    }
+
+    .kitName {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--dark-navy);
+    }
+
+    .kitPrice {
+      color: var(--tech-blue);
+      font-size: 1.4rem;
+    }
+
+    /* Footer */
+    #footer {
+      background: white;
+      padding: 80px 0 30px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    #footer a {
+      text-decoration: none;
+      color: #64748b;
+      transition: 0.3s;
+    }
+
+    #footer a:hover {
+      color: var(--tech-blue);
+    }
+
+    .social-icon {
+      width: 30px;
+      transition: 0.3s;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.2) rotate(10deg);
+    }
+
+    .modal-content {
+      border-radius: 30px;
+      border: none;
+      overflow: hidden;
+    }
+  </style>
+
+  <style>
+    /* Navbar styling exactly matching your previous interactive pages */
+    .navbar {
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 0.8rem 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-link {
+      position: relative;
+      font-weight: 600;
+      color: #0f172a;
+      /* dark-navy */
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Modern underline hover effect */
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background-color: #006eff;
+      /* tech-blue */
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after {
+      width: 80%;
+    }
+
+    .nav-link:hover {
+      color: #006eff !important;
+    }
+
+    /* Button inside Navbar */
+    .btn-tech {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 50px;
+      font-weight: 700;
+    }
+
+    .btn-tech:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 110, 255, 0.3);
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container-fluid">
+      <a href="index.html" class="navbar-brand">
+        <img src="img/logo.jpeg" height="50" class="rounded" alt="Logo">
+      </a>
+      <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#testNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="testNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-1">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="program.html" class="nav-link">Courses</a></li>
+          <li class="nav-item"><a href="kits.html" class="nav-link text-primary">Kits</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href="join-as-a-trainer.html" class="nav-link">Join Us As A Trainer</a></li>
+          <li class="nav-item"><a href="partner-with-school.html" class="nav-link">Partner with School</a></li>
+          <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li class="nav-item ms-lg-3"><a href="contact.html" class="btn btn-primary btn-tech px-4">Enroll Now</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container py-5">
+    <div class="text-center">
+      <h1 id="head">OUR ROBO KITS</h1>
+    </div>
+
+    <section class="py-4 text-center mb-5">
+      <h4 class="fw-bold mb-3">Precision Engineering in Every Box</h4>
+
+      <p class="text-muted mt-3">Every kit is curated with industrial-grade sensors and controllers to ensure a
+        real-world engineering experience.</p>
+    </section>
+
+    <div class="kitCard p-4">
+      <div class="row align-items-center">
+        <div class="col-lg-4">
+          <div class="kit-img-frame">
+            <img src="img/kits/fantasyCastle.jpeg" alt="Fantasy Castle">
+          </div>
+        </div>
+        <div class="col-lg-8 p-lg-5">
+          <div class="kitName">Fantasy Castle</div>
+          <p class="kitDesc text-muted mt-3 lh-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque
+            similique, totam eligendi voluptatum iusto ab aspernatur laudantium at ipsam incidunt.</p>
+          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="d-flex gap-3 mt-4">
+            <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal"
+              data-bs-target="#fantasyCastle">View</button>
+            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="fantasyCastle">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-0"><img src="img/kits/fantasyCastle.jpeg" class="w-100" alt=""></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kitCard p-4">
+      <div class="row align-items-center">
+        <div class="col-lg-4">
+          <div class="kit-img-frame">
+            <img src="img/kits/nonProgrammableKit.jpeg" alt="Non Programmable Kit">
+          </div>
+        </div>
+        <div class="col-lg-8 p-lg-5">
+          <div class="kitName">Non Programmable Kit</div>
+          <p class="kitDesc text-muted mt-3 lh-lg">This kit helps young students explore the basics of robotics in a fun
+            and easy way. It includes a robot base, motors, sensors, and a simple remote. By using colorful wires and
+            modules, students learn how robots work, understand simple circuits, and develop hands-on building skills.
+          </p>
+          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="d-flex gap-3 mt-4">
+            <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal"
+              data-bs-target="#nonProgrammableKit">View</button>
+            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="nonProgrammableKit">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body text-center p-5">
+            <h4 class="fw-bold">Non Programmable Kit Preview</h4>
+            <p>Image/Video placeholder from your source.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kitCard p-4">
+      <div class="row align-items-center">
+        <div class="col-lg-4">
+          <div class="kit-img-frame">
+            <img src="img/kits/ottoNinja.jpeg" alt="Otto Ninja">
+          </div>
+        </div>
+        <div class="col-lg-8 p-lg-5">
+          <div class="kitName">Otto Ninja</div>
+          <p class="kitDesc text-muted mt-3 lh-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque
+            similique, totam eligendi voluptatum iusto ab aspernatur laudantium at ipsam incidunt.</p>
+          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="d-flex gap-3 mt-4">
+            <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#ottoNinja">View</button>
+            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="ottoNinja">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-0 text-center p-5">
+            <h4>Otto Ninja Detail</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kitCard p-4">
+      <div class="row align-items-center">
+        <div class="col-lg-4">
+          <div class="kit-img-frame">
+            <img src="img/kits/plug&play.jpeg" alt="Plug and Play Kits">
+          </div>
+        </div>
+        <div class="col-lg-8 p-lg-5">
+          <div class="kitName"><u>Plug and Play Kits</u></div>
+          <p class="kitDesc text-muted mt-3 lh-lg">The Plug and Play Kit is a fun, hands-on learning set designed for
+            Class 1 students. It includes simple components that easily connect without tools. Children explore basic
+            circuits, shapes, and movement while building creativity and problem-solving skills.</p>
+          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="d-flex gap-3 mt-4">
+            <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#plug_play">View</button>
+            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="plug_play">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-0"><video src="img/kits/video/plug n play.mp4" class="w-100" controls
+              id="plug_playVideo"></video></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kitCard p-4">
+      <div class="row align-items-center">
+        <div class="col-lg-4">
+          <div class="kit-img-frame">
+            <img src="img/kits/roboArm.jpeg" alt="Robo Arm">
+          </div>
+        </div>
+        <div class="col-lg-8 p-lg-5">
+          <div class="kitName">Robo Arm</div>
+          <p class="kitDesc text-muted mt-3 lh-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque
+            similique, totam eligendi voluptatum iusto ab aspernatur laudantium at ipsam incidunt.</p>
+          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="d-flex gap-3 mt-4">
+            <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#roboArm">View</button>
+            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="roboArm">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-0"><video src="img/kits/video/roboticArm1.mov" class="w-100" controls
+              id="roboArmVideo"></video></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kitCard p-4">
+      <div class="row align-items-center">
+        <div class="col-lg-4">
+          <div class="kit-img-frame">
+            <img src="img/kits/JETTY BOT FOR CLASS 5th.jpeg" alt="Jetty Bot Car">
+          </div>
+        </div>
+        <div class="col-lg-8 p-lg-5">
+          <div class="kitName">Jetty Bot Car</div>
+          <p class="kitDesc text-muted mt-3 lh-lg">The Robo Car is a Wi-Fi-controlled robotic vehicle operated via a
+            mobile app. Includes 4 BO motors, acrylic chassis, microcontroller board, and dual Li-ion battery pack.
+            Perfect for learning wireless control and motor driving.</p>
+          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="d-flex gap-3 mt-4">
+            <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#roboCar">View</button>
+            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="roboCar">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-0"><video src="img/kits/video/robo car.mov" class="w-100" controls
+              id="roboCarVideo"></video></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kitCard p-4">
+      <div class="row align-items-center">
+        <div class="col-lg-4">
+          <div class="kit-img-frame">
+            <img src="img/kits/SMART IOT HOME FOR CLASS 8th.jpeg" alt="Smart IOT Home">
+          </div>
+        </div>
+        <div class="col-lg-8 p-lg-5">
+          <div class="kitName">Smart IOT Home</div>
+          <p class="kitDesc text-muted mt-3 lh-lg">The Smart IOT Home Kit is a compact, multi-functional prototype for
+            hands-on IoT experimentation. It integrates motion detection, environmental sensing, and automated control
+            in a single unit.</p>
+          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="d-flex gap-3 mt-4">
+            <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#smartIOT">View</button>
+            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="smartIOT">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-0"><video src="" class="w-100" controls autoplay id="smartIOTVideo"></video></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kitCard p-4">
+      <div class="row align-items-center">
+        <div class="col-lg-4">
+          <div class="kit-img-frame">
+            <img src="img/kits/MR BOT FOR CLASS 7th.jpeg" alt="MR Bot">
+          </div>
+        </div>
+        <div class="col-lg-8 p-lg-5">
+          <div class="kitName">MR Bot</div>
+          <p class="kitDesc text-muted mt-3 lh-lg">A versatile robotics platform for beginners. Sturdy 4-wheel chassis
+            with independent motor control enables smooth forward, backward, and pivot movements. Perfect for exploring
+            electronics and programming.</p>
+          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="d-flex gap-3 mt-4">
+            <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#smartRover">View</button>
+            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="smartRover">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-0"><video src="img/kits/video/smart rover.mov" class="w-100" controls
+              id="smartRoverVideo"></video></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kitCard p-4">
+      <div class="row align-items-center">
+        <div class="col-lg-4">
+          <div class="kit-img-frame">
+            <img src="img/kits/PY CARD  FOR CLASS 6th.png" alt="PY Card">
+          </div>
+        </div>
+        <div class="col-lg-8 p-lg-5">
+          <div class="kitName">PY Card</div>
+          <p class="kitDesc text-muted mt-3 lh-lg"></p>
+          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="d-flex gap-3 mt-4">
+            <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#pyCard">View</button>
+            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="pyCard">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-0"><img src="img/kits/PY CARD  FOR CLASS 6th.png" class="img-fluid" alt=""></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kitCard p-4">
+      <div class="row align-items-center">
+        <div class="col-lg-4">
+          <div class="kit-img-frame">
+            <img src="img/kits/PC BOT FOR CLASS 3rd.jpeg" alt="PC Bot">
+          </div>
+        </div>
+        <div class="col-lg-8 p-lg-5">
+          <div class="kitName">PC Bot</div>
+          <p class="kitDesc text-muted mt-3 lh-lg"></p>
+          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="d-flex gap-3 mt-4">
+            <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#pcBot">View</button>
+            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="pcBot">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-0"><img src="img/kits/PC BOT FOR CLASS 3rd.jpeg" class="img-fluid" alt=""></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kitCard p-4">
+      <div class="row align-items-center">
+        <div class="col-lg-4">
+          <div class="kit-img-frame">
+            <img src="img/kits/RC DRIFT CAR FOR CLASS 4th.jpeg" alt="RC Drift Car">
+          </div>
+        </div>
+        <div class="col-lg-8 p-lg-5">
+          <div class="kitName">RC Drift Car</div>
+          <p class="kitDesc text-muted mt-3 lh-lg"></p>
+          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="d-flex gap-3 mt-4">
+            <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#rcDriftCar">View</button>
+            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="rcDriftCar">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body p-0"><img src="img/kits/RC DRIFT CAR FOR CLASS 4th.jpeg" class="img-fluid" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer id="footer">
+    <div class="container text-start">
+      <div class="row g-4 mb-5">
+        <div class="col-lg-3"><img src="img/logo.jpeg" class="w-75 rounded mb-4" alt="Robo AIA">
+          <p class="small text-muted">Courses designed to introduce students to the exciting fields of robotics coding
+            and AI.</p>
+        </div>
+        <div class="col-lg-3">
+          <h5 class="fw-bold mb-4">Quick Link</h5>
+          <ul class="list-unstyled small">
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h5 class="fw-bold mb-4">Courses</h5>
+          <ul class="list-unstyled small">
+            <li><a href="#">Junior Level</a></li>
+            <li><a href="#">Robo Expert</a></li>
+            <li><a href="#">Robo Advance</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h5 class="fw-bold mb-4">Get in touch</h5>
+          <p class="small text-muted">S7, RPS Savana, Sector 88, Faridabad<br>+91 9990911093<br>roboaiapaths@gmail.com
+          </p>
+          <div class="d-flex gap-3"><a href="#"><img src="img/facebookLogo.png" class="social-icon" alt="FB"></a><a
+              href="#"><img src="img/instagramLogo.png" class="social-icon" alt="IG"></a></div>
+        </div>
+      </div>
+      <div class="border-top mt-5 pt-4 text-center">
+        <p class="small text-muted">Copyright © 2026 roboaiapaths.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Universal Video Control logic from original file
+    function setupVideoModal(modalId, videoId) {
+      const modal = document.getElementById(modalId);
+      const video = document.getElementById(videoId);
+      if (modal && video) {
+        modal.addEventListener('shown.bs.modal', () => video.play());
+        modal.addEventListener('hidden.bs.modal', () => {
+          video.pause();
+          video.currentTime = 0;
+        });
+      }
+    }
+    setupVideoModal('plug_play', 'plug_playVideo');
+    setupVideoModal('roboArm', 'roboArmVideo');
+    setupVideoModal('roboCar', 'roboCarVideo');
+    setupVideoModal('smartIOT', 'smartIOTVideo');
+    setupVideoModal('smartRover', 'smartRoverVideo');
+  </script>
+</body>
+
+</html>

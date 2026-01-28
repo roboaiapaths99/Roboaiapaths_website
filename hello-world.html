@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog | Robo AIA Paths</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <style>
+    :root {
+      --tech-blue: #006eff;
+      --dark-navy: #0f172a;
+      --bg-light: #f8fafc;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+      background-color: var(--bg-light);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--dark-navy);
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar - Glass Effect */
+    .navbar {
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 0.8rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1050;
+    }
+
+    .navbar-brand img { height: 50px; border-radius: 8px; }
+
+    /* Nav Link Hover Interaction */
+    .nav-link {
+      position: relative;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0; height: 2px;
+      bottom: 0; left: 50%;
+      background-color: var(--tech-blue);
+      transition: var(--transition);
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after { width: 80%; }
+    .nav-link:hover { color: var(--tech-blue) !important; }
+
+    /* Blog Layout Components */
+    .blog-main-card {
+      background: white;
+      border-radius: 30px;
+      padding: 3rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+      border: 1px solid #f1f5f9;
+    }
+
+    .sidebar-widget {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+      border: 1px solid #f1f5f9;
+      transition: var(--transition);
+    }
+
+    .sidebar-widget:hover {
+      transform: translateY(-5px);
+      border-color: var(--tech-blue);
+    }
+
+    /* Interactive Form */
+    .form-control {
+      border-radius: 12px !important;
+      padding: 12px 20px !important;
+      border: 1px solid #e2e8f0 !important;
+      transition: var(--transition) !important;
+    }
+
+    .form-control:focus {
+      border-color: var(--tech-blue) !important;
+      box-shadow: 0 0 0 4px rgba(0, 110, 255, 0.1) !important;
+    }
+
+    .btn-tech {
+      background-color: var(--tech-blue);
+      color: white;
+      border-radius: 50px;
+      padding: 10px 30px;
+      font-weight: 700;
+      border: none;
+      transition: var(--transition);
+    }
+
+    .btn-tech:hover {
+      transform: scale(1.05);
+      background-color: var(--dark-navy);
+    }
+
+    /* Footer */
+    #footer { background: white; padding: 80px 0 30px; border-top: 1px solid #e2e8f0; }
+    #footer a { text-decoration: none; color: #64748b; transition: 0.3s; }
+    #footer a:hover { color: var(--tech-blue); padding-left: 5px; }
+    .social-icon { width: 30px; transition: 0.3s; margin: 0 10px; }
+    .social-icon:hover { transform: scale(1.2) rotate(10deg); }
+  </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container-fluid">
+      <a href="index.html" class="navbar-brand">
+        <img src="img/logo.jpeg" height="50" class="rounded" alt="Logo">
+      </a>
+      <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#testNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="testNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-1">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="program.html" class="nav-link">Courses</a></li>
+          <!-- <li class="nav-item"><a href="kits.html" class="nav-link">Kits</a></li> -->
+          <li class="nav-item"><a href="blog.html" class="nav-link text-primary">Blog</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href="join-as-a-trainer.html" class="nav-link">Join Us As A Trainer</a></li>
+          <li class="nav-item"><a href="partner-with-school.html" class="nav-link">Partner with School</a></li>
+          <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li class="nav-item ms-lg-3"><a href="contact.html" class="btn btn-primary btn-tech px-4">Enroll Now</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="blog-main-card">
+          <img src="img/blog/roboticHand.jpg" class="img-fluid rounded-4 mb-4 shadow-sm" alt="Robotic Hand">
+          
+          <h2 class="fw-bold mb-3">Why Problem Solvers Outshine Toppers in The Real World: A Case For Robotics Courses!</h2>
+          
+          <div class="d-flex flex-wrap gap-2 mb-4 small fw-bold text-primary">
+            <span><i class="fa-regular fa-comment me-1"></i> 1 Comment</span> / 
+            <span><i class="fa-solid fa-tags me-1"></i> Robotics Courses for Kids</span> / 
+            <span>By astroschoolbaba@gmail.com</span>
+          </div>
+
+          <p class="text-muted lh-lg">Nowadays, Indian parents consider high academic performance and top exam rankings to be the greatest proof of a child’s abilities. To boost their children’s performance, parents review tuitions, mock tests and competitive materials. Academic achievement shows something valuable, but success alone can’t be guaranteed by grades anymore. More often, it’s the problem solvers who flourish, not just the top scorers. Taking robotics courses isn’t just about learning technical things; they are also a great way to improve the way we think.</p>
+
+          <h4 class="fw-bold mt-5 mb-3">We Require Thinkers, Not Only People Who Can Remember Facts</h4>
+          <p class="text-muted lh-lg">The old Indian education system is centered around repeating information heartily. Students that repeat what is printed in textbooks usually get higher scores than those who try new ways or ask questions. However, once you move out of classroom settings, that idea barely works at all.</p>
+          <p class="text-muted lh-lg">Analytical thinking and innovation will be highly sought-after by 2025. Memorizing is never part of the process.</p>
+
+          <div class="my-5 p-4 bg-light rounded-4 text-center">
+            <h5 class="fw-bold mb-3">The Problem Solving Cycle in STEM</h5>
+            
+            <p class="small text-muted mt-3">Robotics encourages children to move through this cycle repeatedly, building cognitive resilience.</p>
+          </div>
+
+          <h4 class="fw-bold mt-5 mb-3">Robotics Courses Fill the Gap Where Classroom Teaching Fails</h4>
+          <p class="text-muted lh-lg">Conventional studies give you theoretical skills, but robotics courses prepare you for practical problems. They bring mechanical, electrical, programming and logical concepts together to form one activity that requires curiosity and creativity.</p>
+          
+          <h4 class="fw-bold mt-5 mb-3">More Than Skills: Resilience and Having a Growth Mindset</h4>
+          <p class="text-muted lh-lg">Problem solvers see failure as just another part of trying to reach success. In robotics, a circuit might malfunction or a program may have a glitch. Rather than being punished, kids are motivated to try again, building a growth mindset.</p>
+
+          <h4 class="fw-bold mt-5 mb-3">The Meaning of Intelligence Has Changed</h4>
+          <p class="text-muted lh-lg">Intelligence isn't just about one number. Global education experts stress different kinds of intelligence: spatial, logical, and interpersonal. Robotics helps kids discover styles that might not come out during normal classes.</p>
+
+          <h4 class="fw-bold mt-5 mb-3">Final Thoughts</h4>
+          <p class="text-muted lh-lg">Rather than obsessing about numbers, look at whether your child is gaining skills like thinking, building, failing and trying again. The key to future progress starts with what we teach now.</p>
+        </div>
+
+        <div class="blog-main-card mt-5">
+          <h3 class="fw-bold mb-4">1 thought on “Problem Solvers Outshine Toppers”</h3>
+          <div class="d-flex gap-4 p-4 bg-light rounded-4">
+            <img src="img/blog/wordpress.png" class="rounded-circle shadow-sm" style="width: 60px; height: 60px;" alt="User">
+            <div>
+              <h6 class="fw-bold mb-1">A WordPress Commenter</h6>
+              <p class="small text-muted mb-3">November 1, 2025 at 5:08 am</p>
+              <p class="text-muted mb-0">Hi, this is a comment. To get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.</p>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <h3 class="fw-bold mb-3">Leave a Comment</h3>
+            <p class="small text-muted mb-4">Your email address will not be published. Required fields are marked*</p>
+            <form action="">
+              <textarea class="form-control mb-3" rows="6" placeholder="Type your comment here.."></textarea>
+              <div class="row g-3">
+                <div class="col-md-4"><input type="text" class="form-control" placeholder="Name*"></div>
+                <div class="col-md-4"><input type="text" class="form-control" placeholder="Email*"></div>
+                <div class="col-md-4"><input type="text" class="form-control" placeholder="Website"></div>
+              </div>
+              <div class="form-check mt-3 mb-4">
+                <input type="checkbox" class="form-check-input" id="save">
+                <label class="form-check-label small text-muted" for="save">Save my name and email in this browser for the next time I comment.</label>
+              </div>
+              <button type="submit" class="btn-tech">Post Comment</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="sidebar-widget">
+          <h5 class="fw-bold mb-3">Search</h5>
+          <form class="d-flex gap-2">
+            <input type="text" class="form-control" placeholder="Search...">
+            <button type="submit" class="btn btn-dark rounded-circle"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </div>
+
+        <div class="sidebar-widget">
+          <h5 class="fw-bold mb-3">Recent Posts</h5>
+          <a href="#" class="text-muted small lh-base d-block">Why Problem Solvers Outshine Toppers in The Real World: A Case For Robotics Courses!</a>
+        </div>
+
+        <div class="sidebar-widget">
+          <h5 class="fw-bold mb-3">Recent Comments</h5>
+          <p class="small text-muted mb-0">1. A WordPress Commenter on Why Problem Solvers Outshine Toppers...</p>
+        </div>
+
+        <div class="sidebar-widget">
+          <h5 class="fw-bold mb-3">Archives</h5>
+          <a href="#" class="text-muted">November 2025</a>
+        </div>
+
+        <div class="sidebar-widget">
+          <h5 class="fw-bold mb-3">Categories</h5>
+          <a href="#" class="text-muted">Robotics Courses for Kids</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <div class="container text-start">
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <img src="img/logo.jpeg" class="w-75 mb-4 rounded" alt="Logo">
+          <p class="small text-muted">A wide range of programs designed to introduce students to robotics coding and AI.</p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="fw-bold mb-4">Quick Link</h5>
+          <ul class="list-unstyled small">
+            <li><a href="#">Demo Test</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="fw-bold mb-4">Courses</h5>
+          <ul class="list-unstyled small">
+            <li><a href="#">Junior Level</a></li>
+            <li><a href="#">Robo Expert</a></li>
+            <li><a href="#">Coding</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 text-start">
+          <h5 class="fw-bold mb-4">Get in touch</h5>
+          <p class="small text-muted">S7, RPS Savana, Sector 88, Faridabad<br>+91 9990911093</p>
+          <div class="d-flex gap-3">
+            <a href="#"><img src="img/facebookLogo.png" class="social-icon" alt="FB"></a>
+            <a href="#"><img src="img/instagramLogo.png" class="social-icon" alt="IG"></a>
+          </div>
+        </div>
+      </div>
+      <div class="border-top mt-5 pt-4 text-center">
+        <p class="small text-muted">Copyright © 2026 roboaiapaths.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
