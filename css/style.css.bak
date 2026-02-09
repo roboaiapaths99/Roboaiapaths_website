@@ -1,0 +1,643 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Rajdhani:wght@500;600;700&display=swap');
+
+:root {
+    /* Light Robotic Theme Palette */
+    --accent-blue: #006eff;
+    /* Strong Tech Blue */
+    --accent-purple: #7c3aed;
+    /* Deep Purple */
+    --bg-main: #f8fafc;
+    /* Light Blue-Grey Background */
+    --bg-card: #ffffff;
+    /* White Cards */
+    --text-main: #0f172a;
+    /* Dark Navy for Text (High Contrast) */
+    --text-muted: #475569;
+    /* Slate Grey for subtitles */
+    --border-color: #e2e8f0;
+    /* Light Border */
+
+    /* Gradients from previous theme (kept for buttons/hero) */
+    --tech-gradient: linear-gradient(135deg, #006eff, #00d2ff);
+
+    /* Indian / Warm Theme Accents */
+    --accent-warm: #ff6b35;
+    /* Vibrant Orange/Saffron */
+    --accent-gold: #f59e0b;
+    /* Marigold Yellow */
+    --warm-gradient: linear-gradient(135deg, #ff6b35, #f59e0b);
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: 'Outfit', sans-serif;
+    /* Clean, modern geometric sans */
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand {
+    font-family: 'Rajdhani', sans-serif;
+    /* Squared tech font */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.btn,
+.nav-link {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-blue);
+    border-radius: 4px;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.nav-link {
+    color: var(--text-main) !important;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent-blue) !important;
+}
+
+.navbar-brand {
+    color: var(--accent-blue) !important;
+    /* Make logo pop */
+}
+
+/* Buttons */
+.btn-primary,
+.btn-tech {
+    background: var(--tech-gradient);
+    border: none;
+    color: white !important;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+    box-shadow: 0 4px 15px rgba(0, 110, 255, 0.3);
+    z-index: 1;
+}
+
+.btn-primary:hover,
+.btn-tech:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 110, 255, 0.4);
+    color: white !important;
+}
+
+/* Cards & Glassmorphism (Light Mode Version) */
+.card,
+.kitCard,
+.kit-card,
+.feature-box,
+.interactive-box {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 20px;
+    transition: 0.4s;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.card:hover,
+.kitCard:hover,
+.kit-card:hover,
+.feature-box:hover,
+.interactive-box:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-blue) !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Typography Overrides for Readability */
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.text-white {
+    color: var(--text-main) !important;
+    /* Flip white text to dark for light mode */
+}
+
+/* Exception: Keep actual white text white if on dark background (like Hero) */
+.hero-section .text-white,
+.btn .text-white,
+footer .text-white {
+    color: #ffffff !important;
+}
+
+/* Hero Section (Keep Dark for Impact, generally safe) */
+/* Hero Section (Robotic Style) */
+.hero-section {
+    position: relative;
+    background: #0f172a;
+    /* Dark Navy Context */
+    color: white;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    /* Angled Bottom */
+    padding-bottom: 8rem !important;
+    /* Extra padding for the angle */
+}
+
+.hero-section h1,
+.hero-section p,
+.hero-section i {
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 110, 255, 0.5);
+    /* Glow for text */
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Circuit Board Pattern Overlay */
+    background-image: radial-gradient(rgba(0, 243, 255, 0.2) 2px, transparent 2px),
+        radial-gradient(rgba(0, 243, 255, 0.2) 2px, transparent 2px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+/* Footer (Dark Footer works well with Light Theme) */
+footer {
+    background: #0f172a !important;
+    color: #cbd5e1;
+    border-top: none;
+}
+
+footer h5,
+footer h2,
+footer h1,
+footer h3,
+footer h4,
+footer h6 {
+    color: white;
+}
+
+footer p {
+    color: #94a3b8;
+}
+
+footer a {
+    color: #94a3b8 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: inline-block;
+}
+
+footer a:hover {
+    color: var(--accent-blue) !important;
+    padding-left: 10px;
+    text-shadow: 0 0 10px rgba(0, 110, 255, 0.5);
+    transform: translateX(5px);
+}
+
+/* Footer Link Active State (Click effect) */
+footer a:active {
+    transform: scale(0.95) translateX(5px);
+    color: var(--accent-gold) !important;
+}
+
+/* Social Icons Interactive */
+.social-icon {
+    width: 30px;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    margin: 0 10px;
+    /* Make icons white by default for visibility on dark footer */
+    filter: brightness(0) invert(1) opacity(0.8);
+}
+
+.social-icon:hover {
+    transform: scale(1.4) rotate(15deg);
+    /* Restore original brand colors on hover and add glow */
+    filter: brightness(1) invert(0) opacity(1) drop-shadow(0 0 8px var(--accent-blue));
+}
+
+.social-icon:active {
+    transform: scale(0.9) rotate(0deg);
+}
+
+/* Footer Column Hover (Subtle focus) */
+footer .col-lg-3 {
+    transition: transform 0.3s ease;
+}
+
+footer .col-lg-3:hover {
+    transform: translateY(-5px);
+}
+
+/* Global Click Interactivity */
+a:active,
+button:active,
+.btn:active {
+    transform: scale(0.96) !important;
+}
+
+/* Utilities */
+.text-primary {
+    color: var(--accent-blue) !important;
+}
+
+.bg-light {
+    background-color: #ffffff !important;
+    /* Pure white for alternating sections */
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.floating-element {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Inputs (Visible in Light Mode) */
+input,
+textarea,
+select {
+    background: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-main) !important;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--accent-blue) !important;
+    box-shadow: 0 0 0 3px rgba(0, 110, 255, 0.1) !important;
+    outline: none;
+}
+
+/* --- DECORATIVE ROBOTIC ELEMENTS --- */
+
+/* Tech Grid Background */
+body {
+    background-color: var(--bg-main);
+    background-image:
+        linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    /* Creates a subtle engineering grid */
+    color: var(--text-main);
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Slanted Section Dividers */
+.section-slanted {
+    position: relative;
+    z-index: 1;
+}
+
+.section-slanted::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: inherit;
+    clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+    z-index: -1;
+}
+
+/* Glitch Effect on Hover (for Headings/Buttons) */
+.glitch-hover:hover {
+    animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+    color: var(--accent-blue);
+}
+
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+/* Circuit Decoration (Global for all cards) */
+.tech-card,
+.card,
+.kit-card,
+.p5s,
+.box {
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-card::before,
+.card::before,
+.kit-card::before,
+.p5s::before,
+.box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background:
+        linear-gradient(135deg, transparent 50%, var(--accent-blue) 50%);
+    opacity: 0.1;
+    transition: 0.4s;
+    pointer-events: none;
+}
+
+.tech-card:hover::before,
+.card:hover::before,
+.kit-card:hover::before,
+.p5s:hover::before,
+.box:hover::before {
+    opacity: 0.3;
+    transform: scale(1.5);
+}
+
+/* Navbar Update */
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--text-main);
+}
+
+/* Tech Glow Animation for Images */
+.tech-glow {
+    transition: 0.4s;
+    border: 3px solid transparent;
+}
+
+.tech-glow:hover {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 20px rgba(0, 110, 255, 0.5);
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+    .display-3 {
+        font-size: 2.5rem;
+        /* Smaller Hero Title */
+    }
+
+    .hero-section {
+        min-height: 60vh !important;
+        /* Shorter Hero on Mobile */
+        padding-bottom: 4rem !important;
+        /* Adjust for slant */
+        background-attachment: scroll;
+        /* Fix for mobile bg parallax issues */
+    }
+
+    .section-slanted::before {
+        height: 50px;
+        /* Smaller slant on mobile */
+        top: -25px;
+    }
+
+    .kit-card {
+        height: auto !important;
+        /* Allow auto height for stacked cards */
+        min-height: 400px;
+    }
+
+    .p5s {
+        padding: 2rem !important;
+        /* Less padding on feature boxes */
+    }
+}
+
+/* --- MASONRY GALLERY (Pinterest Style) --- */
+.masonry-grid {
+    column-count: 3;
+    column-gap: 20px;
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 20px;
+}
+
+.gallery-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+}
+
+.gallery-card img {
+    width: 100%;
+    /* Let height adjust automatically */
+    height: auto !important;
+    display: block;
+    transition: transform 0.6s ease, filter 0.4s ease;
+}
+
+.gallery-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.gallery-card:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-card:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+@media (max-width: 992px) {
+    .masonry-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 576px) {
+    .masonry-grid {
+        column-count: 1;
+    }
+}
+
+
+/* --- ROBOTIC ANIMATIONS & TECH STYLING --- */
+
+/* Tech Border Animation */
+.tech-border {
+    position: relative;
+    z-index: 1;
+}
+
+.tech-border::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    background: linear-gradient(45deg, var(--accent-blue), transparent, var(--accent-purple)) border-box;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.5;
+    transition: 0.3s;
+}
+
+.tech-border:hover::after {
+    opacity: 1;
+    box-shadow: 0 0 15px var(--accent-blue);
+}
+
+/* Scanning Line Animation */
+.scanning-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.scanning-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.4), transparent);
+    transform: skewX(-25deg);
+    animation: scan 3s infinite linear;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes scan {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 200%;
+    }
+}
+
+/* Robotic Glitch Button */
+.btn-tech {
+    position: relative;
+    overflow: hidden;
+    background: var(--dark-navy) !important;
+    border: 1px solid var(--accent-blue) !important;
+    color: var(--accent-blue) !important;
+    letter-spacing: 2px;
+    z-index: 1;
+}
+
+.btn-tech::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--accent-blue);
+    transition: 0.4s;
+    z-index: -1;
+}
+
+.btn-tech:hover {
+    color: white !important;
+    box-shadow: 0 0 20px var(--accent-blue), 0 0 40px var(--accent-blue);
+    text-shadow: 0 0 5px white;
+}
+
+.btn-tech:hover::before {
+    left: 0;
+}
+
+/* Add Scanning Effect to Hero & Cards */
+.hero-section,
+.card,
+.kit-card {
+    position: relative;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    .btn-tech {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

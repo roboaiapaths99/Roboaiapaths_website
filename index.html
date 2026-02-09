@@ -4,7 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Robo AIA Paths | One Stop Destination to Robotics & Coding</title>
+  <title>Robo AIA Paths | Robotics & AI Education for Future Innovators</title>
+  <meta name="description"
+    content="Unlock your child's potential with Robo AIA Paths. We offer hands-on robotics kits, AI coding courses, and expert-led training for the next generation of innovators. Enroll today!">
+  <meta name="keywords"
+    content="Robotics, AI, Coding for Kids, STEM Education, Robotics Kits, Learn Coding, Artificial Intelligence Courses">
+  <meta name="author" content="Robo AIA Paths">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
@@ -265,14 +270,16 @@
       margin-bottom: 5px;
     }
   </style>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-lg sticky-top">
+  <nav class="navbar navbar-expand-lg sticky-top navbar-dark">
     <div class="container-fluid">
       <a href="index.html" class="navbar-brand">
-        <img src="img/logo.jpeg" height="50" class="rounded" alt="Logo">
+        <img src="img/logo.jpeg" height="60" class="rounded shadow-sm scale-hover" alt="Logo">
       </a>
       <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#testNav">
         <span class="navbar-toggler-icon"></span>
@@ -282,546 +289,779 @@
           <li class="nav-item"><a href="index.html" class="nav-link text-primary">Home</a></li>
           <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
           <li class="nav-item"><a href="program.html" class="nav-link">Courses</a></li>
-          <!-- <li class="nav-item"><a href="kits.html" class="nav-link">Kits</a></li> -->
+          <li class="nav-item"><a href="kits.html" class="nav-link">Kits</a></li>
           <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-          <li class="nav-item"><a href="join-as-a-trainer.html" class="nav-link">Join Us As A Trainer</a></li>
-          <li class="nav-item"><a href="partner-with-school.html" class="nav-link">Partner with School</a></li>
+
+          <li class="nav-item"><a href="partner-with-school.html" class="nav-link">AIRobotic Labs</a></li>
           <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li class="nav-item">
+            <a href="cart.html" class="nav-link position-relative">
+              <i class="fas fa-shopping-cart"></i>
+              <span id="cart-badge"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                style="display:none; font-size: 0.6rem;">
+                0
+              </span>
+            </a>
+          </li>
           <li class="nav-item ms-lg-3"><a href="contact.html" class="btn btn-primary btn-tech px-4">Enroll Now</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="container">
-    <section id="page1" class="row align-items-center py-5 mt-4">
-      <div class="col-lg-6">
-        <p class="fw-bold text-primary mb-2">Find Your Way</p>
-        <h1 id="head" class="fw-extrabold" style="color: var(--tech-blue); font-size: 3.5rem;">Your One Stop Destination
-          to Robotics & Coding</h1>
-        <p class="lead text-muted my-4">Taking knowledge up a Notch</p>
-        <div class="d-flex align-items-center gap-4 flex-wrap">
-          <a href="program.html" class="btn btn-dark btn-tech px-5 py-3">Find Courses</a>
-          <div>
-            <div class="text-warning small">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
-                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-            </div>
-            <p class="mb-0 fw-bold">4.8 rating on Google</p>
-          </div>
-        </div>
-        <h3 class="mt-5 fw-bold text-dark">+91-9990911093</h3>
-      </div>
-      <div class="col-lg-6 mt-5 mt-lg-0">
-        <div class="row g-3">
-          <div class="col-7">
-            <div class="hero-img-wrap shadow-lg">
-              <img src="img/home/bannerImage1.png" class="img-fluid w-100" alt="Robotics">
-            </div>
-          </div>
-          <div class="col-5">
-            <div class="hero-img-wrap shadow-lg mt-5">
-              <img src="img/home/banner-coding.jpg" class="img-fluid w-100" alt="Coding">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="container-fluid p-0">
+    <!-- HERO SECTION -->
+    <section class="hero-section d-flex align-items-center position-relative overflow-hidden"
+      style="min-height: 90vh; padding-top: 80px;">
 
-    <section id="page2" class="py-5 bg-light">
-      <div class="container">
-        <div class="text-center mb-5">
-          <p class="fw-bold text-primary text-uppercase">Robo AIA Paths</p>
-          <h1 class="display-5 fw-bold">Kits We Offer</h1>
-          <p class="text-muted">Explore hands-on robotics kits designed for learning & innovation</p>
-        </div>
+      <!-- Video Background or Animated Canvas Optional (placeholder for now) -->
+      <div class="hero-bg-overlay"></div>
 
-        <div class="row g-4">
-          <!-- Kit Card -->
-          <div class="col-md-4 col-sm-6">
-            <div class="kit-card">
-              <img src="img/kits/fantasyCastle.jpeg" alt="Fantasy Castle Kit">
-              <div class="kit-overlay">
-                <h5>Fantasy Castle Kit</h5>
-                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
+      <div class="container position-relative z-2">
+        <div class="row align-items-center">
+          <div class="col-lg-6 text-start" data-aos="fade-right" data-aos-duration="1000">
+            <span
+              class="badge bg-transparent border border-primary text-primary fw-bold mb-3 px-3 py-2 rounded-pill shadow-sm tech-glow">
+              <i class="fas fa-rocket me-2"></i>FUTURE READY SKILLS
+            </span>
+            <h1 class="display-3 fw-bold mb-4 text-white text-uppercase" style="letter-spacing: -2px;">
+              Empowering <span class="text-gradient-tech">Future Innovators</span>
+            </h1>
+            <p class="lead text-light mb-5" style="max-width: 600px; line-height: 1.8;">
+              Unlock your child's potential with hands-on learning in <strong class="text-white">Robotics</strong>,
+              <strong class="text-white">Coding</strong>, and <strong class="text-white">AI</strong>.
+              Join the revolution of next-gen creators.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#courses-list" class="btn btn-primary btn-tech btn-lg px-5 py-3 rounded-pill shadow-lg">
+                Explore Courses <i class="fas fa-arrow-right ms-2"></i>
+              </a>
+              <a href="contact.html" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill hover-scale">
+                Book a Free Demo
+              </a>
+            </div>
+
+            <div class="mt-5 d-flex align-items-center gap-4 text-white-50 small">
+              <div class="d-flex align-items-center gap-2">
+                <i class="fas fa-check-circle text-primary"></i> <span>Certified Trainers</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <i class="fas fa-check-circle text-primary"></i> <span>Global Curriculum</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <i class="fas fa-check-circle text-primary"></i> <span>1:1 Support</span>
               </div>
             </div>
           </div>
 
-          <div class="col-md-4 col-sm-6">
-            <div class="kit-card">
-              <img src="img/kits/nonProgrammableKit.jpeg" alt="Non Programmable Kit">
-              <div class="kit-overlay">
-                <h5>Non-Programmable Kit</h5>
-                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
-              </div>
-            </div>
-          </div>
+          <div class="col-lg-6 position-relative d-none d-lg-block" data-aos="fade-left" data-aos-duration="1200">
+            <!-- 3D/Tech Illustration -->
+            <div class="hero-visual-wrap floating-element">
+              <div class="tech-circle-bg"></div>
+              <img src="img/new_assets/hero_family_1.png" class="img-fluid position-relative z-2 hero-main-img"
+                alt="Future Robotics">
 
-          <div class="col-md-4 col-sm-6">
-            <div class="kit-card">
-              <img src="img/kits/MR BOT FOR CLASS 7th.jpeg" alt="MR Bot" style="object-fit:fill;object-position:bottom;"
-                class="img-fluid">
-              <div class="kit-overlay">
-                <h5>MR Bot</h5>
-                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6">
-            <div class="kit-card">
-              <img src="img/kits/plug&play.jpeg" alt="Plug & Play Kit">
-              <div class="kit-overlay">
-                <h5>Plug & Play Kit</h5>
-                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6">
-            <div class="kit-card">
-              <img src="img/kits/roboArm.jpeg" alt="Robotic Arm">
-              <div class="kit-overlay">
-                <h5>Robotic Arm</h5>
-                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6">
-            <div class="kit-card">
-              <img src="img/kits/ottoNinja.jpeg" alt="Otto Ninja" style="object-fit:fill;">
-              <div class="kit-overlay">
-                <h5>Otto Ninja</h5>
-                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6">
-            <div class="kit-card">
-              <img src="img/kits/SMART IOT HOME FOR CLASS 8th.jpeg" alt="Smart IoT Home">
-              <div class="kit-overlay">
-                <h5>Smart IoT Home</h5>
-                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6">
-            <div class="kit-card">
-              <img src="img/kits/JETTY BOT FOR CLASS 5th.jpeg" alt="Jetty Bot Car" style="object-fit: cover;">
-              <div class="kit-overlay">
-                <h5>Jetty Bot Car</h5>
-                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6">
-            <div class="kit-card">
-              <img src="img/kits/PY CARD  FOR CLASS 6th.png" alt="PY Card">
-              <div class="kit-overlay">
-                <h5>PY Card</h5>
-                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6">
-            <div class="kit-card">
-              <img src="img/kits/PC BOT FOR CLASS 3rd.jpeg" alt="PC Bot" style="object-fit:cover;">
-              <div class="kit-overlay">
-                <h5>PC Bot</h5>
-                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-6">
-            <div class="kit-card">
-              <img src="img/kits/RC DRIFT CAR FOR CLASS 4th.jpeg" alt="RC Drift Car" style="object-fit:fill;">
-              <div class="kit-overlay">
-                <h5>RC Drift Car</h5>
-                <a href="kits.html" class="btn btn-outline-light btn-sm mt-2">View Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <section id="page3" class="py-5 my-5 bg-white shadow-sm rounded-5 p-5">
-      <div class="row align-items-center">
-        <div class="col-md-3 text-center">
-          <img src="img/about/rashmi.jpeg" class="img-fluid rounded-circle shadow-lg"
-            style="width: 180px; height: 180px; object-fit: cover;" alt="Founder">
-        </div>
-        <div class="col-md-9 mt-4 mt-md-0">
-          <p class="fs-4 fst-italic text-muted">"At Robo AIA Paths, we don’t just teach technology; we equip the next
-            generation with the critical skills and knowledge to unlock their potential and truly shape the future."</p>
-          <h5 class="fw-bold mt-3 mb-0">Rashmi Kansal</h5>
-          <p class="text-primary fw-bold">Founder</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="page4" class="py-5">
-      <div class="text-center mb-5">
-        <p class="fw-bold text-primary text-uppercase">Robo AIA Paths</p>
-        <h1 class="display-5 fw-bold">Courses We Offer</h1>
-      </div>
-
-      <div class="row g-4 course-grid">
-        <div class="col-lg-4 col-md-6">
-          <div class="card">
-            <div class="p-2 overflow-hidden">
-              <img src="img/course/page3-img.jpg" class="card-img-top" alt="Introduction to Robotics">
-            </div>
-            <div class="card-body">
-              <h4 class="fw-bold">Introduction to Robotics</h4>
-              <p class="text-muted small">Learn the fundamentals of robotics, including basic mechanical design,
-                sensors, and hardware implementation.</p>
-              <a href="program.html" class="learn-more-link">Learn more ></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="card">
-            <div class="p-2 overflow-hidden">
-              <img src="img/course/page4-img.jpg" class="card-img-top" alt="Robo Expert">
-            </div>
-            <div class="card-body">
-              <h4 class="fw-bold">Robo Expert</h4>
-              <p class="text-muted small">Dive deeper into the world of robotics with advanced topics such as complex
-                robotic systems and integration.</p>
-              <a href="program.html" class="learn-more-link">Learn more ></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="card">
-            <div class="p-2 overflow-hidden">
-              <img src="img/course/page5-img.jpg" class="card-img-top" alt="Robo Advance">
-            </div>
-            <div class="card-body">
-              <h4 class="fw-bold">Robo Advance</h4>
-              <p class="text-muted small">Advance programming for robot, machine learning, IOT and AI technologies for
-                the modern world.</p>
-              <a href="program.html" class="learn-more-link">Learn more ></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="card">
-            <div class="p-2 overflow-hidden">
-              <img src="img/course/page6-img.jpg" class="card-img-top" alt="Coding">
-            </div>
-            <div class="card-body">
-              <h4 class="fw-bold">Coding</h4>
-              <p class="text-muted small">Master coding skills and dive into logic with our interactive and practical
-                project-based lessons.</p>
-              <a href="program.html" class="learn-more-link">Learn more ></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="card">
-            <div class="p-2 overflow-hidden">
-              <img src="img/home/otto.jpg" class="card-img-top" alt="Mechatronics">
-            </div>
-            <div class="card-body">
-              <h4 class="fw-bold">Mechatronics Course</h4>
-              <p class="text-muted small">Learn to design and control advanced robotics and explore the intersection of
-                mechanics and electronics.</p>
-              <a href="program.html" class="learn-more-link">Learn more ></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="card">
-            <div class="p-2 overflow-hidden">
-              <img src="img/home/web.avif" class="card-img-top" alt="Web Development">
-            </div>
-            <div class="card-body">
-              <h4 class="fw-bold">Web Development</h4>
-              <p class="text-muted small">Join RoboAIAPaths's comprehensive course from beginner to pro – start your
-                developer journey today!</p>
-              <a href="program.html" class="learn-more-link">Learn more ></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="page5" class="py-5">
-      <div class="text-center mb-5">
-        <p class="fw-bold text-primary">ROBO AIA PATHS</p>
-        <h1 class="display-6 fw-bold">Why Choose Us</h1>
-      </div>
-      <div class="row g-4 mb-5">
-        <div class="col-md-4">
-          <div class="p5s text-center p-5">
-            <h2 class="text-muted opacity-25 fw-bold">01</h2>
-            <h4 class="fw-bold text-primary">Experienced Instructors</h4>
-            <p class="text-muted mt-3 small">Our team consists of industry professionals with years of experience in
-              robotics coding and AI.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="p5s text-center p-5">
-            <h2 class="text-muted opacity-25 fw-bold">02</h2>
-            <h4 class="fw-bold text-primary">Comprehensive Curriculum</h4>
-            <p class="text-muted mt-3 small">We offer a diverse range of courses covering various aspects of robotics
-              and artificial intelligence.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="p5s text-center p-5">
-            <h2 class="text-muted opacity-25 fw-bold">03</h2>
-            <h4 class="fw-bold text-primary">Flexible Learning Options</h4>
-            <p class="text-muted mt-3 small">Whether you prefer in-person classes or online learning, we have options to
-              suit your schedule.</p>
-          </div>
-        </div>
-      </div>
-      <div class="text-center">
-        <p class="fw-bold mb-4">Join a vibrant community of enthusiasts who share your passion for innovation.</p>
-        <a href="program.html" class="btn btn-dark btn-tech rounded-pill px-5 py-3 shadow">Get Started Today</a>
-      </div>
-    </section>
-
-    <section id="page6" class="py-5">
-      <div class="row g-5">
-        <div class="col-lg-6">
-          <p class="text-primary fw-bold">What We Do</p>
-          <h1 class="mb-4">Our Programs: Robotics, Coding, and AI</h1>
-          <p class="text-muted lh-lg">We offer introductory workshops for beginners to advanced courses for aspiring
-            engineers. Our curriculum covers robot programming, machine learning, computer vision, and more.</p>
-          <a href="program.html" class="btn btn-outline-dark btn-tech rounded-pill px-5 mt-4 py-2 fw-bold">Know More</a>
-        </div>
-        <div class="col-lg-6">
-          <div class="row g-3">
-            <div class="col-6">
-              <div class="box p-4 h-100">
-                <h6>Live Classes</h6>
-                <p class="small text-muted mb-0">Interactive fun live sessions</p>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="box p-4 h-100">
-                <h6>Integrated Learning</h6>
-                <p class="small text-muted mb-0">Solve real-world problems</p>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="box p-4 h-100">
-                <h6>Curated Courses</h6>
-                <p class="small text-muted mb-0">Specially designed for you</p>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="box p-4 h-100">
-                <h6>Interactive Sessions</h6>
-                <p class="small text-muted mb-0">Activities and challenges</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    <section class="py-5 text-center">
-      <p class="fw-bold text-primary">WHY ROBOAIAPATHS ?</p>
-      <h1 class="display-6 fw-bold mb-5">Shaping Young Minds into Skill based learning</h1>
-
-      <img src="img/home/page8img.png" class="img-fluid rounded-5 shadow-lg w-75 mt-4" alt="Skill based learning">
-    </section>
-
-    <section class="row py-5 g-5">
-      <div class="col-md-6">
-        <div class="p-4 border-start border-4 border-primary bg-white rounded-3 shadow-sm h-100">
-          <h3 class="fw-bold">No-Hassle training</h3>
-          <p class="text-muted mt-3 small">India’s first STEM coaching institute eliminating geographical barriers.
-            Connect with experts globally from your home.</p>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="p-4 border-start border-4 border-primary bg-white rounded-3 shadow-sm h-100">
-          <h3 class="fw-bold">Flexible batches</h3>
-          <p class="text-muted mt-3 small">Participate in virtual classrooms and engage in discussions with fellow
-            learners at your own pace and timing.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-5 text-center">
-      <p class="text-primary fw-bold">Meet the Team</p>
-      <h1 class="mb-5">Meet Our Educators & Engineers</h1>
-      <div class="row justify-content-center">
-        <div class="col-md-4">
-          <div class="gallery-item shadow-lg mb-4 mx-auto" style="width: 250px;">
-            <img src="img/about/rashmi.jpeg" class="img-fluid" alt="">
-          </div>
-          <h4 class="fw-bold mb-1">Rashmi Kansal</h4>
-          <p class="small text-muted">15+ years experience | Computer Science, STEM, Psychology M.Ed, M.Sc</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-5">
-      <div class="text-center mb-5">
-        <p class="text-primary fw-bold">What Parent Say</p>
-      </div>
-      <div class="row justify-content-center">
-        <!-- <div class="col-lg-10 testimonial-wrap row align-items-center g-0 p-0 shadow-lg">
-          <div class="col-md-4"><img src="img/home/feedback.png" class="img-fluid w-100" alt="Feedback"></div>
-          <div class="col-md-8 p-5">
-            <i class="fa-solid fa-quote-left text-primary opacity-25 fs-1 mb-4 d-block"></i>
-            <p class="fs-5 text-muted">"I am glad I joined RoboAIApaths. The learning environment and teaching methods
-              are very interesting. This place has helped me find my path. All thanks to Rashmi mam."</p>
-            <h5 class="fw-bold mt-4 mb-0">Priya S</h5>
-          </div>
-        </div> -->
-        <div class="col-10 m-auto">
-          <div id="carousal" class="carousel slide " data-bs-ride="carousel">
-            <!-- indicators -->
-            <div class="carousel-indicators">
-              <button data-bs-target="#carousal" data-bs-slide-to="0" class="active"></button>
-              <button data-bs-target="#carousal" data-bs-slide-to="1"></button>
-              <button data-bs-target="#carousal" data-bs-slide-to="2"></button>
-              <button data-bs-target="#carousal" data-bs-slide-to="3"></button>
-              <button data-bs-target="#carousal" data-bs-slide-to="4"></button>
-            </div>
-            <!-- images -->
-            <div class="carousel-inner">
-              <div class="carousel-item active" data-bs-interval="3000">
-                <div class="testimonial-wrap row align-items-center g-0 p-0">
-                  <!-- <div class="col-md-4"><img src="img/home/feedback.png" class="img-fluid w-100" alt="Feedback"></div> -->
-                  <div class="p-5" style="background-color: #c4c7caa7;">
-                    <i class="fa-solid fa-quote-left text-primary opacity-25 fs-1 mb-4 d-block"></i>
-                    <p class="fs-5 text-muted">"I am glad I joined RoboAIApaths. The learning environment and teaching
-                      methods
-                      are very interesting. This place has helped me find my path. All thanks to Rashmi mam."</p>
-                    <h5 class="fw-bold mt-4 mb-0">Priya</h5>
+              <!-- Floating Cards -->
+              <div class="floating-card glass-card p-3 rounded-3 position-absolute top-0 end-0 animate-float-delay-1">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="icon-box bg-primary rounded-circle p-2 text-white">
+                    <i class="fas fa-code"></i>
+                  </div>
+                  <div>
+                    <h6 class="m-0 text-white fw-bold">Python & AI</h6>
+                    <span class="text-muted x-small">Trending Now</span>
                   </div>
                 </div>
               </div>
-              <div class="carousel-item" data-bs-interval="3000">
-                <div class="testimonial-wrap row align-items-center g-0 p-0">
-                  <!-- <div class="col-md-4"><img src="img/home/feedback.png" class="img-fluid w-100" alt="Feedback"></div> -->
-                  <div class="p-5" style="background-color: #c4c7caa7;">
-                    <i class="fa-solid fa-quote-left text-primary opacity-25 fs-1 mb-4 d-block"></i>
-                    <p class="fs-5 text-muted">"Joining RoboAIApaths was a great decision. The teaching style and
-                      learning environment are very interesting and motivating. I found my path here, all thanks to
-                      Rashmi mam."</p>
-                    <h5 class="fw-bold mt-4 mb-0">Shweta</h5>
+
+              <div
+                class="floating-card glass-card p-3 rounded-3 position-absolute bottom-0 start-0 animate-float-delay-2">
+                <div class="d-flex align-items-center gap-3">
+                  <div class="icon-box bg-warning rounded-circle p-2 text-dark">
+                    <i class="fas fa-robot"></i>
                   </div>
-                </div>
-              </div>
-              <div class="carousel-item" data-bs-interval="3000">
-                <div class="testimonial-wrap row align-items-center g-0 p-0">
-                  <!-- <div class="col-md-4"><img src="img/home/feedback.png" class="img-fluid w-100" alt="Feedback"></div> -->
-                  <div class="p-5" style="background-color: #c4c7caa7;">
-                    <i class="fa-solid fa-quote-left text-primary opacity-25 fs-1 mb-4 d-block"></i>
-                    <p class="fs-5 text-muted">"RoboAIApaths provided me with an excellent learning environment and
-                      innovative teaching methods. It played a key role in shaping my journey."</p>
-                    <h5 class="fw-bold mt-4 mb-0">Muskan</h5>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item" data-bs-interval="3000">
-                <div class="testimonial-wrap row align-items-center g-0 p-0">
-                  <!-- <div class="col-md-4"><img src="img/home/feedback.png" class="img-fluid w-100" alt="Feedback"></div> -->
-                  <div class="p-5" style="background-color: #c4c7caa7;">
-                    <i class="fa-solid fa-quote-left text-primary opacity-25 fs-1 mb-4 d-block"></i>
-                    <p class="fs-5 text-muted">"Joined RoboAIAPaths for junior level robotics course was the best
-                      decision for me. The way of training and explaining concepts was outstanding."</p>
-                    <h5 class="fw-bold mt-4 mb-0">Vishal Maheshwari</h5>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item" data-bs-interval="3000">
-                <div class="testimonial-wrap row align-items-center g-0 p-0">
-                  <!-- <div class="col-md-4"><img src="img/home/feedback.png" class="img-fluid w-100" alt="Feedback"></div> -->
-                  <div class="p-5" style="background-color: #c4c7caa7;">
-                    <i class="fa-solid fa-quote-left text-primary opacity-25 fs-1 mb-4 d-block"></i>
-                    <p class="fs-5 text-muted">"I have joined RoboAIAPaths for the Robo Expert Course. Overall
-                      experience was great, they explained complex concepts in a very simple manner. Thank you
-                      RoboAIAPaths."</p>
-                    <h5 class="fw-bold mt-4 mb-0">Deepak Garg</h5>
+                  <div>
+                    <h6 class="m-0 text-white fw-bold">Robotics Kits</h6>
+                    <span class="text-muted x-small">Hands-on Fun</span>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- buttons -->
-            <button class="carousel-control-prev" data-bs-target="#carousal" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" data-bs-target="#carousal" data-bs-slide="next">
-              <span class="carousel-control-next-icon"></span>
-            </button>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="py-5 text-center">
-      <div class="rounded-5 shadow-2xl p-5"
-        style="background: linear-gradient(rgba(0,110,255,0.9), rgba(15,23,42,0.9)), url('img/about/background-AI.jpg'); background-size: cover; background-position: center; color: white;">
-        <h1 class="display-5 fw-bold mb-4">Shaping Your Minds Into <br> Skill Based Learning</h1>
-        <a href="contact.html" class="btn btn-primary btn-tech btn-lg px-5 rounded-pill shadow">Enroll Now</a>
       </div>
     </section>
   </div>
+  <div class="container">
 
-  <footer id="footer">
-    <div class="container text-start">
-      <div class="row g-4 mb-5">
-        <div class="col-lg-3 col-md-6">
-          <img src="img/logo.jpeg" class="w-50 mb-4 rounded" alt="Robo AIA">
-          <p class="small">Introduction to the exciting fields of robotics coding and AI through comprehensive courses.
-          </p>
+    <section id="page2" class="py-5 bg-light section-slanted position-relative">
+      <div class="container position-relative z-2">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <p class="fw-bold text-primary text-uppercase letter-spacing-2">HANDS-ON LEARNING</p>
+          <h2 class="display-5 fw-bold text-dark">Robotics Kits <span class="text-primary">We Offer</span></h2>
+          <p class="text-muted mx-auto" style="max-width: 600px;">Explore our exclusive range of robotics kits designed
+            to make learning physics, coding, and engineering intuitive and fun.</p>
         </div>
-        <div class="col-lg-3 col-md-6">
-          <h5 class="fw-bold mb-4">Quick Link</h5>
-          <ul class="list-unstyled small">
-            <li><a href="#">Demo Test</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Testimonials</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <h5 class="fw-bold mb-4">Courses</h5>
-          <ul class="list-unstyled small">
-            <li><a href="#">Junior Level</a></li>
-            <li><a href="#">Robo Expert</a></li>
-            <li><a href="#">Robo Advance</a></li>
-            <li><a href="#">Coding</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <h5 class="fw-bold mb-4">Get in touch</h5>
-          <p class="small mb-1 text-muted">S7, RPS Savana, Sector 88, Faridabad</p>
-          <p class="small mb-1 text-muted">+91 9990911093</p>
-          <p class="small mb-3 text-muted">roboaiapaths@gmail.com</p>
-          <div class="d-flex">
-            <a href="#"><img src="img/facebookLogo.png" class="social-icon" alt=""></a>
-            <a href="#"><img src="img/instagramLogo.png" class="social-icon" alt=""></a>
+
+        <!-- Kit Carousel -->
+        <div id="kitCarousel" class="carousel slide pb-5" data-bs-ride="carousel" data-bs-interval="3500"
+          data-bs-pause="hover">
+
+          <div class="carousel-indicators" style="bottom: -50px;">
+            <button type="button" data-bs-target="#kitCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+              aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#kitCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#kitCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#kitCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#kitCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          </div>
+
+          <div class="carousel-inner">
+            <!-- Item 1 -->
+            <div class="carousel-item active">
+              <div class="kit-card tech-card mx-auto bg-white shadow-lg overflow-hidden border-0"
+                style="max-width: 900px; border-radius: 24px;">
+                <div class="row g-0 h-100">
+                  <div class="col-md-6 position-relative">
+                    <div class="h-100 overflow-hidden">
+                      <img src="img/kits/fantasyCastle.jpeg"
+                        class="d-block w-100 h-100 object-fit-cover zoom-on-hover" alt="Fantasy Castle Kit">
+                    </div>
+                    <div
+                      class="position-absolute top-0 start-0 m-3 badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold shadow-sm">
+                      Best Seller
+                    </div>
+                  </div>
+                  <div class="col-md-6 d-flex align-items-center bg-white">
+                    <div class="card-body p-4 p-lg-5 text-start">
+                      <h3 class="fw-bold text-primary mb-3">Fantasy Castle Kit</h3>
+                      <p class="text-muted mb-4 fs-6 h-100">Build and illuminate your own magical castle. Perfect for
+                        beginners to understand basics of structures, electricity, and simple circuits in a creative
+                        way.</p>
+
+                      <div class="d-flex align-items-center gap-3 mb-4">
+                        <div class="d-flex align-items-center text-muted small"><i
+                            class="fas fa-bolt text-warning me-2"></i> Circuits</div>
+                        <div class="d-flex align-items-center text-muted small"><i
+                            class="fas fa-cube text-info me-2"></i> 3D Structure</div>
+                      </div>
+
+                      <a href="kits.html" class="btn btn-primary btn-tech px-5 py-3 rounded-pill shadow-sm w-100">View
+                        Kit Details</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="carousel-item">
+              <div class="kit-card tech-card mx-auto bg-white shadow-lg overflow-hidden border-0"
+                style="max-width: 900px; border-radius: 24px;">
+                <div class="row g-0 h-100">
+                  <div class="col-md-6">
+                    <div class="h-100 overflow-hidden">
+                      <img src="img/kits/nonProgrammableKit.jpeg"
+                        class="d-block w-100 h-100 object-fit-cover zoom-on-hover" alt="Non Programmable Kit">
+                    </div>
+                  </div>
+                  <div class="col-md-6 d-flex align-items-center bg-white">
+                    <div class="card-body p-4 p-lg-5 text-start">
+                      <h3 class="fw-bold text-primary mb-3">Non-Programmable Kit</h3>
+                      <p class="text-muted mb-4 fs-6">Learn the basics of electronics without the complexity of coding.
+                        A hands-on entry into the world of sensors, motors, and battery-operated machines.</p>
+                      <a href="kits.html" class="btn btn-primary btn-tech px-5 py-3 rounded-pill shadow-sm w-100">View
+                        Kit Details</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="carousel-item">
+              <div class="kit-card tech-card mx-auto bg-white shadow-lg overflow-hidden border-0"
+                style="max-width: 900px; border-radius: 24px;">
+                <div class="row g-0 h-100">
+                  <div class="col-md-6">
+                    <div class="h-100 overflow-hidden">
+                      <img src="img/kits/ottoNinja.jpeg"
+                        class="d-block w-100 h-100 object-fit-cover zoom-on-hover" alt="Otto Ninja">
+                    </div>
+                  </div>
+                  <div class="col-md-6 d-flex align-items-center bg-white">
+                    <div class="card-body p-4 p-lg-5 text-start">
+                      <h3 class="fw-bold text-primary mb-3">Otto Ninja</h3>
+                      <p class="text-muted mb-4 fs-6">An interactive biped robot that you can program to walk, dance,
+                        and avoid obstacles. The perfect mix of 3D printing, Arduino, and fun.</p>
+                      <a href="kits.html" class="btn btn-primary btn-tech px-5 py-3 rounded-pill shadow-sm w-100">View
+                        Kit Details</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="carousel-item">
+              <div class="kit-card tech-card mx-auto bg-white shadow-lg overflow-hidden border-0"
+                style="max-width: 900px; border-radius: 24px;">
+                <div class="row g-0 h-100">
+                  <div class="col-md-6">
+                    <div class="h-100 overflow-hidden">
+                      <img src="img/kits/roboArm.jpeg" class="d-block w-100 h-100 object-fit-cover zoom-on-hover"
+                        alt="Robotic Arm">
+                    </div>
+                  </div>
+                  <div class="col-md-6 d-flex align-items-center bg-white">
+                    <div class="card-body p-4 p-lg-5 text-start">
+                      <h3 class="fw-bold text-primary mb-3">Robotic Arm</h3>
+                      <p class="text-muted mb-4 fs-6">Master mechanical engineering and control systems. Simulate
+                        industrial automation right on your desk with this programmable arm.</p>
+                      <a href="kits.html" class="btn btn-primary btn-tech px-5 py-3 rounded-pill shadow-sm w-100">View
+                        Kit Details</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="carousel-item">
+              <div class="kit-card tech-card mx-auto bg-white shadow-lg overflow-hidden border-0"
+                style="max-width: 900px; border-radius: 24px;">
+                <div class="row g-0 h-100">
+                  <div class="col-md-6">
+                    <div class="h-100 overflow-hidden">
+                      <img src="img/kits/SMART IOT HOME FOR CLASS 8th.jpeg"
+                        class="d-block w-100 h-100 object-fit-cover zoom-on-hover" alt="Smart IoT Home">
+                    </div>
+                  </div>
+                  <div class="col-md-6 d-flex align-items-center bg-white">
+                    <div class="card-body p-4 p-lg-5 text-start">
+                      <h3 class="fw-bold text-primary mb-3">Smart IoT Home</h3>
+                      <p class="text-muted mb-4 fs-6">Step into the future by building your own smart home. Learn WiFi
+                        connectivity, cloud control, and sensor automation.</p>
+                      <a href="kits.html" class="btn btn-primary btn-tech px-5 py-3 rounded-pill shadow-sm w-100">View
+                        Kit Details</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Controls -->
+          <div class="d-flex justify-content-center gap-3 mt-4">
+            <button
+              class="carousel-control-prev position-relative d-inline-block rounded-circle bg-white text-primary shadow-sm"
+              type="button" data-bs-target="#kitCarousel" data-bs-slide="prev"
+              style="width: 50px; height: 50px; opacity: 1;">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button
+              class="carousel-control-next position-relative d-inline-block rounded-circle bg-white text-primary shadow-sm"
+              type="button" data-bs-target="#kitCarousel" data-bs-slide="next"
+              style="width: 50px; height: 50px; opacity: 1;">
+              <i class="fas fa-chevron-right"></i>
+            </button>
           </div>
         </div>
       </div>
-      <hr class="opacity-10">
-      <p class="text-center small text-muted mb-0">Copyright © 2026 roboaiapaths.com. All Rights Reserved.</p>
-    </div>
-  </footer>
+    </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <section id="courses-list" class="py-5 position-relative">
+      <!-- Decorative Background Element -->
+      <div class="position-absolute top-0 end-0 opacity-10 pe-none d-none d-lg-block">
+        <i class="fas fa-microchip fa-10x text-primary p-5"></i>
+      </div>
+
+      <div class="container position-relative z-2">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <p class="fw-bold text-primary text-uppercase letter-spacing-2">LEARNING PATHS</p>
+          <h2 class="display-5 fw-bold">Courses We <span class="text-gradient-tech">Offer</span></h2>
+          <p class="text-muted">From beginner robotics to advanced AI, find the perfect path for your child.</p>
+        </div>
+
+        <div class="row g-4 course-grid">
+          <!-- Course 1 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card tech-card h-100 border-0 shadow-sm hover-lift">
+              <div class="p-2 overflow-hidden position-relative">
+                <img src="img/course/page3-img.jpg" class="card-img-top rounded-3 scale-on-hover"
+                  alt="Introduction to Robotics">
+                <span class="badge bg-primary position-absolute top-0 end-0 m-3 shadow-sm">Beginner</span>
+              </div>
+              <div class="card-body d-flex flex-col">
+                <h4 class="fw-bold mb-2">Introduction to Robotics</h4>
+                <p class="text-muted small mb-4 flex-grow-1">Learn the fundamentals of robotics, including basic
+                  mechanical design, sensors, and hardware implementation.</p>
+                <a href="program.html" class="btn btn-outline-primary rounded-pill w-100 fw-bold stretched-link">Learn
+                  more <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course 2 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="card tech-card h-100 border-0 shadow-sm hover-lift">
+              <div class="p-2 overflow-hidden position-relative">
+                <img src="img/course/page4-img.jpg" class="card-img-top rounded-3 scale-on-hover"
+                  alt="Robo Expert">
+                <span class="badge bg-success position-absolute top-0 end-0 m-3 shadow-sm">Intermediate</span>
+              </div>
+              <div class="card-body d-flex flex-col">
+                <h4 class="fw-bold mb-2">Robo Expert</h4>
+                <p class="text-muted small mb-4 flex-grow-1">Dive deeper into the world of robotics with advanced topics
+                  such as complex robotic systems and integration.</p>
+                <a href="program.html" class="btn btn-outline-primary rounded-pill w-100 fw-bold stretched-link">Learn
+                  more <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course 3 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="card tech-card h-100 border-0 shadow-sm hover-lift">
+              <div class="p-2 overflow-hidden position-relative">
+                <img src="img/course/page5-img.jpg" class="card-img-top rounded-3 scale-on-hover"
+                  alt="Robo Advance">
+                <span class="badge bg-danger position-absolute top-0 end-0 m-3 shadow-sm">Advanced</span>
+              </div>
+              <div class="card-body d-flex flex-col">
+                <h4 class="fw-bold mb-2">Robo Advance</h4>
+                <p class="text-muted small mb-4 flex-grow-1">Advance programming for robot, machine learning, IOT and AI
+                  technologies for the modern world.</p>
+                <a href="program.html" class="btn btn-outline-primary rounded-pill w-100 fw-bold stretched-link">Learn
+                  more <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course 4 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card tech-card h-100 border-0 shadow-sm hover-lift">
+              <div class="p-2 overflow-hidden position-relative">
+                <img src="img/course/page6-img.jpg" class="card-img-top rounded-3 scale-on-hover" alt="Coding">
+                <span class="badge bg-info text-dark position-absolute top-0 end-0 m-3 shadow-sm">All Levels</span>
+              </div>
+              <div class="card-body d-flex flex-col">
+                <h4 class="fw-bold mb-2">Coding</h4>
+                <p class="text-muted small mb-4 flex-grow-1">Master coding skills and dive into logic with our
+                  interactive and practical project-based lessons.</p>
+                <a href="program.html" class="btn btn-outline-primary rounded-pill w-100 fw-bold stretched-link">Learn
+                  more <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course 5 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="card tech-card h-100 border-0 shadow-sm hover-lift">
+              <div class="p-2 overflow-hidden position-relative">
+                <img src="img/home/otto.jpg" class="card-img-top rounded-3 scale-on-hover" alt="Mechatronics">
+                <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-3 shadow-sm">Specialized</span>
+              </div>
+              <div class="card-body d-flex flex-col">
+                <h4 class="fw-bold mb-2">Mechatronics Course</h4>
+                <p class="text-muted small mb-4 flex-grow-1">Learn to design and control advanced robotics and explore
+                  the intersection of mechanics and electronics.</p>
+                <a href="program.html" class="btn btn-outline-primary rounded-pill w-100 fw-bold stretched-link">Learn
+                  more <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course 6 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="card tech-card h-100 border-0 shadow-sm hover-lift">
+              <div class="p-2 overflow-hidden position-relative">
+                <img src="img/home/web.avif" class="card-img-top rounded-3 scale-on-hover" alt="Web Development">
+                <span class="badge bg-secondary position-absolute top-0 end-0 m-3 shadow-sm">Career</span>
+              </div>
+              <div class="card-body d-flex flex-col">
+                <h4 class="fw-bold mb-2">Web Development</h4>
+                <p class="text-muted small mb-4 flex-grow-1">Join RoboAIAPaths's comprehensive course from beginner to
+                  pro – start your developer journey today!</p>
+                <a href="program.html" class="btn btn-outline-primary rounded-pill w-100 fw-bold stretched-link">Learn
+                  more <i class="fas fa-arrow-right ms-1"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US (Features) -->
+    <section id="why-choose-us" class="py-5 section-slanted bg-gradient-light">
+      <div class="container position-relative z-2">
+        <div class="text-center mb-5" data-aos="fade-up">
+          <p class="fw-bold text-primary text-uppercase letter-spacing-2">THE ROBO AIA PATHS ADVANTAGE</p>
+          <h2 class="display-5 fw-bold">Why Parents <span class="text-primary">Trust Us</span></h2>
+        </div>
+
+        <div class="row g-4 mb-5">
+          <!-- Feature 1 -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="p5s text-center p-5 tech-card tech-border h-100 bg-white hover-lift">
+              <div class="d-inline-block p-3 rounded-circle bg-light mb-4 shadow-sm tech-glow">
+                <img src="img/new_assets/student_girls.jpg" class="rounded-circle object-fit-cover"
+                  style="width: 80px; height: 80px;" alt="Instructors">
+              </div>
+              <h4 class="fw-bold text-dark">Expert Mentorship</h4>
+              <p class="text-muted mt-3 small">Learn from industry professionals with over 15+ years of experience in
+                Robotics, STEM, and Child Psychology.</p>
+            </div>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="p5s text-center p-5 tech-card tech-border h-100 bg-white hover-lift">
+              <div class="d-inline-block p-3 rounded-circle bg-light mb-4 shadow-sm tech-glow">
+                <img src="img/new_assets/student_boy.jpg" class="rounded-circle object-fit-cover"
+                  style="width: 80px; height: 80px;" alt="Curriculum">
+              </div>
+              <h4 class="fw-bold text-dark">Global Curriculum</h4>
+              <p class="text-muted mt-3 small">Our comprehensive curriculum covers everything from basic circuits to
+                advanced AI, tailored for different age groups.</p>
+            </div>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="p5s text-center p-5 tech-card tech-border h-100 bg-white hover-lift">
+              <div class="d-inline-block p-3 rounded-circle bg-light mb-4 shadow-sm tech-glow">
+                <img src="img/new_assets/kit_showcase.jpg" class="rounded-circle object-fit-cover"
+                  style="width: 80px; height: 80px;" alt="Flexibility">
+              </div>
+              <h4 class="fw-bold text-dark">Flexible Learning</h4>
+              <p class="text-muted mt-3 small">Choose between online interactive classes or in-person hands-on
+                workshops. We adapt to your child's schedule.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISION SECTION -->
+    <div class="container py-5">
+      <section class="row align-items-center g-5 py-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="position-relative">
+            <div class="tech-border-anim rounded-5 overflow-hidden shadow-2xl">
+              <img src="img/new_assets/hero_family_1.png" class="img-fluid w-100 object-fit-cover"
+                alt="Students collaborating">
+            </div>
+            <!-- Floating Stats -->
+            <div
+              class="position-absolute bottom-0 start-0 bg-white p-3 rounded-3 shadow-lg m-4 border-start border-5 border-primary">
+              <h3 class="fw-bold m-0 text-primary">1000+</h3>
+              <p class="small text-muted m-0">Students Trained</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <h6 class="text-primary fw-bold letter-spacing-2">OUR MISSION</h6>
+          <h2 class="display-5 fw-bold mb-4">Shaping Young Minds for a <span class="text-gradient-tech">Digital
+              Future</span></h2>
+          <p class="text-muted lead mb-4">We believe every child is an innovator. Our mission is to provide the skills,
+            tools, and mentorship needed to turn their curiosity into creation.</p>
+
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex align-items-center gap-3">
+              <div class="icon-box bg-primary-subtle text-primary rounded-circle p-2"><i class="fas fa-check"></i></div>
+              <span class="fw-semibold text-dark">No-Hassle Training from Home</span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <div class="icon-box bg-primary-subtle text-primary rounded-circle p-2"><i class="fas fa-check"></i></div>
+              <span class="fw-semibold text-dark">Flexible Batches & 1:1 Attention</span>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <div class="icon-box bg-primary-subtle text-primary rounded-circle p-2"><i class="fas fa-check"></i></div>
+              <span class="fw-semibold text-dark">Competition Preparation</span>
+            </div>
+          </div>
+
+          <a href="about.html" class="btn btn-outline-dark rounded-pill px-4 py-2 mt-4 fw-bold">Read Our Story</a>
+        </div>
+      </section>
+
+      <!-- TEAM SECTION -->
+      <section class="py-5 bg-light">
+        <div class="container text-center">
+          <p class="text-primary fw-bold letter-spacing-2">OUR LEADERSHIP</p>
+          <h2 class="display-6 fw-bold mb-5">Meet Our <span class="text-primary">Educators & Engineers</span></h2>
+
+          <div class="row justify-content-center">
+            <!-- Team Member 1 -->
+            <div class="col-md-4 col-lg-3" data-aos="fade-up">
+              <div class="card tech-card border-0 shadow-sm h-100 hover-lift overflow-hidden">
+                <div class="card-img-top overflow-hidden bg-white p-3 pt-4">
+                  <div class="mx-auto rounded-circle p-1 bg-gradient-brand shadow-sm"
+                    style="width: 180px; height: 180px;">
+                    <img src="img/about/rashmi.jpeg" class="w-100 h-100 rounded-circle object-fit-cover"
+                      alt="Rashmi Kansal">
+                  </div>
+                </div>
+                <div class="card-body pb-4">
+                  <h4 class="fw-bold mb-1">Rashmi Kansal</h4>
+                  <div class="badge bg-primary-subtle text-primary mb-3">Founder & Lead Educator</div>
+                  <p class="small text-muted mb-0">15+ years experience in Computer Science, STEM, and Psychology. M.Ed,
+                    M.Sc.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Placeholder for more team members if needed -->
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section class="py-5 position-relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="position-absolute start-0 top-50 translate-middle-y opacity-10 pe-none">
+          <div class="rounded-circle bg-primary blur-3xl" style="width: 300px; height: 300px;"></div>
+        </div>
+
+        <div class="container position-relative z-2">
+          <div class="text-center mb-5">
+            <i class="fas fa-quote-left fa-2x text-primary mb-3 opacity-50"></i>
+            <h2 class="display-5 fw-bold">What Parents <span class="text-gradient-tech">Say</span></h2>
+            <p class="text-muted">Hear from the families whose lives have been transformed.</p>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+
+                  <!-- Review 1 -->
+                  <div class="carousel-item active" data-bs-interval="4000">
+                    <div class="card border-0 shadow-lg bg-white rounded-4 p-4 p-md-5 mx-3">
+                      <div class="d-flex flex-column flex-md-row align-items-center gap-4">
+                        <div class="flex-shrink-0">
+                          <div
+                            class="avatar-circle bg-primary text-white d-flex align-items-center justify-content-center fs-3 fw-bold shadow"
+                            style="width: 80px; height: 80px;">P</div>
+                        </div>
+                        <div class="text-center text-md-start">
+                          <div class="mb-2 text-warning small">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                              class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                          <p class="fs-5 fst-italic text-muted mb-3">"I am glad I joined RoboAIApaths. The learning
+                            environment and teaching methods are very interesting. This place has helped me find my
+                            path. All thanks to Rashmi mam."</p>
+                          <h5 class="fw-bold m-0">Priya</h5>
+                          <span class="small text-muted">Parent</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Review 2 -->
+                  <div class="carousel-item" data-bs-interval="4000">
+                    <div class="card border-0 shadow-lg bg-white rounded-4 p-4 p-md-5 mx-3">
+                      <div class="d-flex flex-column flex-md-row align-items-center gap-4">
+                        <div class="flex-shrink-0">
+                          <div
+                            class="avatar-circle bg-secondary text-white d-flex align-items-center justify-content-center fs-3 fw-bold shadow"
+                            style="width: 80px; height: 80px;">S</div>
+                        </div>
+                        <div class="text-center text-md-start">
+                          <div class="mb-2 text-warning small">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                              class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                          <p class="fs-5 fst-italic text-muted mb-3">"Joining RoboAIApaths was a great decision. The
+                            teaching style and learning environment are very interesting and motivating."</p>
+                          <h5 class="fw-bold m-0">Shweta</h5>
+                          <span class="small text-muted">Student</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Review 3 -->
+                  <div class="carousel-item" data-bs-interval="4000">
+                    <div class="card border-0 shadow-lg bg-white rounded-4 p-4 p-md-5 mx-3">
+                      <div class="d-flex flex-column flex-md-row align-items-center gap-4">
+                        <div class="flex-shrink-0">
+                          <div
+                            class="avatar-circle bg-info text-white d-flex align-items-center justify-content-center fs-3 fw-bold shadow"
+                            style="width: 80px; height: 80px;">M</div>
+                        </div>
+                        <div class="text-center text-md-start">
+                          <div class="mb-2 text-warning small">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                              class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                          <p class="fs-5 fst-italic text-muted mb-3">"RoboAIApaths provided me with an excellent
+                            learning environment and innovative teaching methods. It played a key role in shaping my
+                            journey."</p>
+                          <h5 class="fw-bold m-0">Muskan</h5>
+                          <span class="small text-muted">Alumni</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Review 4 -->
+                  <div class="carousel-item" data-bs-interval="4000">
+                    <div class="card border-0 shadow-lg bg-white rounded-4 p-4 p-md-5 mx-3">
+                      <div class="d-flex flex-column flex-md-row align-items-center gap-4">
+                        <div class="flex-shrink-0">
+                          <div
+                            class="avatar-circle bg-success text-white d-flex align-items-center justify-content-center fs-3 fw-bold shadow"
+                            style="width: 80px; height: 80px;">V</div>
+                        </div>
+                        <div class="text-center text-md-start">
+                          <div class="mb-2 text-warning small">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                              class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                          <p class="fs-5 fst-italic text-muted mb-3">"Joined RoboAIAPaths for junior level robotics
+                            course. The way of training and explaining concepts was outstanding."</p>
+                          <h5 class="fw-bold m-0">Vishal Maheshwari</h5>
+                          <span class="small text-muted">Student</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Review 5 -->
+                  <div class="carousel-item" data-bs-interval="4000">
+                    <div class="card border-0 shadow-lg bg-white rounded-4 p-4 p-md-5 mx-3">
+                      <div class="d-flex flex-column flex-md-row align-items-center gap-4">
+                        <div class="flex-shrink-0">
+                          <div
+                            class="avatar-circle bg-dark text-white d-flex align-items-center justify-content-center fs-3 fw-bold shadow"
+                            style="width: 80px; height: 80px;">D</div>
+                        </div>
+                        <div class="text-center text-md-start">
+                          <div class="mb-2 text-warning small">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                              class="fas fa-star"></i><i class="fas fa-star"></i>
+                          </div>
+                          <p class="fs-5 fst-italic text-muted mb-3">"I have joined RoboAIAPaths for the Robo Expert
+                            Course. Overall experience was great, they explained complex concepts in a very simple
+                            manner."</p>
+                          <h5 class="fw-bold m-0">Deepak Garg</h5>
+                          <span class="small text-muted">Parent</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <!-- Indicators -->
+                <div class="d-flex justify-content-center gap-2 mt-4">
+                  <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0"
+                    class="active bg-primary border-0 rounded-circle" style="width: 10px; height: 10px;"
+                    aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"
+                    class="bg-primary border-0 rounded-circle" style="width: 10px; height: 10px;"
+                    aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"
+                    class="bg-primary border-0 rounded-circle" style="width: 10px; height: 10px;"
+                    aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="3"
+                    class="bg-primary border-0 rounded-circle" style="width: 10px; height: 10px;"
+                    aria-label="Slide 4"></button>
+                  <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="4"
+                    class="bg-primary border-0 rounded-circle" style="width: 10px; height: 10px;"
+                    aria-label="Slide 5"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
+
+      <!-- FINAL CTA -->
+      <section class="py-5 text-center">
+        <div class="container">
+          <div class="rounded-5 shadow-2xl p-5 position-relative overflow-hidden"
+            style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white;">
+            <!-- BG Decoration -->
+            <div class="position-absolute top-0 start-0 w-100 h-100"
+              style="background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 30px 30px; opacity: 0.5;">
+            </div>
+
+            <div class="position-relative z-2">
+              <h1 class="display-5 fw-bold mb-4">Ready to Build the <span class="text-gradient-tech">Future?</span></h1>
+              <p class="lead text-gray-300 mb-5 max-w-2xl mx-auto">Join hundreds of young innovators transforming their
+                ideas into reality with Robo AIA Paths.</p>
+              <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="contact.html" class="btn btn-primary btn-tech btn-lg px-5 rounded-pill shadow-lg">Enroll Now <i
+                    class="fas fa-rocket ms-2"></i></a>
+                <a href="program.html" class="btn btn-outline-light btn-lg px-5 rounded-pill">View All Courses</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer id="footer">
+      <div class="container text-start">
+        <div class="row g-4 mb-5">
+          <div class="col-lg-3 col-md-6">
+            <img src="img/logo.jpeg" class="w-50 mb-4 rounded" alt="Robo AIA">
+            <p class="small">Introduction to the exciting fields of robotics coding and AI through comprehensive
+              courses.
+            </p>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5 class="fw-bold mb-4">Quick Link</h5>
+            <ul class="list-unstyled small">
+              <li><a href="contact.html">Demo Test</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="index.html#testimonials">Testimonials</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5 class="fw-bold mb-4">Courses</h5>
+            <ul class="list-unstyled small">
+              <li><a href="program.html#junior">Junior Level</a></li>
+              <li><a href="program.html#expert">Robo Expert</a></li>
+              <li><a href="program.html#advance">Robo Advance</a></li>
+              <li><a href="program.html#coding">Coding</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h5 class="fw-bold mb-4">Get in touch</h5>
+            <p class="small mb-1 text-muted">S7, RPS Savana, Sector 88, Faridabad</p>
+            <p class="small mb-1 text-muted">+91 9990911093</p>
+            <p class="small mb-3 text-muted">roboaiapaths@gmail.com</p>
+            <div class="d-flex">
+              <a href="https://www.facebook.com/profile.php?id=61561157124167&mibextid=ZbWKwL" target="_blank"><img
+                  src="img/facebookLogo.png" class="social-icon" alt=""></a>
+              <a href="https://www.instagram.com/roboaiapaths?igsh=MWdmNXZnYXY0ejdhYw==" target="_blank"><img
+                  src="img/instagramLogo.png" class="social-icon" alt=""></a>
+            </div>
+          </div>
+        </div>
+        <hr class="opacity-10">
+        <p class="text-center small text-muted mb-0">Copyright © 2026 roboaiapaths.com | Aegis of AGPK Academy. All
+          Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/form-handler.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
 </body>
 
 </html>

@@ -101,89 +101,69 @@
     }
 
     /* Footer */
-    #footer {
-      background: white;
-      padding: 80px 0 30px;
-      border-top: 1px solid #e2e8f0;
-    }
-
-    #footer a {
-      text-decoration: none;
-      color: #64748b;
-      transition: 0.3s;
-    }
-
-    #footer a:hover {
-      color: var(--tech-blue);
-      padding-left: 5px;
-    }
-
-    .social-icon {
-      width: 30px;
-      transition: 0.3s;
-    }
-
-    .social-icon:hover {
-      transform: scale(1.2) rotate(10deg);
-    }
+    /* Footer styling removed to use global style.css */
   </style>
 
-  
+
   <style>
     /* Navbar styling exactly matching your previous interactive pages */
     .navbar {
-        backdrop-filter: blur(15px);
-        background: rgba(255, 255, 255, 0.9);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        padding: 0.8rem 0;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 0.8rem 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .nav-link {
-        position: relative;
-        font-weight: 600;
-        color: #0f172a; /* dark-navy */
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      font-weight: 600;
+      color: #0f172a;
+      /* dark-navy */
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     /* Modern underline hover effect */
     .nav-link::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: 0;
-        left: 50%;
-        background-color: #006eff; /* tech-blue */
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        transform: translateX(-50%);
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background-color: #006eff;
+      /* tech-blue */
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateX(-50%);
     }
 
     .nav-link:hover::after {
-        width: 80%;
+      width: 80%;
     }
 
     .nav-link:hover {
-        color: #006eff !important;
+      color: #006eff !important;
     }
 
     /* Button inside Navbar */
     .btn-tech {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border-radius: 50px;
-        font-weight: 700;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 50px;
+      font-weight: 700;
     }
 
     .btn-tech:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 20px rgba(0, 110, 255, 0.3);
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 110, 255, 0.3);
     }
-</style>
+  </style>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
 
- <nav class="navbar navbar-expand-lg sticky-top">
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container-fluid">
       <a href="index.html" class="navbar-brand">
         <img src="img/logo.jpeg" height="50" class="rounded" alt="Logo">
@@ -196,12 +176,22 @@
           <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="about.html" class="nav-link text-primary">About</a></li>
           <li class="nav-item"><a href="program.html" class="nav-link">Courses</a></li>
-          <!-- <li class="nav-item"><a href="kits.html" class="nav-link">Kits</a></li> -->
+          <li class="nav-item"><a href="kits.html" class="nav-link">Kits</a></li>
           <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-          <li class="nav-item"><a href="join-as-a-trainer.html" class="nav-link">Join Us As A Trainer</a></li>
-          <li class="nav-item"><a href="partner-with-school.html" class="nav-link">Partner with School</a></li>
+
+          <li class="nav-item"><a href="partner-with-school.html" class="nav-link">AIRobotic Labs</a></li>
           <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li class="nav-item">
+            <a href="cart.html" class="nav-link position-relative">
+              <i class="fas fa-shopping-cart"></i>
+              <span id="cart-badge"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                style="display:none; font-size: 0.6rem;">
+                0
+              </span>
+            </a>
+          </li>
           <li class="nav-item ms-lg-3"><a href="contact.html" class="btn btn-primary btn-tech px-4">Enroll Now</a></li>
         </ul>
       </div>
@@ -326,12 +316,8 @@
       </div>
     </section>
 
-    <section id="page7" class="cta-bg text-center shadow-lg">
-      <div>
-        <h1 class="display-4 fw-bold">Ready for robotics? <br> Enroll and shape <br> technology's future!</h1>
-        <button class="btn btn-primary btn-lg rounded-pill px-5 py-3 mt-4 fw-bold">Get Started</button>
-      </div>
-    </section>
+
+
 
     <footer id="footer" class="row g-4 text-start">
       <div class="col-lg-3">
@@ -363,17 +349,23 @@
         <p class="small text-muted">S7, RPS Savana, Sector 88, Faridabad, Haryana-121002 <br> +91 9990911093 <br>
           roboaiapaths@gmail.com</p>
         <div class="d-flex gap-3 mt-4">
-          <a href="#"><img src="img/facebookLogo.png" class="social-icon" alt="Facebook"></a>
-          <a href="#"><img src="img/instagramLogo.png" class="social-icon" alt="Instagram"></a>
+          <a href="https://www.facebook.com/profile.php?id=61561157124167&mibextid=ZbWKwL" target="_blank"><img
+              src="img/facebookLogo.png" class="social-icon" alt="Facebook"></a>
+          <a href="https://www.instagram.com/roboaiapaths?igsh=MWdmNXZnYXY0ejdhYw==" target="_blank"><img
+              src="img/instagramLogo.png" class="social-icon" alt="Instagram"></a>
         </div>
       </div>
       <div class="col-12 mt-5 border-top pt-4">
-        <p class="text-center small text-muted">Copyright © 2026 roboaiapaths.com. Powered by roboaiapaths.com.</p>
+        <p class="text-center small text-muted">Copyright © 2026 roboaiapaths.com | Aegis of AGPK Academy. Powered by
+          roboaiapaths.com.</p>
       </div>
     </footer>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
 </body>
 
 </html>

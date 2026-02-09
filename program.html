@@ -11,236 +11,15 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-  <style>
-    :root {
-      --tech-blue: #006eff;
-      --dark-navy: #0f172a;
-      --bg-light: #f8fafc;
-      --ease-in-out: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
 
-    html,
-    body {
-      max-width: 100%;
-      overflow-x: hidden;
-      background-color: var(--bg-light);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: var(--dark-navy);
-      scroll-behavior: smooth;
-    }
-
-    /* Section Headings */
-    .section-label {
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      color: var(--tech-blue);
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    /* Interactive Course Sections */
-    /* --- UNIFORM COURSE ROW STYLING --- */
-    .course-row {
-      background: white;
-      border-radius: 30px;
-      margin-bottom: 50px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-      transition: var(--transition-smooth);
-      overflow: hidden;
-      border: 1px solid #f1f5f9;
-    }
-
-    /* This fixes the "Too Large" image issue */
-    .course-img-wrap {
-      height: 450px;
-      /* Fixed height for all course images */
-      overflow: hidden;
-      background: #eee;
-    }
-
-    .course-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      /* Crops image to fill container perfectly without distortion */
-      transition: transform 0.5s ease;
-    }
-
-    .course-row:hover .course-img-wrap img {
-      transform: scale(1.05);
-    }
-
-    /* Text Content Spacing */
-    .course-content {
-      padding: 3rem !important;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    /* Feature Icons Box (Page 2 Style) */
-    .feature-item {
-      background: white;
-      border: 1px solid #f1f5f9;
-      border-radius: 20px;
-      padding: 25px;
-      height: 100%;
-      transition: var(--ease-in-out);
-    }
-
-    .feature-item:hover {
-      border-color: var(--tech-blue);
-      background: #fff;
-      transform: scale(1.02);
-    }
-
-    /* Kit Grid Uniform Sizing */
-    .kit-card {
-      border-radius: 20px;
-      overflow: hidden;
-      height: 280px;
-      position: relative;
-      transition: var(--ease-in-out);
-    }
-
-    .kit-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: 0.5s;
-    }
-
-    .kit-card:hover img {
-      transform: scale(1.1);
-      filter: brightness(0.7);
-    }
-
-    /* Video Container */
-    .video-container {
-      border-radius: 30px;
-      overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-      background: #000;
-    }
-
-    /* Container for the kits to prevent images from popping out of their bounds */
-    .kit-item {
-      overflow: hidden;
-      border-radius: 1.5rem;
-      /* Matches your rounded-4 class */
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      background: #fff;
-      cursor: pointer;
-    }
-
-    /* The actual image transition */
-    .kit-item img {
-      transition: transform 0.6s ease, filter 0.3s ease;
-      object-fit: cover;
-    }
-
-    /* Hover State: Lift the container and deepen the shadow */
-    .kit-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 110, 255, 0.15);
-      /* Tech-blue glow */
-      z-index: 10;
-    }
-
-    /* Hover State: Zoom the image slightly */
-    .kit-item:hover img {
-      transform: scale(1.1);
-      filter: brightness(1.05);
-    }
-
-    /* Footer */
-    #footer {
-      background: white;
-      padding: 80px 0 30px;
-      border-top: 1px solid #e2e8f0;
-    }
-
-    #footer a {
-      text-decoration: none;
-      color: #64748b;
-      transition: 0.3s;
-    }
-
-    #footer a:hover {
-      color: var(--tech-blue);
-      padding-left: 5px;
-    }
-
-    .social-icon {
-      width: 30px;
-      transition: 0.3s;
-    }
-
-    .social-icon:hover {
-      transform: scale(1.2) rotate(10deg);
-    }
-  </style>
-
-  
-  <style>
-    /* Navbar styling exactly matching your previous interactive pages */
-    .navbar {
-        backdrop-filter: blur(15px);
-        background: rgba(255, 255, 255, 0.9);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        padding: 0.8rem 0;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .nav-link {
-        position: relative;
-        font-weight: 600;
-        color: #0f172a; /* dark-navy */
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* Modern underline hover effect */
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: 0;
-        left: 50%;
-        background-color: #006eff; /* tech-blue */
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        transform: translateX(-50%);
-    }
-
-    .nav-link:hover::after {
-        width: 80%;
-    }
-
-    .nav-link:hover {
-        color: #006eff !important;
-    }
-
-    /* Button inside Navbar */
-    .btn-tech {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border-radius: 50px;
-        font-weight: 700;
-    }
-
-    .btn-tech:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 20px rgba(0, 110, 255, 0.3);
-    }
-</style>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
 
-  
-<nav class="navbar navbar-expand-lg sticky-top">
+
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container-fluid">
       <a href="index.html" class="navbar-brand">
         <img src="img/logo.jpeg" height="50" class="rounded" alt="Logo">
@@ -253,12 +32,22 @@
           <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
           <li class="nav-item"><a href="program.html" class="nav-link text-primary">Courses</a></li>
-          <!-- <li class="nav-item"><a href="kits.html" class="nav-link">Kits</a></li> -->
+          <li class="nav-item"><a href="kits.html" class="nav-link">Kits</a></li>
           <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-          <li class="nav-item"><a href="join-as-a-trainer.html" class="nav-link">Join Us As A Trainer</a></li>
-          <li class="nav-item"><a href="partner-with-school.html" class="nav-link">Partner with School</a></li>
+
+          <li class="nav-item"><a href="partner-with-school.html" class="nav-link">AIRobotic Labs</a></li>
           <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li class="nav-item">
+            <a href="cart.html" class="nav-link position-relative">
+              <i class="fas fa-shopping-cart"></i>
+              <span id="cart-badge"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                style="display:none; font-size: 0.6rem;">
+                0
+              </span>
+            </a>
+          </li>
           <li class="nav-item ms-lg-3"><a href="contact.html" class="btn btn-primary btn-tech px-4">Enroll Now</a></li>
         </ul>
       </div>
@@ -266,53 +55,79 @@
   </nav>
 
   <div class="container py-5">
-    <section class="row mb-5 text-center">
-      <div class="col-lg-10 mx-auto">
-        <span class="section-label">Our Program</span>
-        <h1 class="display-4 fw-bold mb-5" style="color: var(--tech-blue);">Online Robotics Courses for Kids</h1>
-        <div class="video-container shadow-lg">
-          <iframe src="https://www.youtube.com/embed/HvMQONnCXbE" width="100%" height="500" frameborder="0"
-            allowfullscreen></iframe>
+    <!-- HERO SECTION -->
+    <section class="hero-section d-flex align-items-center position-relative mb-5"
+      style="min-height: 400px; padding-top: 80px;">
+      <div class="container position-relative z-2 text-center">
+        <span class="badge bg-warning text-dark fw-bold mb-3 px-3 py-2 rounded-pill shadow-sm">FUTURE READY
+          SKILLS</span>
+        <h1 class="display-3 fw-bold mb-4 text-white">Robotics & AI Courses for Kids</h1>
+        <p class="lead text-white-50 mx-auto mb-5" style="max-width: 700px;">
+          Empower your child with hands-on learning in Robotics, Coding, and Artificial Intelligence.
+          Our curriculum is designed to spark creativity and build future innovators.
+        </p>
+        <a href="#courses-list" class="btn btn-tech btn-lg px-5 py-3 rounded-pill shadow-lg">Explore Courses <i
+            class="fas fa-arrow-down ms-2"></i></a>
+      </div>
+    </section>
+
+    <!-- VIDEO SECTION (Moved below hero) -->
+    <section class="container mb-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="video-container shadow-lg" style="border: 4px solid var(--accent-gold);">
+            <iframe src="https://www.youtube.com/embed/HvMQONnCXbE" width="100%" height="500" frameborder="0"
+              allowfullscreen></iframe>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="row g-5 py-5 align-items-center">
-      <div class="col-lg-6">
-        <span class="section-label">Why Us</span>
-        <h2 class="fw-bold mb-4">The best early learning experience</h2>
-        <p class="text-muted lh-lg mb-4">We offer a wide range of courses and programs designed to introduce students to
-          the exciting fields of robotics coding and AI. From introductory workshops for beginners to advanced courses
-          for aspiring engineers, our curriculum covers topics such as robot programming, machine learning, computer
-          vision, and more.</p>
-        <p class="text-muted lh-lg">At Robo AIA Paths, we believe in hands-on, project-based learning. Our courses are
-          designed to be interactive and engaging, allowing students to apply theoretical concepts to real-world
-          challenges.</p>
+      <div class="col-lg-5">
+        <span class="badge bg-light text-primary fw-bold mb-3 border px-3 py-2 rounded-pill">WHY CHOOSE US</span>
+        <h2 class="display-6 fw-bold mb-4">The Best Early Learning Experience</h2>
+        <p class="text-muted lh-lg mb-4">
+          From introductory workshops for beginners to advanced courses for aspiring engineers, our curriculum covers
+          robot programming, machine learning, computer vision, and more.
+        </p>
+        <div class="d-flex gap-3">
+          <div class="d-flex align-items-center gap-2">
+            <i class="fas fa-check-circle text-success"></i> <span class="fw-bold small">Project Based</span>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <i class="fas fa-check-circle text-success"></i> <span class="fw-bold small">Expert Mentors</span>
+          </div>
+        </div>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-7">
         <div class="row g-3">
           <div class="col-md-6">
-            <div class="feature-item">
-              <h6>Experienced Instructors</h6>
+            <div class="feature-item p-4 shadow-sm h-100 bg-white rounded-4 border-0 position-relative overflow-hidden">
+              <div class="mb-3 text-primary"><i class="fas fa-chalkboard-teacher fa-2x"></i></div>
+              <h6 class="fw-bold">Experienced Instructors</h6>
               <p class="small text-muted mb-0">Industry professionals with years of experience in robotics and AI.</p>
             </div>
           </div>
           <div class="col-md-6">
-            <div class="feature-item">
-              <h6>Comprehensive Curriculum</h6>
+            <div class="feature-item p-4 shadow-sm h-100 bg-white rounded-4 border-0 position-relative overflow-hidden">
+              <div class="mb-3 text-warning"><i class="fas fa-book-open fa-2x"></i></div>
+              <h6 class="fw-bold">Comprehensive Curriculum</h6>
               <p class="small text-muted mb-0">Courses covering various aspects of robotics and artificial intelligence.
               </p>
             </div>
           </div>
           <div class="col-md-6">
-            <div class="feature-item">
-              <h6>Flexible Learning Options</h6>
+            <div class="feature-item p-4 shadow-sm h-100 bg-white rounded-4 border-0 position-relative overflow-hidden">
+              <div class="mb-3 text-success"><i class="fas fa-laptop-house fa-2x"></i></div>
+              <h6 class="fw-bold">Flexible Learning</h6>
               <p class="small text-muted mb-0">In-person or online learning to suit your schedule and style.</p>
             </div>
           </div>
           <div class="col-md-6">
-            <div class="feature-item">
-              <h6>Supportive Community</h6>
+            <div class="feature-item p-4 shadow-sm h-100 bg-white rounded-4 border-0 position-relative overflow-hidden">
+              <div class="mb-3 text-info"><i class="fas fa-users fa-2x"></i></div>
+              <h6 class="fw-bold">Supportive Community</h6>
               <p class="small text-muted mb-0">Join a vibrant community who share your passion for technology.</p>
             </div>
           </div>
@@ -320,197 +135,275 @@
       </div>
     </section>
 
-    <section class="course-row row g-0">
-      <div class="col-lg-7 course-content">
-        <h2 class="fw-bold text-primary">Junior Level</h2>
-        <div class="row my-3 small fw-bold text-muted">
-          <div class="col-4">Duration: 15 Classes</div>
-          <div class="col-4">Level: Beginners</div>
-          <div class="col-4">Age: 7-9</div>
+    <div id="courses-list" class="mb-5"></div>
+
+    <section class="course-row row g-0 overflow-hidden mb-5 tech-border" id="junior" data-aos="fade-up">
+      <div class="col-lg-7 course-content p-5 d-flex flex-column justify-content-center">
+        <div class="mb-2">
+          <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3 py-1">JUNIOR
+            LEVEL</span>
         </div>
-        <p class="text-muted small lh-lg">Learn the fundamentals of robotics, including basic mechanical design, sensors
-          and actuators. Ideal starting point for robotics for beginners.</p>
-        <ul class="small text-muted mb-0">
-          <li>Basics of robotics</li>
-          <li>Introduction to sensors and actuators</li>
-          <li>Basic robot programming</li>
+        <h2 class="fw-bold mb-3" style="color: var(--dark-navy);">Introduction to Robotics</h2>
+
+        <div class="d-flex gap-3 mb-4 text-muted small">
+          <div class="d-flex align-items-center gap-1"><i class="far fa-clock text-warning"></i> 15 Classes</div>
+          <div class="d-flex align-items-center gap-1"><i class="fas fa-signal text-success"></i> Beginner</div>
+          <div class="d-flex align-items-center gap-1"><i class="far fa-user text-info"></i> Age 7-9</div>
+        </div>
+
+        <p class="text-muted mb-4 lh-lg">
+          Perfect strictly for beginners! Learn the fundamentals of robotics, including basic mechanical design, sensors
+          and actuators.
+          Build your first robot and understand how machines think.
+        </p>
+
+        <ul class="list-unstyled mb-4 small text-muted">
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Basics of robotics mechanics</li>
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Introduction to sensors & actuators</li>
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Basic block-based programming</li>
         </ul>
-        <a href="contact.html" class="btn btn-tech w-fit">Enroll your kid</a>
+
+        <a href="contact.html" class="btn btn-tech w-fit px-4 py-2 shadow-sm">Enroll Now <i
+            class="fas fa-arrow-right ms-2"></i></a>
       </div>
-      <div class="col-lg-5 course-img-wrap">
-        <img src="img/course/page3-img.jpg" alt="Junior Level">
+      <div class="col-lg-5 course-img-wrap position-relative">
+        <div class="position-absolute top-0 end-0 m-3 z-2">
+          <span class="badge bg-whitetext-dark shadow-sm px-3 py-2 rounded-pill bg-white"><i
+              class="fas fa-star text-warning"></i> Popular</span>
+        </div>
+        <img src="img/course/page3-img.jpg" alt="Junior Level Robotics">
       </div>
     </section>
 
-    <section class="course-row row g-0 flex-lg-row-reverse">
-      <div class="col-lg-7 course-content">
-        <h2 class="fw-bold text-primary">Robo Expert</h2>
-        <div class="row my-3 small fw-bold text-muted">
-          <div class="col-4">Duration: 15 Classes</div>
-          <div class="col-4">Level: Intermediate</div>
-          <div class="col-4">Age: 10-12</div>
+    <section class="course-row row g-0 flex-lg-row-reverse overflow-hidden mb-5" data-aos="fade-up">
+      <div class="col-lg-7 course-content p-5 d-flex flex-column justify-content-center">
+        <div class="mb-2">
+          <span
+            class="badge bg-warning-subtle text-warning-emphasis border border-warning-subtle rounded-pill px-3 py-1">ROBO
+            EXPERT</span>
         </div>
-        <p class="text-muted small lh-lg">Dive deeper into robotic kinematics, dynamics, and automation systems. Gain
-          practical experience with complex robotic systems and AI basics.</p>
-        <ul class="small text-muted mb-0">
-          <li>Robotic kinematics and dynamics</li>
-          <li>Automation systems</li>
-          <li>IOT and AI Integration</li>
+        <h2 class="fw-bold mb-3" style="color: var(--dark-navy);">Robo Expert</h2>
+
+        <div class="d-flex gap-3 mb-4 text-muted small">
+          <div class="d-flex align-items-center gap-1"><i class="far fa-clock text-warning"></i> 15 Classes</div>
+          <div class="d-flex align-items-center gap-1"><i class="fas fa-signal text-warning"></i> Intermediate</div>
+          <div class="d-flex align-items-center gap-1"><i class="far fa-user text-info"></i> Age 10-12</div>
+        </div>
+
+        <p class="text-muted mb-4 lh-lg">
+          Dive deeper into robotic kinematics, dynamics, and automation systems. Gain practical experience with complex
+          robotic systems, IoT, and AI integration.
+        </p>
+
+        <ul class="list-unstyled mb-4 small text-muted">
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Robotic kinematics & dynamics</li>
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Automation systems</li>
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> IoT and AI Integration</li>
         </ul>
-        <a href="contact.html" class="btn btn-tech w-fit">Enroll your kid</a>
+
+        <a href="contact.html" class="btn btn-tech w-fit px-4 py-2 shadow-sm">Enroll Now <i
+            class="fas fa-arrow-right ms-2"></i></a>
       </div>
-      <div class="col-lg-5 course-img-wrap">
+      <div class="col-lg-5 course-img-wrap position-relative">
+        <div class="position-absolute top-0 start-0 m-3 z-2">
+          <span class="badge bg-white text-dark shadow-sm px-3 py-2 rounded-pill"><i
+              class="fas fa-bolt text-warning"></i> Trending</span>
+        </div>
         <img src="img/course/page4-img.jpg" alt="Robo Expert">
       </div>
     </section>
 
-    <section class="course-row row g-0">
-      <div class="col-lg-7 course-content">
-        <h2 class="fw-bold text-primary">Robo Advance</h2>
-        <div class="row my-3 small fw-bold text-muted">
-          <div class="col-4">Duration: 15 Classes</div>
-          <div class="col-4">Level: Expert</div>
-          <div class="col-4">Age: 13+</div>
+    <section class="course-row row g-0 overflow-hidden mb-5" data-aos="fade-up">
+      <div class="col-lg-7 course-content p-5 d-flex flex-column justify-content-center">
+        <div class="mb-2">
+          <span
+            class="badge bg-danger-subtle text-danger border border-danger-subtle rounded-pill px-3 py-1">ADVANCED</span>
         </div>
-        <p class="text-muted small lh-lg">Master Python and C++ for robotics. Focus on coding algorithms and Machine
-          Learning concepts used in professional robotics.</p>
-        <ul class="small text-muted mb-0">
-          <li>Python for robotics</li>
-          <li>Concept of Machine Learning</li>
-          <li>Advanced Coding algorithms</li>
+        <h2 class="fw-bold mb-3" style="color: var(--dark-navy);">Robo Advance</h2>
+
+        <div class="d-flex gap-3 mb-4 text-muted small">
+          <div class="d-flex align-items-center gap-1"><i class="far fa-clock text-warning"></i> 15 Classes</div>
+          <div class="d-flex align-items-center gap-1"><i class="fas fa-signal text-danger"></i> Expert</div>
+          <div class="d-flex align-items-center gap-1"><i class="far fa-user text-info"></i> Age 13+</div>
+        </div>
+
+        <p class="text-muted mb-4 lh-lg">
+          Master Python and C++ for robotics. Focus on coding algorithms and Machine Learning concepts used in
+          professional robotics engineering.
+        </p>
+
+        <ul class="list-unstyled mb-4 small text-muted">
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Python for robotics</li>
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Concept of Machine Learning</li>
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Advanced Coding algorithms</li>
         </ul>
-        <a href="contact.html" class="btn btn-tech w-fit">Enroll your kid</a>
+
+        <a href="contact.html" class="btn btn-tech w-fit px-4 py-2 shadow-sm">Enroll Now <i
+            class="fas fa-arrow-right ms-2"></i></a>
       </div>
-      <div class="col-lg-5 course-img-wrap">
+      <div class="col-lg-5 course-img-wrap position-relative">
+        <div class="position-absolute top-0 end-0 m-3 z-2">
+          <span class="badge bg-white text-dark shadow-sm px-3 py-2 rounded-pill"><i
+              class="fas fa-award text-danger"></i> Certified</span>
+        </div>
         <img src="img/course/page5-img.jpg" alt="Robo Advance">
       </div>
     </section>
 
-    <section class="course-row row g-0 flex-lg-row-reverse">
-      <div class="col-lg-7 course-content">
-        <h2 class="fw-bold text-primary">Coding</h2>
-        <div class="small fw-bold text-muted mb-3">
+    <section class="course-row row g-0 flex-lg-row-reverse overflow-hidden mb-5" data-aos="fade-up">
+      <div class="col-lg-7 course-content p-5 d-flex flex-column justify-content-center">
+        <div class="mb-2">
+          <span class="badge bg-info-subtle text-info-emphasis border border-info-subtle rounded-pill px-3 py-1">CODING
+            & AI</span>
+        </div>
+        <h2 class="fw-bold mb-3" style="color: var(--dark-navy);">Coding & AI</h2>
+
+        <div class="d-flex gap-3 mb-4 text-muted small">
+          <div class="d-flex align-items-center gap-1"><i class="far fa-clock text-warning"></i> Multi-Level</div>
+          <div class="d-flex align-items-center gap-1"><i class="fas fa-signal text-primary"></i> All Levels</div>
+        </div>
+
+        <div class="small fw-bold text-muted mb-3 p-2 bg-light rounded">
           Level 1: Game Designer (15 classes) | Level 2: Web Dev (10 classes) | Level 3: Python & C++ (15 classes)
         </div>
-        <p class="text-muted small lh-lg">Learn about machine learning, neural networks, and AI algorithms that power
-          modern technology. Integrated robotics course component included.</p>
-        <ul class="small text-muted mb-0">
-          <li>Fundamentals of AI</li>
-          <li>Machine learning basics</li>
-          <li>Neural networks & applications</li>
+
+        <p class="text-muted mb-4 lh-lg">
+          Learn about machine learning, neural networks, and AI algorithms that power modern technology. Integrated
+          robotics course component included.
+        </p>
+
+        <ul class="list-unstyled mb-4 small text-muted">
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Fundamentals of AI</li>
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Machine learning basics</li>
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Neural networks & applications</li>
         </ul>
-        <a href="contact.html" class="btn btn-tech w-fit">Enroll your kid</a>
+
+        <a href="contact.html" class="btn btn-tech w-fit px-4 py-2 shadow-sm">Enroll Now <i
+            class="fas fa-arrow-right ms-2"></i></a>
       </div>
       <div class="col-lg-5 course-img-wrap">
         <img src="img/course/page6-img.jpg" alt="Coding">
       </div>
     </section>
 
-    <section class="course-row row g-0">
-      <div class="col-lg-7 course-content">
-        <h2 class="fw-bold text-primary">Mechatronics Courses</h2>
-        <div class="row my-3 small fw-bold text-muted">
-          <div class="col-6">Duration: 25 Classes</div>
-          <div class="col-6">Level: Advance</div>
+    <section class="course-row row g-0 overflow-hidden mb-5" data-aos="fade-up">
+      <div class="col-lg-7 course-content p-5 d-flex flex-column justify-content-center">
+        <div class="mb-2">
+          <span
+            class="badge bg-secondary-subtle text-secondary-emphasis border border-secondary-subtle rounded-pill px-3 py-1">SPECIALIZATION</span>
         </div>
-        <p class="text-muted small lh-lg">Mathematical models for positioning and controlling industrial robots. Covers
-          advanced AI techniques including deep and reinforcement learning.</p>
-        <ul class="small text-muted mb-0">
-          <li>Deep learning for robotics</li>
-          <li>Reinforcement learning</li>
-          <li>AI-driven robotic applications</li>
+        <h2 class="fw-bold mb-3" style="color: var(--dark-navy);">Mechatronics Courses</h2>
+
+        <div class="d-flex gap-3 mb-4 text-muted small">
+          <div class="d-flex align-items-center gap-1"><i class="far fa-clock text-warning"></i> 25 Classes</div>
+          <div class="d-flex align-items-center gap-1"><i class="fas fa-signal text-danger"></i> Advanced</div>
+        </div>
+
+        <p class="text-muted mb-4 lh-lg">
+          Mathematical models for positioning and controlling industrial robots. Covers advanced AI techniques including
+          deep and reinforcement learning.
+        </p>
+
+        <ul class="list-unstyled mb-4 small text-muted">
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Deep learning for robotics</li>
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Reinforcement learning</li>
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> AI-driven robotic applications</li>
         </ul>
-        <a href="contact.html" class="btn btn-tech w-fit">Enroll your kid</a>
+
+        <a href="contact.html" class="btn btn-tech w-fit px-4 py-2 shadow-sm">Enroll Now <i
+            class="fas fa-arrow-right ms-2"></i></a>
       </div>
       <div class="col-lg-5 course-img-wrap">
         <img src="img/course/page7-img.jpg" alt="Mechatronics">
       </div>
     </section>
 
-    <section class="course-row row g-0 flex-lg-row-reverse">
-      <div class="col-lg-7 course-content">
-        <h2 class="fw-bold text-primary">Web Development</h2>
-        <div class="my-3 small fw-bold text-muted">Duration: 40 Hours</div>
-        <p class="text-muted small lh-lg">Unlock Your Potential with Our Web Development Course! Structure and style
-          your web pages with modern dynamic features.</p>
-        <ul class="small text-muted mb-0">
-          <li>HTML & CSS: Structure and style</li>
-          <li>JavaScript: Interactivity</li>
-          <li>Responsive Mobile Design</li>
+    <section class="course-row row g-0 flex-lg-row-reverse overflow-hidden mb-5" data-aos="fade-up">
+      <div class="col-lg-7 course-content p-5 d-flex flex-column justify-content-center">
+        <div class="mb-2">
+          <span class="badge bg-purple-subtle text-purple-emphasis border border-purple-subtle rounded-pill px-3 py-1"
+            style="background-color: #e9d5ff; color: #6b21a8; border-color: #d8b4fe;">CREATIVE</span>
+        </div>
+        <h2 class="fw-bold mb-3" style="color: var(--dark-navy);">Web Development</h2>
+
+        <div class="d-flex gap-3 mb-4 text-muted small">
+          <div class="d-flex align-items-center gap-1"><i class="far fa-clock text-warning"></i> 40 Hours</div>
+          <div class="d-flex align-items-center gap-1"><i class="fas fa-laptop-code text-primary"></i> Practical</div>
+        </div>
+
+        <p class="text-muted mb-4 lh-lg">
+          Unlock Your Potential with Our Web Development Course! Structure and style your web pages with modern dynamic
+          features.
+        </p>
+
+        <ul class="list-unstyled mb-4 small text-muted">
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> HTML & CSS: Structure and style</li>
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> JavaScript: Interactivity</li>
+          <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Responsive Mobile Design</li>
         </ul>
-        <a href="contact.html" class="btn btn-tech w-fit">Enroll your kid</a>
+
+        <a href="contact.html" class="btn btn-tech w-fit px-4 py-2 shadow-sm">Enroll Now <i
+            class="fas fa-arrow-right ms-2"></i></a>
       </div>
       <div class="col-lg-5 course-img-wrap">
         <img src="img/course/page8-img.avif" alt="Web Development">
       </div>
     </section>
 
-    <div class="row pb-5">
-      <div class="col-6 p-4 kit-item">
-        <img src="img/plug&playkit.jpg" class="w-100 rounded-4 h-100" alt="">
-      </div>
-      <div class="col-6 col-lg-3 p-4 kit-item">
-        <img src="img/fantasycastle.jpg" class="w-100 rounded-4 h-100" alt="">
-      </div>
-      <div class="col-6 col-lg-3 p-4 kit-item">
-        <img src="img/smartrover.jpg" class="w-100 rounded-4 h-100" alt="">
-      </div>
-      <div class="col-6 col-lg-3 p-4 kit-item">
-        <img src="img/robocar.jpg" class="w-100 rounded-4 h-100" alt="">
-      </div>
-      <div class="col-6 col-lg-3 p-4 kit-item">
-        <img src="img/nonProgrammingKit.jpg" class="w-100 rounded-4 h-100" alt="">
-      </div>
-      <div class="col-6 p-4 kit-item">
-        <img src="img/innovate&automate.jpg" class="w-100 rounded-4 h-100" alt="">
-      </div>
-    </div>
+
+
 
     <footer id="footer">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-lg-3">
+      <div class="container text-start">
+        <div class="row g-4 mb-5">
+          <div class="col-lg-3 col-md-6">
             <img src="img/logo.jpeg" class="w-50 mb-4 rounded" alt="Robo AIA">
-            <p class="small text-muted">A wide range of courses & programs designed to introduce students to the
-              exciting fields of robotics coding and AI.</p>
+            <p class="small">Introduction to the exciting fields of robotics coding and AI through comprehensive
+              courses.
+            </p>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-md-6">
             <h5 class="fw-bold mb-4">Quick Link</h5>
             <ul class="list-unstyled small">
-              <li><a href="#">Demo Test</a></li>
-              <li><a href="#">Gallery</a></li>
-              <li><a href="#">Testimonials</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="contact.html">Demo Test</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="index.html#testimonials">Testimonials</a></li>
+              <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-md-6">
             <h5 class="fw-bold mb-4">Courses</h5>
             <ul class="list-unstyled small">
-              <li><a href="#">Junior Level</a></li>
-              <li><a href="#">Robo Expert</a></li>
-              <li><a href="#">Robo Advance</a></li>
-              <li><a href="#">Coding</a></li>
+              <li><a href="program.html#junior">Junior Level</a></li>
+              <li><a href="program.html#expert">Robo Expert</a></li>
+              <li><a href="program.html#advance">Robo Advance</a></li>
+              <li><a href="program.html#coding">Coding</a></li>
             </ul>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-3 col-md-6">
             <h5 class="fw-bold mb-4">Get in touch</h5>
-            <p class="small text-muted mb-1">S7, RPS Savana, Sector 88, Faridabad</p>
-            <p class="small text-muted mb-1">+91 9990911093</p>
-            <p class="small text-muted mb-4">roboaiapaths@gmail.com</p>
+            <p class="small mb-1 text-muted">S7, RPS Savana, Sector 88, Faridabad</p>
+            <p class="small mb-1 text-muted">+91 9990911093</p>
+            <p class="small mb-3 text-muted">roboaiapaths@gmail.com</p>
             <div class="d-flex">
-              <a href="#"><img src="img/facebookLogo.png" class="social-icon" alt="Facebook"></a>
-              <a href="#"><img src="img/instagramLogo.png" class="social-icon" alt="Instagram"></a>
+              <a href="https://www.facebook.com/profile.php?id=61561157124167&mibextid=ZbWKwL" target="_blank"><img
+                  src="img/facebookLogo.png" class="social-icon" alt=""></a>
+              <a href="https://www.instagram.com/roboaiapaths?igsh=MWdmNXZnYXY0ejdhYw==" target="_blank"><img
+                  src="img/instagramLogo.png" class="social-icon" alt=""></a>
             </div>
           </div>
         </div>
-        <div class="border-top mt-5 pt-4 text-center">
-          <p class="small text-muted">Copyright © 2026 roboaiapaths.com. All Rights Reserved.</p>
-        </div>
+        <hr class="opacity-10">
+        <p class="text-center small text-muted mb-0">Copyright © 2026 roboaiapaths.com | Aegis of AGPK Academy. All
+          Rights Reserved.</p>
       </div>
     </footer>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
 </body>
 
 </html>

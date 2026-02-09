@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shopping Cart | Robo AIA Paths</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        :root {
+            --tech-blue: #006eff;
+            --dark-navy: #0f172a;
+            --bg-light: #f8fafc;
+            --card-hover: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            background-color: var(--bg-light);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--dark-navy);
+        }
+
+        /* Navbar Glass Effect */
+        .navbar {
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 0.8rem 0;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--dark-navy) !important;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--tech-blue) !important;
+        }
+
+        .btn-tech {
+            background-color: var(--tech-blue);
+            color: white;
+            border-radius: 50px;
+            font-weight: 700;
+            padding: 0.8rem 2rem;
+            transition: var(--card-hover);
+            border: none;
+        }
+
+        .btn-tech:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 110, 255, 0.4);
+            background-color: #0056cc;
+        }
+
+        .cart-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            border: none;
+            overflow: hidden;
+        }
+
+        .table thead th {
+            border-top: none;
+            border-bottom: 2px solid #f1f5f9;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            color: #64748b;
+            padding-bottom: 15px;
+        }
+
+        .table td {
+            border-bottom: 1px solid #f1f5f9;
+            padding: 20px 10px;
+        }
+
+        .cart-summary {
+            background: var(--dark-navy);
+            color: white;
+            border-radius: 24px;
+            padding: 30px;
+        }
+    </style>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand">
+                <img src="img/logo.jpeg" height="50" class="rounded" alt="Logo">
+            </a>
+            <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-center gap-3">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="kits.html" class="nav-link">Kits</a></li>
+                    <li class="nav-item">
+                        <a href="cart.html" class="nav-link text-primary position-relative">
+                            <i class="fas fa-shopping-cart fa-lg"></i>
+                            <span id="cart-badge"
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                style="display:none; font-size: 0.6rem;">
+                                0
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-5">
+        <div class="container">
+            <h1 class="fw-bold mb-4">Your Shopping Cart</h1>
+
+            <div class="row g-5">
+                <div class="col-lg-8">
+                    <div class="cart-card p-4">
+                        <div class="table-responsive">
+                            <table class="table table-borderless mb-0">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 40%">Product</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cart-items">
+                                    <!-- Items injected by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="cart-summary shadow-lg">
+                        <h4 class="fw-bold mb-4">Order Summary</h4>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="text-white-50">Subtotal</span>
+                            <span class="fw-bold" id="cart-total">₹ 0</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="text-white-50">Shipping</span>
+                            <span class="fw-bold text-success">Free</span>
+                        </div>
+                        <hr class="border-secondary">
+                        <div class="d-flex justify-content-between mb-4">
+                            <span class="fs-5 fw-bold">Total</span>
+                            <span class="fs-5 fw-bold" id="cart-total-final">₹ 0</span>
+                            <!-- Actually same as cart-total for now -->
+                        </div>
+                        <a href="checkout.html" class="btn btn-primary w-100 py-3 fw-bold rounded-pill shadow-sm"
+                            style="background: var(--tech-blue); border:none;">Proceed to Checkout</a>
+                        <a href="kits.html"
+                            class="btn btn-outline-light w-100 py-3 fw-bold rounded-pill mt-3 border-0 bg-white bg-opacity-10">Continue
+                            Shopping</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        // Sync final total
+        setInterval(() => {
+            const total = document.getElementById('cart-total');
+            const final = document.getElementById('cart-total-final');
+            if (total && final) final.innerText = total.innerText;
+        }, 500);
+    </script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({duration: 1000, once: true});</script>
+</body>
+
+</html>

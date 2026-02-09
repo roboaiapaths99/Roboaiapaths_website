@@ -10,149 +10,103 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <style>
-    :root {
-      --tech-blue: #006eff;
-      --dark-navy: #0f172a;
-      --bg-light: #f8fafc;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Robust Masonry Layout */
+    .gallery-container {
+      column-count: 3;
+      column-gap: 20px;
     }
 
-    html,
-    body {
-      max-width: 100%;
-      overflow-x: hidden;
-      background-color: var(--bg-light);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: var(--dark-navy);
-      scroll-behavior: smooth;
+    @media (max-width: 992px) {
+      .gallery-container {
+        column-count: 2;
+      }
     }
 
-    /* Navbar - Glass Effect (Consistent with previous pages) */
-    .navbar {
-      backdrop-filter: blur(15px);
-      background: rgba(255, 255, 255, 0.9);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      padding: 0.8rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 1050;
+    @media (max-width: 576px) {
+      .gallery-container {
+        column-count: 1;
+      }
     }
 
-    .navbar-brand img {
-      height: 50px;
-      border-radius: 8px;
-    }
-
-    .nav-link {
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 20px;
       position: relative;
-      font-weight: 600;
-      transition: var(--transition);
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: 0;
-      left: 50%;
-      background-color: var(--tech-blue);
-      transition: var(--transition);
-      transform: translateX(-50%);
-    }
-
-    .nav-link:hover::after {
-      width: 80%;
-    }
-
-    .nav-link:hover {
-      color: var(--tech-blue) !important;
-    }
-
-    /* Gallery Styling */
-    #head {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 800;
-      letter-spacing: 2px;
-      color: var(--tech-blue);
-      margin-bottom: 50px;
-    }
-
-    /* Interactive Image Cards */
-    .gallery-card {
-      position: relative;
-      border-radius: 24px;
+      border-radius: 16px;
       overflow: hidden;
-      background: white;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-      transition: var(--transition);
       cursor: pointer;
-      height: 300px;
-      /* Fixed height for uniformity */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #f0f0f0;
+      /* Placeholder color */
     }
 
-    .gallery-card img {
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-item img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
+      height: auto;
+      display: block;
+      border-radius: 16px;
+      transition: transform 0.5s ease;
     }
 
-    /* CSS Only Hover Effects */
-    .gallery-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(0, 110, 255, 0.15);
+    .gallery-item:hover img {
+      transform: scale(1.05);
     }
 
-    .gallery-card:hover img {
-      transform: scale(1.1);
-      filter: brightness(0.8);
-    }
-
-    /* Label overlay that appears on hover */
-    .gallery-overlay {
-      position: absolute;
-      bottom: -100%;
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
       left: 0;
       width: 100%;
-      padding: 20px;
-      background: linear-gradient(transparent, rgba(15, 23, 42, 0.9));
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox.show {
+      opacity: 1;
+    }
+
+    .lightbox-img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+
+    .lightbox.show .lightbox-img {
+      transform: scale(1);
+    }
+
+    .close-lightbox {
+      position: absolute;
+      top: 30px;
+      right: 30px;
       color: white;
-      transition: var(--transition);
+      font-size: 40px;
+      cursor: pointer;
+      z-index: 10000;
+      transition: color 0.3s ease;
     }
 
-    .gallery-card:hover .gallery-overlay {
-      bottom: 0;
-    }
-
-    /* Footer */
-    #footer {
-      background: white;
-      padding: 80px 0 30px;
-      border-top: 1px solid #e2e8f0;
-    }
-
-    #footer a {
-      text-decoration: none;
-      color: #64748b;
-      transition: 0.3s;
-    }
-
-    #footer a:hover {
-      color: var(--tech-blue);
-      padding-left: 5px;
-    }
-
-    .social-icon {
-      width: 30px;
-      transition: 0.3s;
-      margin: 0 10px;
-    }
-
-    .social-icon:hover {
-      transform: scale(1.2) rotate(10deg);
+    .close-lightbox:hover {
+      color: var(--primary);
     }
   </style>
 </head>
@@ -172,124 +126,159 @@
           <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
           <li class="nav-item"><a href="program.html" class="nav-link">Courses</a></li>
-          <!-- <li class="nav-item"><a href="kits.html" class="nav-link">Kits</a></li> -->
+          <li class="nav-item"><a href="kits.html" class="nav-link">Kits</a></li>
           <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-          <li class="nav-item"><a href="join-as-a-trainer.html" class="nav-link">Join Us As A Trainer</a></li>
-          <li class="nav-item"><a href="partner-with-school.html" class="nav-link">Partner with School</a></li>
+
+          <li class="nav-item"><a href="partner-with-school.html" class="nav-link">AIRobotic Labs</a></li>
           <li class="nav-item"><a href="gallery.html" class="nav-link text-primary">Gallery</a></li>
+          <li class="nav-item">
+            <a href="cart.html" class="nav-link position-relative">
+              <i class="fas fa-shopping-cart"></i>
+              <span id="cart-badge"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                style="display:none; font-size: 0.6rem;">
+                0
+              </span>
+            </a>
+          </li>
           <li class="nav-item ms-lg-3"><a href="contact.html" class="btn btn-primary btn-tech px-4">Enroll Now</a></li>
         </ul>
       </div>
     </div>
   </nav>
+
   <div class="container py-5">
-    <div class="text-center">
-      <h1 id="head">GALLERY</h1>
-      <p class="text-muted mb-5">Exploring moments of innovation, creativity, and hands-on learning at Robo AIA Paths.
+    <div class="text-center mb-5">
+      <h1 id="head" class="fw-bold display-4">OUR GALLERY</h1>
+      <p class="lead text-muted mx-auto" style="max-width: 700px;">
+        Exploring moments of innovation, creativity, and hands-on learning at Robo AIA Paths.
       </p>
     </div>
 
-    <div class="row g-4">
-      <div class="col-lg-4 col-md-6">
-        <div class="gallery-card shadow-sm">
-          <img src="img/home/page7img1.png" alt="Robotics Workshop">
-          <div class="gallery-overlay">
-            <h6 class="fw-bold mb-0">Hands-on Robotics</h6>
-            <p class="small mb-0 opacity-75">Interactive learning sessions</p>
-          </div>
-        </div>
+    <!-- Gallery Grid with Lazy Loading -->
+    <div class="gallery-container">
+      <div class="gallery-item">
+        <img src="img/new_assets/hero_family_1.png" loading="lazy" alt="Collaborative Learning">
       </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="gallery-card shadow-sm">
-          <img src="img/home/banner-coding.jpg" alt="Coding Class">
-          <div class="gallery-overlay">
-            <h6 class="fw-bold mb-0">Coding Foundations</h6>
-            <p class="small mb-0 opacity-75">Logic & Algorithm Building</p>
-          </div>
-        </div>
+      <div class="gallery-item">
+        <img src="img/new_assets/student_boy.jpg" loading="lazy" alt="Young Innovators">
       </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="gallery-card shadow-sm">
-          <img src="img/home/bannerImage1.png" alt="Robo Kits">
-          <div class="gallery-overlay">
-            <h6 class="fw-bold mb-0">Tech Innovation</h6>
-            <p class="small mb-0 opacity-75">Building Future Ready Skills</p>
-          </div>
-        </div>
+      <div class="gallery-item">
+        <img src="img/new_assets/course_intro_robotics_indian_1770636191013.png" loading="lazy" alt="Tech Exploration">
       </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="gallery-card shadow-sm">
-          <img src="img/partner/partnerWithSchool2.png" alt="School Partnership">
-          <div class="gallery-overlay">
-            <h6 class="fw-bold mb-0">School Labs</h6>
-            <p class="small mb-0 opacity-75">Empowering Institutions</p>
-          </div>
-        </div>
+      <div class="gallery-item">
+        <img src="img/new_assets/student_girls.jpg" loading="lazy" alt="Girls in STEM">
       </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="gallery-card shadow-sm">
-          <img src="img/home/image-4.jpg" alt="Student Projects">
-          <div class="gallery-overlay">
-            <h6 class="fw-bold mb-0">Project Showcase</h6>
-            <p class="small mb-0 opacity-75">Creative Engineering</p>
-          </div>
-        </div>
+      <div class="gallery-item">
+        <img src="img/new_assets/hero_family_2.png" loading="lazy" alt="Future Families">
       </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="gallery-card shadow-sm">
-          <img src="img/home/page7img6.png" alt="STEM Learning">
-          <div class="gallery-overlay">
-            <h6 class="fw-bold mb-0">Advanced AI</h6>
-            <p class="small mb-0 opacity-75">Future of Technology</p>
-          </div>
-        </div>
+      <div class="gallery-item">
+        <img src="img/new_assets/gallery_indian_robotics_group_1770638649731.png" loading="lazy" alt="Robotics Group">
+      </div>
+      <div class="gallery-item">
+        <img src="img/new_assets/course_robotics_indian_1770636256983.png" loading="lazy" alt="Deep Dive Robotics">
+      </div>
+      <div class="gallery-item">
+        <img src="img/new_assets/kit_showcase.jpg" loading="lazy" alt="Kit Showcase">
       </div>
     </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="Full Screen Image">
   </div>
 
   <footer id="footer">
     <div class="container text-start">
       <div class="row g-4 mb-5">
         <div class="col-lg-3 col-md-6">
-          <img src="img/logo.jpeg" class="w-75 mb-4 rounded" alt="Logo">
-          <p class="small text-muted">We offer a wide range of courses & programs designed to introduce students to the
-            exciting fields of robotics coding and AI.</p>
+          <img src="img/logo.jpeg" class="w-50 mb-4 rounded" alt="Robo AIA">
+          <p class="small">Introduction to the exciting fields of robotics coding and AI through comprehensive
+            courses.
+          </p>
         </div>
         <div class="col-lg-3 col-md-6">
           <h5 class="fw-bold mb-4">Quick Link</h5>
           <ul class="list-unstyled small">
-            <li><a href="#">Demo Test</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Testimonials</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="contact.html">Demo Test</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="index.html#testimonials">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="col-lg-3 col-md-6">
           <h5 class="fw-bold mb-4">Courses</h5>
           <ul class="list-unstyled small">
-            <li><a href="#">Junior Level</a></li>
-            <li><a href="#">Robo Expert</a></li>
-            <li><a href="#">Robo Advance</a></li>
-            <li><a href="#">Coding</a></li>
+            <li><a href="program.html#junior">Junior Level</a></li>
+            <li><a href="program.html#expert">Robo Expert</a></li>
+            <li><a href="program.html#advance">Robo Advance</a></li>
+            <li><a href="program.html#coding">Coding</a></li>
           </ul>
         </div>
         <div class="col-lg-3 col-md-6">
           <h5 class="fw-bold mb-4">Get in touch</h5>
-          <p class="small text-muted mb-1">S7, RPS Savana, Sector 88, Faridabad</p>
-          <p class="small text-muted mb-4">+91 9990911093</p>
+          <p class="small mb-1 text-muted">S7, RPS Savana, Sector 88, Faridabad</p>
+          <p class="small mb-1 text-muted">+91 9990911093</p>
+          <p class="small mb-3 text-muted">roboaiapaths@gmail.com</p>
           <div class="d-flex">
-            <a href="#"><img src="img/facebookLogo.png" class="social-icon" alt="FB"></a>
-            <a href="#"><img src="img/instagramLogo.png" class="social-icon" alt="IG"></a>
+            <a href="https://www.facebook.com/profile.php?id=61561157124167&mibextid=ZbWKwL" target="_blank"><img
+                src="img/facebookLogo.png" class="social-icon" alt=""></a>
+            <a href="https://www.instagram.com/roboaiapaths?igsh=MWdmNXZnYXY0ejdhYw==" target="_blank"><img
+                src="img/instagramLogo.png" class="social-icon" alt=""></a>
           </div>
         </div>
       </div>
       <hr class="opacity-10">
-      <p class="text-center small text-muted mb-0">Copyright © 2026 roboaiapaths.com. All Rights Reserved.</p>
+      <p class="text-center small text-muted mb-0">Copyright © 2026 roboaiapaths.com | Aegis of AGPK Academy. All
+        Rights Reserved.</p>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    // Lightbox Functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        // Small timeout to allow display:flex to apply before adding opacity class for transition
+        setTimeout(() => {
+          lightbox.classList.add('show');
+        }, 10);
+        lightboxImg.src = item.src;
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('show');
+      setTimeout(() => {
+        lightbox.style.display = 'none';
+      }, 300); // Wait for transition
+    }
+
+    // Close on clicking outside image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+  </script>
 </body>
 
 </html>

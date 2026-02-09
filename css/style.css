@@ -1,0 +1,523 @@
+/* =========================================
+   ROBO AIA PATHS - MODERN ROBOTIC THEME
+   ========================================= */
+
+/* --- GOOGLE FONTS --- */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap');
+
+/* --- ROOT VARIABLES --- */
+:root {
+    /* Core Palette */
+    --primary: #006eff;
+    /* Electric Blue */
+    --primary-dark: #0056cc;
+    --secondary: #64748b;
+    /* Slate */
+    --accent: #00d2ff;
+    /* Cyan Highlight */
+    --accent-purple: #7c3aed;
+    /* Deep Purple */
+
+    /* Backgrounds */
+    --bg-body: #f8fafc;
+    /* Light Blue-Grey */
+    --bg-surface: #ffffff;
+    --bg-dark: #0f172a;
+    /* Dark Navy */
+
+    /* Text */
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --text-light: #cbd5e1;
+
+    /* Gradients */
+    --gradient-brand: linear-gradient(135deg, #006eff 0%, #00d2ff 100%);
+    --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --gradient-glow: linear-gradient(45deg, rgba(0, 110, 255, 0.1), rgba(124, 58, 237, 0.1));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-glow: 0 0 20px rgba(0, 110, 255, 0.3);
+}
+
+/* --- GLOBAL RESETS & TYPOGRAPHY --- */
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-main);
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.lead {
+    font-size: 1.15rem;
+    font-weight: 400;
+}
+
+.small {
+    font-size: 0.875rem;
+}
+
+.letter-spacing-2 {
+    letter-spacing: 2px;
+}
+
+/* --- BUTTONS --- */
+.btn {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50rem;
+    /* Pill shape */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-primary,
+.btn-tech {
+    background: var(--gradient-brand);
+    border: none;
+    color: white !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 110, 255, 0.3);
+}
+
+.btn-primary:hover,
+.btn-tech:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 110, 255, 0.4), 0 0 20px rgba(0, 210, 255, 0.3);
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    background: transparent;
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 110, 255, 0.2);
+}
+
+.btn-outline-light:hover {
+    background: white;
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* --- CARDS & GLASSMORPHISM --- */
+.card {
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    background: var(--bg-surface);
+    border-radius: 1.25rem;
+    /* 20px */
+    transition: all 0.4s ease;
+}
+
+.hover-lift {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl) !important;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+/* Tech Card Variant */
+.tech-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-brand);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.tech-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    position: relative;
+    background-color: var(--bg-dark);
+    /* Circuit pattern overlay */
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(0, 110, 255, 0.08) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(124, 58, 237, 0.08) 0%, transparent 25%);
+    overflow: hidden;
+}
+
+/* Circuit lines background */
+.hero-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.text-gradient-tech {
+    background: var(--gradient-brand);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Hero Visual */
+.hero-visual-wrap {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-bg-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 110, 255, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(40px);
+    animation: pulse-glow 4s infinite alternate;
+}
+
+@keyframes pulse-glow {
+    0% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    100% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* Floating Elements Animation */
+@keyframes float-y {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.animate-float {
+    animation: float-y 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+    animation: float-y 5s ease-in-out 1s infinite;
+}
+
+/* --- SECTION STYLES --- */
+.section-slanted {
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+    padding-bottom: 4rem;
+}
+
+.bg-gradient-light {
+    background: linear-gradient(180deg, #f8fafc 0%, #edf2f7 100%);
+}
+
+/* --- COMPONENTS --- */
+
+/* Tech Glow Helper */
+.tech-glow {
+    box-shadow: 0 0 15px rgba(0, 110, 255, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.tech-glow:hover {
+    box-shadow: 0 0 25px rgba(0, 110, 255, 0.4);
+}
+
+/* Object Fit Helper */
+.object-fit-cover {
+    object-fit: cover;
+}
+
+/* Testimonial Carousel Indicators */
+.carousel-indicators button {
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50%;
+    background-color: var(--primary) !important;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+    margin: 0 4px !important;
+}
+
+.carousel-indicators button.active {
+    opacity: 1;
+    transform: scale(1.2);
+    width: 24px !important;
+    border-radius: 6px;
+}
+
+/* Image Scale on Hover */
+.scale-on-hover {
+    transition: transform 0.5s ease;
+}
+
+.card:hover .scale-on-hover {
+    transform: scale(1.1);
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+footer h5 {
+    color: white;
+    letter-spacing: 1px;
+}
+
+footer a {
+    color: var(--text-light);
+}
+
+footer a:hover {
+    color: var(--accent);
+    padding-left: 5px;
+}
+
+footer p,
+footer .text-muted {
+    color: var(--text-light) !important;
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter: brightness(0) invert(1);
+    /* Make white */
+    opacity: 0.7;
+}
+
+.social-icon:hover {
+    transform: scale(1.2) rotate(10deg);
+    opacity: 1;
+    filter: none;
+    /* Restore color on hover if needed, or keep white */
+}
+
+/* --- NAVBAR CUSTOMIZATION --- */
+.navbar {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: var(--text-main) !important;
+    padding: 0.5rem 1rem !important;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary) !important;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 991.98px) {
+    .display-3 {
+        font-size: 2.5rem;
+    }
+
+    .display-5 {
+        font-size: 2rem;
+    }
+
+    .display-6 {
+        font-size: 1.75rem;
+    }
+
+    .hero-section {
+        text-align: center;
+        padding-top: 100px !important;
+        padding-bottom: 60px !important;
+        clip-path: none;
+        /* Remove slant on mobile for better space usage */
+    }
+
+    .hero-visual-wrap {
+        margin-top: 3rem;
+    }
+
+    .section-slanted {
+        clip-path: none;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+/* Badge Tweaks */
+.badge {
+    font-weight: 600;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    padding: 0.5em 0.8em;
+}
+
+/* Tech Border Animation Wrapper */
+.tech-border-anim {
+    position: relative;
+    padding: 1px;
+    background: linear-gradient(45deg, var(--primary), transparent, var(--accent-purple));
+    border-radius: 1rem;
+}
+
+.tech-border-anim>* {
+    border-radius: 1rem;
+}
+
+/* --- NEW INTERACTIVE ENHANCEMENTS --- */
+.course-row {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 20px;
+}
+
+.course-row:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 110, 255, 0.08);
+    background: white;
+    z-index: 5;
+    position: relative;
+}
+
+.scale-hover {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.scale-hover:hover {
+    transform: scale(1.1) rotate(-2deg);
+    filter: drop-shadow(0 4px 10px rgba(0, 110, 255, 0.4));
+}
+
+/* --- ENHANCED SLIDER STYLES --- */
+.kit-card {
+    border: 1px solid rgba(0, 110, 255, 0.1);
+    background: linear-gradient(145deg, #ffffff, #f8faff);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.kit-card:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 110, 255, 0.25) !important;
+    transform: translateY(-5px);
+    border-color: rgba(0, 110, 255, 0.3);
+}
+
+/* --- FIXED COURSE IMAGE STYLING --- */
+.course-img-wrap {
+    height: 400px;
+    overflow: hidden;
+}
+
+.course-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.course-row:hover .course-img-wrap img {
+    transform: scale(1.1);
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: var(--primary);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+    width: 30px;
+    border-radius: 10px;
+    background-color: var(--primary);
+}

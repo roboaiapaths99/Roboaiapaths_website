@@ -90,26 +90,7 @@
     }
 
     /* Footer */
-    #footer {
-      background: white;
-      padding: 80px 0 30px;
-      border-top: 1px solid #e2e8f0;
-    }
-
-    #footer a {
-      text-decoration: none;
-      color: #64748b;
-      transition: 0.3s;
-    }
-
-    #footer a:hover {
-      color: var(--tech-blue);
-    }
-
-    .social-icon {
-      width: 30px;
-      transition: 0.3s;
-    }
+    /* Footer styling removed to use global style.css */
 
     .social-icon:hover {
       transform: scale(1.2) rotate(10deg);
@@ -174,6 +155,8 @@
       box-shadow: 0 8px 20px rgba(0, 110, 255, 0.3);
     }
   </style>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
@@ -194,9 +177,19 @@
           <li class="nav-item"><a href="kits.html" class="nav-link text-primary">Kits</a></li>
           <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-          <li class="nav-item"><a href="join-as-a-trainer.html" class="nav-link">Join Us As A Trainer</a></li>
-          <li class="nav-item"><a href="partner-with-school.html" class="nav-link">Partner with School</a></li>
+
+          <li class="nav-item"><a href="partner-with-school.html" class="nav-link">AIRobotic Labs</a></li>
           <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li class="nav-item">
+            <a href="cart.html" class="nav-link position-relative">
+              <i class="fas fa-shopping-cart"></i>
+              <span id="cart-badge"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                style="display:none; font-size: 0.6rem;">
+                0
+              </span>
+            </a>
+          </li>
           <li class="nav-item ms-lg-3"><a href="contact.html" class="btn btn-primary btn-tech px-4">Enroll Now</a></li>
         </ul>
       </div>
@@ -214,7 +207,7 @@
         real-world engineering experience.</p>
     </section>
 
-    <div class="kitCard p-4">
+    <div class="kitCard p-4 tech-border">
       <div class="row align-items-center">
         <div class="col-lg-4">
           <div class="kit-img-frame">
@@ -225,11 +218,12 @@
           <div class="kitName">Fantasy Castle</div>
           <p class="kitDesc text-muted mt-3 lh-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque
             similique, totam eligendi voluptatum iusto ab aspernatur laudantium at ipsam incidunt.</p>
-          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="kitPrice fw-bold mt-2">₹ 9,999</div>
           <div class="d-flex gap-3 mt-4">
             <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal"
               data-bs-target="#fantasyCastle">View</button>
-            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+            <button class="btn btn-outline-primary px-5"
+              onclick="addToCart('kit1', 'Fantasy Castle', 9999, 'img/kits/fantasyCastle.jpeg')">Buy Now</button>
           </div>
         </div>
       </div>
@@ -242,7 +236,7 @@
       </div>
     </div>
 
-    <div class="kitCard p-4">
+    <div class="kitCard p-4 tech-border">
       <div class="row align-items-center">
         <div class="col-lg-4">
           <div class="kit-img-frame">
@@ -255,11 +249,13 @@
             and easy way. It includes a robot base, motors, sensors, and a simple remote. By using colorful wires and
             modules, students learn how robots work, understand simple circuits, and develop hands-on building skills.
           </p>
-          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="kitPrice fw-bold mt-2">₹ 9,999</div>
           <div class="d-flex gap-3 mt-4">
             <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal"
               data-bs-target="#nonProgrammableKit">View</button>
-            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+            <button class="btn btn-outline-primary px-5"
+              onclick="addToCart('kit2', 'Non Programmable Kit', 9999, 'img/kits/nonProgrammableKit.jpeg')">Buy
+              Now</button>
           </div>
         </div>
       </div>
@@ -275,7 +271,7 @@
       </div>
     </div>
 
-    <div class="kitCard p-4">
+    <div class="kitCard p-4 tech-border">
       <div class="row align-items-center">
         <div class="col-lg-4">
           <div class="kit-img-frame">
@@ -286,10 +282,11 @@
           <div class="kitName">Otto Ninja</div>
           <p class="kitDesc text-muted mt-3 lh-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque
             similique, totam eligendi voluptatum iusto ab aspernatur laudantium at ipsam incidunt.</p>
-          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="kitPrice fw-bold mt-2">₹ 9,999</div>
           <div class="d-flex gap-3 mt-4">
             <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#ottoNinja">View</button>
-            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+            <button class="btn btn-outline-primary px-5"
+              onclick="addToCart('kit3', 'Otto Ninja', 9999, 'img/kits/ottoNinja.jpeg')">Buy Now</button>
           </div>
         </div>
       </div>
@@ -304,7 +301,7 @@
       </div>
     </div>
 
-    <div class="kitCard p-4">
+    <div class="kitCard p-4 tech-border">
       <div class="row align-items-center">
         <div class="col-lg-4">
           <div class="kit-img-frame">
@@ -316,10 +313,11 @@
           <p class="kitDesc text-muted mt-3 lh-lg">The Plug and Play Kit is a fun, hands-on learning set designed for
             Class 1 students. It includes simple components that easily connect without tools. Children explore basic
             circuits, shapes, and movement while building creativity and problem-solving skills.</p>
-          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="kitPrice fw-bold mt-2">₹ 9,999</div>
           <div class="d-flex gap-3 mt-4">
             <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#plug_play">View</button>
-            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+            <button class="btn btn-outline-primary px-5"
+              onclick="addToCart('kit4', 'Plug & Play Kit', 9999, 'img/kits/plug&play.jpeg')">Buy Now</button>
           </div>
         </div>
       </div>
@@ -333,7 +331,7 @@
       </div>
     </div>
 
-    <div class="kitCard p-4">
+    <div class="kitCard p-4 tech-border">
       <div class="row align-items-center">
         <div class="col-lg-4">
           <div class="kit-img-frame">
@@ -344,10 +342,11 @@
           <div class="kitName">Robo Arm</div>
           <p class="kitDesc text-muted mt-3 lh-lg">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque
             similique, totam eligendi voluptatum iusto ab aspernatur laudantium at ipsam incidunt.</p>
-          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="kitPrice fw-bold mt-2">₹ 9,999</div>
           <div class="d-flex gap-3 mt-4">
             <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#roboArm">View</button>
-            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+            <button class="btn btn-outline-primary px-5"
+              onclick="addToCart('kit5', 'Robo Arm', 9999, 'img/kits/roboArm.jpeg')">Buy Now</button>
           </div>
         </div>
       </div>
@@ -373,10 +372,12 @@
           <p class="kitDesc text-muted mt-3 lh-lg">The Robo Car is a Wi-Fi-controlled robotic vehicle operated via a
             mobile app. Includes 4 BO motors, acrylic chassis, microcontroller board, and dual Li-ion battery pack.
             Perfect for learning wireless control and motor driving.</p>
-          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="kitPrice fw-bold mt-2">₹ 9,999</div>
           <div class="d-flex gap-3 mt-4">
             <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#roboCar">View</button>
-            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+            <button class="btn btn-outline-primary px-5"
+              onclick="addToCart('kit6', 'Jetty Bot Car', 9999, 'img/kits/JETTY BOT FOR CLASS 5th.jpeg')">Buy
+              Now</button>
           </div>
         </div>
       </div>
@@ -402,10 +403,12 @@
           <p class="kitDesc text-muted mt-3 lh-lg">The Smart IOT Home Kit is a compact, multi-functional prototype for
             hands-on IoT experimentation. It integrates motion detection, environmental sensing, and automated control
             in a single unit.</p>
-          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="kitPrice fw-bold mt-2">₹ 9,999</div>
           <div class="d-flex gap-3 mt-4">
             <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#smartIOT">View</button>
-            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+            <button class="btn btn-outline-primary px-5"
+              onclick="addToCart('kit7', 'Smart IOT Home', 9999, 'img/kits/SMART IOT HOME FOR CLASS 8th.jpeg')">Buy
+              Now</button>
           </div>
         </div>
       </div>
@@ -430,10 +433,11 @@
           <p class="kitDesc text-muted mt-3 lh-lg">A versatile robotics platform for beginners. Sturdy 4-wheel chassis
             with independent motor control enables smooth forward, backward, and pivot movements. Perfect for exploring
             electronics and programming.</p>
-          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="kitPrice fw-bold mt-2">₹ 9,999</div>
           <div class="d-flex gap-3 mt-4">
             <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#smartRover">View</button>
-            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+            <button class="btn btn-outline-primary px-5"
+              onclick="addToCart('kit8', 'MR Bot', 9999, 'img/kits/MR BOT FOR CLASS 7th.jpeg')">Buy Now</button>
           </div>
         </div>
       </div>
@@ -457,10 +461,11 @@
         <div class="col-lg-8 p-lg-5">
           <div class="kitName">PY Card</div>
           <p class="kitDesc text-muted mt-3 lh-lg"></p>
-          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="kitPrice fw-bold mt-2">₹ 9,999</div>
           <div class="d-flex gap-3 mt-4">
             <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#pyCard">View</button>
-            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+            <button class="btn btn-outline-primary px-5"
+              onclick="addToCart('kit9', 'PY Card', 9999, 'img/kits/PY CARD  FOR CLASS 6th.png')">Buy Now</button>
           </div>
         </div>
       </div>
@@ -483,10 +488,11 @@
         <div class="col-lg-8 p-lg-5">
           <div class="kitName">PC Bot</div>
           <p class="kitDesc text-muted mt-3 lh-lg"></p>
-          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="kitPrice fw-bold mt-2">₹ 9,999</div>
           <div class="d-flex gap-3 mt-4">
             <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#pcBot">View</button>
-            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+            <button class="btn btn-outline-primary px-5"
+              onclick="addToCart('kit10', 'PC Bot', 9999, 'img/kits/PC BOT FOR CLASS 3rd.jpeg')">Buy Now</button>
           </div>
         </div>
       </div>
@@ -509,10 +515,12 @@
         <div class="col-lg-8 p-lg-5">
           <div class="kitName">RC Drift Car</div>
           <p class="kitDesc text-muted mt-3 lh-lg"></p>
-          <div class="kitPrice fw-bold mt-2">₹ XXXX</div>
+          <div class="kitPrice fw-bold mt-2">₹ 9,999</div>
           <div class="d-flex gap-3 mt-4">
             <button class="btn btn-dark btn-tech px-5" data-bs-toggle="modal" data-bs-target="#rcDriftCar">View</button>
-            <button class="btn btn-outline-primary btn-tech px-5">Buy Now</button>
+            <button class="btn btn-outline-primary px-5"
+              onclick="addToCart('kit11', 'RC Drift Car', 9999, 'img/kits/RC DRIFT CAR FOR CLASS 4th.jpeg')">Buy
+              Now</button>
           </div>
         </div>
       </div>
@@ -531,37 +539,46 @@
   <footer id="footer">
     <div class="container text-start">
       <div class="row g-4 mb-5">
-        <div class="col-lg-3"><img src="img/logo.jpeg" class="w-75 rounded mb-4" alt="Robo AIA">
-          <p class="small text-muted">Courses designed to introduce students to the exciting fields of robotics coding
-            and AI.</p>
+        <div class="col-lg-3 col-md-6">
+          <img src="img/logo.jpeg" class="w-50 mb-4 rounded" alt="Robo AIA">
+          <p class="small">Introduction to the exciting fields of robotics coding and AI through comprehensive
+            courses.
+          </p>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-md-6">
           <h5 class="fw-bold mb-4">Quick Link</h5>
           <ul class="list-unstyled small">
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Testimonials</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="contact.html">Demo Test</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="index.html#testimonials">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-md-6">
           <h5 class="fw-bold mb-4">Courses</h5>
           <ul class="list-unstyled small">
-            <li><a href="#">Junior Level</a></li>
-            <li><a href="#">Robo Expert</a></li>
-            <li><a href="#">Robo Advance</a></li>
+            <li><a href="program.html#junior">Junior Level</a></li>
+            <li><a href="program.html#expert">Robo Expert</a></li>
+            <li><a href="program.html#advance">Robo Advance</a></li>
+            <li><a href="program.html#coding">Coding</a></li>
           </ul>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 col-md-6">
           <h5 class="fw-bold mb-4">Get in touch</h5>
-          <p class="small text-muted">S7, RPS Savana, Sector 88, Faridabad<br>+91 9990911093<br>roboaiapaths@gmail.com
-          </p>
-          <div class="d-flex gap-3"><a href="#"><img src="img/facebookLogo.png" class="social-icon" alt="FB"></a><a
-              href="#"><img src="img/instagramLogo.png" class="social-icon" alt="IG"></a></div>
+          <p class="small mb-1 text-muted">S7, RPS Savana, Sector 88, Faridabad</p>
+          <p class="small mb-1 text-muted">+91 9990911093</p>
+          <p class="small mb-3 text-muted">roboaiapaths@gmail.com</p>
+          <div class="d-flex">
+            <a href="https://www.facebook.com/profile.php?id=61561157124167&mibextid=ZbWKwL" target="_blank"><img
+                src="img/facebookLogo.png" class="social-icon" alt=""></a>
+            <a href="https://www.instagram.com/roboaiapaths?igsh=MWdmNXZnYXY0ejdhYw==" target="_blank"><img
+                src="img/instagramLogo.png" class="social-icon" alt=""></a>
+          </div>
         </div>
       </div>
-      <div class="border-top mt-5 pt-4 text-center">
-        <p class="small text-muted">Copyright © 2026 roboaiapaths.com</p>
-      </div>
+      <hr class="opacity-10">
+      <p class="text-center small text-muted mb-0">Copyright © 2026 roboaiapaths.com | Aegis of AGPK Academy. All
+        Rights Reserved.</p>
     </div>
   </footer>
 
@@ -586,6 +603,9 @@
     setupVideoModal('smartIOT', 'smartIOTVideo');
     setupVideoModal('smartRover', 'smartRoverVideo');
   </script>
+  <script src="js/cart.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
 </body>
 
 </html>
