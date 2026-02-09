@@ -1,0 +1,6 @@
+
+# Force the server to look for index.html BEFORE index.php
+DirectoryIndex index.html index.php
+
+# Prevent listing of directories
+Options -Indexes
