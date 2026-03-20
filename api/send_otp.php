@@ -26,7 +26,6 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0); // Disable SSL verification for shared hosting stability
 $response = curl_exec($ch);
 $error = curl_error($ch);
-curl_close($ch);
 
 if ($response !== false && empty($error)) {
     sendJsonResponse('success', 'OTP sent successfully.', ['gateway_response' => trim($response)]);
