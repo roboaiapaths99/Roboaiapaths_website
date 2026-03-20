@@ -2,9 +2,19 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KZZPH9V3VG"></script>
+    <script>
+        window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-KZZPH9V3VG');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Checkout | Robo AIA Paths</title>
+    <link rel="icon" type="image/jpeg" href="img/logo.jpeg">
+    <link rel="stylesheet" href="css/toast.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
@@ -111,8 +121,8 @@
             background-color: #0056cc;
         }
     </style>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
@@ -135,130 +145,199 @@
                 <h4 class="mb-4 fw-bold">Billing Details</h4>
                 <div class="checkout-card mb-4">
                     <form id="checkout-form">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label fw-bold small text-muted">First Name</label>
-                                <input type="text" class="form-control" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label fw-bold small text-muted">Last Name</label>
-                                <input type="text" class="form-control" required>
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label fw-bold small text-muted">Email</label>
-                                <input type="email" class="form-control" required>
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label fw-bold small text-muted">Address</label>
-                                <input type="text" class="form-control" placeholder="1234 Main St" required>
-                            </div>
-                            <div class="col-md-5">
-                                <label class="form-label fw-bold small text-muted">Country</label>
-                                <select class="form-select" required>
-                                    <option value="">Choose...</option>
-                                    <option>India</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label fw-bold small text-muted">State</label>
-                                <select class="form-select" required>
-                                    <option value="">Choose...</option>
-                                    <option>Delhi</option>
-                                    <option>Haryana</option>
-                                    <option>Uttar Pradesh</option>
-                                    <option>Maharashtra</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <label class="form-label fw-bold small text-muted">Zip</label>
-                                <input type="text" class="form-control" required>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="firstName" placeholder="First Name"
+                                    required>
+                                <label for="firstName">First Name</label>
                             </div>
                         </div>
-                    </form>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                                <label for="lastName">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="emailInput" placeholder="Email Address"
+                                    required>
+                                <label for="emailInput">Email Address</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="addressInput" placeholder="1234 Main St"
+                                    required>
+                                <label for="addressInput">Street Address</label>
+                            </div>
+                        </div>
+
+                        <!-- Address Fetch Grouping -->
+                        <div class="col-12 mt-4 mb-2">
+                            <h6 class="fw-bold text-muted text-uppercase"
+                                style="letter-spacing: 1px; font-size: 0.85rem;"><i
+                                    class="fas fa-map-marker-alt me-2 text-primary"></i>Delivery Location</h6>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <select class="form-select" id="countrySelect" required>
+                                    <option value="India" selected>India</option>
+                                </select>
+                                <label for="countrySelect">Country</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-floating position-relative">
+                                <input type="text" class="form-control border-primary shadow-sm" id="zip"
+                                    placeholder="Pincode" maxlength="6" required style="background-color: #f0f7ff;">
+                                <label for="zip" class="text-primary fw-bold">Pincode</label>
+                            </div>
+                            <small id="zip-status" class="text-muted d-block mt-1 ms-1"></small>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input type="text" class="form-control bg-light" id="state" placeholder="State" required
+                                    readonly>
+                                <label for="state">State</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <div class="form-floating">
+                                <input type="text" class="form-control bg-light" id="city" placeholder="City/Area"
+                                    required readonly>
+                                <label for="city">City / Area</label>
+                            </div>
+                        </div>
                 </div>
 
-                <h4 class="mb-4 fw-bold">Payment Method</h4>
-                <div class="checkout-card">
-                    <div class="row g-3">
-                        <div class="col-md-4">
-                            <div class="payment-option-card selected" onclick="selectPayment(this, 'card')">
-                                <div class="text-center">
-                                    <i class="fas fa-credit-card fa-2x mb-2 text-primary"></i>
-                                    <h6 class="fw-bold mb-0">Card</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="payment-option-card" onclick="selectPayment(this, 'upi')">
-                                <div class="text-center">
-                                    <i class="fas fa-mobile-alt fa-2x mb-2 text-primary"></i>
-                                    <h6 class="fw-bold mb-0">UPI</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="payment-option-card" onclick="selectPayment(this, 'cod')">
-                                <div class="text-center">
-                                    <i class="fas fa-money-bill-wave fa-2x mb-2 text-success"></i>
-                                    <h6 class="fw-bold mb-0">COD</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <hr class="my-4">
 
-                    <!-- Card Details Form (mock) -->
-                    <div id="card-details" class="mt-4">
-                        <div class="bg-light p-3 rounded-3 border">
-                            <div class="row g-3">
-                                <div class="col-12">
-                                    <label class="form-label small text-muted">Card Number</label>
-                                    <input type="text" class="form-control" placeholder="0000 0000 0000 0000">
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small text-muted">Expiration</label>
-                                    <input type="text" class="form-control" placeholder="MM/YY">
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small text-muted">CVV</label>
-                                    <input type="text" class="form-control" placeholder="123">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="allowLocation">
+                    <label class="form-check-label" for="allowLocation">
+                        Allow website to track location for faster delivery routing
+                    </label>
                 </div>
+                </form>
             </div>
 
-            <!-- Order Summary -->
-            <div class="col-lg-4">
-                <div class="checkout-card shadow-lg sticky-top" style="top: 100px;">
-                    <h4 class="d-flex justify-content-between align-items-center mb-4">
-                        <span class="text-primary fw-bold">Your Cart</span>
-                        <span class="badge bg-primary rounded-pill" id="cart-count">3</span>
-                    </h4>
-                    <div id="order-summary-list">
-                        <!-- Injected via JS -->
+            <h4 class="mb-4 fw-bold">Payment Method</h4>
+            <div class="checkout-card">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="payment-option-card selected" onclick="selectPayment(this, 'card')">
+                            <div class="text-center">
+                                <i class="fas fa-credit-card fa-2x mb-2 text-primary"></i>
+                                <h6 class="fw-bold mb-0">Card</h6>
+                            </div>
+                        </div>
                     </div>
-
-                    <hr class="my-4">
-
-                    <div class="d-flex justify-content-between mb-4">
-                        <span class="fs-5 fw-bold">Total (INR)</span>
-                        <span class="fs-5 fw-bold text-primary" id="checkout-total">₹ 0</span>
+                    <div class="col-md-4">
+                        <div class="payment-option-card" onclick="selectPayment(this, 'upi')">
+                            <div class="text-center">
+                                <i class="fas fa-mobile-alt fa-2x mb-2 text-primary"></i>
+                                <h6 class="fw-bold mb-0">UPI</h6>
+                            </div>
+                        </div>
                     </div>
+                    <div class="col-md-4">
+                        <div class="payment-option-card" onclick="selectPayment(this, 'cod')">
+                            <div class="text-center">
+                                <i class="fas fa-money-bill-wave fa-2x mb-2 text-success"></i>
+                                <h6 class="fw-bold mb-0">COD</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                    <button class="btn btn-pay w-100" onclick="handlePlaceOrder()">Place Order</button>
-                    <p class="text-center mt-3 text-muted small"><i class="fas fa-lock me-1"></i> Secure Checkout</p>
+                <!-- Card Details Form (mock) -->
+                <div id="card-details" class="mt-4">
+                    <div class="bg-light p-3 rounded-3 border">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="form-label small text-muted">Card Number</label>
+                                <input type="text" class="form-control" placeholder="0000 0000 0000 0000">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small text-muted">Expiration</label>
+                                <input type="text" class="form-control" placeholder="MM/YY">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small text-muted">CVV</label>
+                                <input type="text" class="form-control" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Order Summary -->
+        <div class="col-lg-4">
+            <div class="checkout-card shadow-lg sticky-top" style="top: 100px;">
+                <h4 class="d-flex justify-content-between align-items-center mb-4">
+                    <span class="text-primary fw-bold">Your Cart</span>
+                    <span class="badge bg-primary rounded-pill" id="cart-count">3</span>
+                </h4>
+                <!-- Coupon Form -->
+                <div class="input-group mb-4">
+                    <input type="text" id="coupon-code" class="form-control" placeholder="Promo Code">
+                    <button class="btn btn-dark" type="button" onclick="applyCoupon()"
+                        id="btn-apply-coupon">Apply</button>
+                </div>
+
+                <div id="order-summary-list">
+                    <!-- Injected via JS -->
+                </div>
+
+                <hr class="my-4">
+
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted">Subtotal</span>
+                    <span class="fw-bold" id="checkout-subtotal">₹ 0</span>
+                </div>
+
+                <div class="d-flex justify-content-between mb-2" id="discount-row" style="display: none !important;">
+                    <span class="text-success">Discount (<span id="coupon-name"></span>)</span>
+                    <span class="fw-bold text-success" id="checkout-discount">- ₹ 0</span>
+                </div>
+
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted">GST (18%)</span>
+                    <span class="fw-bold" id="checkout-gst">₹ 0</span>
+                </div>
+
+                <hr class="my-2">
+
+                <div class="d-flex justify-content-between mb-4 mt-2">
+                    <span class="fs-5 fw-bold">Total (INR)</span>
+                    <span class="fs-5 fw-bold text-primary" id="checkout-total">₹ 0</span>
+                </div>
+
+                <button class="btn btn-pay w-100" onclick="handlePlaceOrder()">Place Order</button>
+                <p class="text-center mt-3 text-muted small"><i class="fas fa-lock me-1"></i> Secure Checkout</p>
+            </div>
+        </div>
+    </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/toast.js"></script>
     <script src="js/cart.js"></script>
     <script>
+        // Ensure user is logged in
+        if (localStorage.getItem('user_logged_in') !== 'true') {
+            window.location.href = 'kits.html'; // Redirect to kits to login
+        }
+
+        let selectedPaymentType = 'card';
+
         function selectPayment(element, type) {
             document.querySelectorAll('.payment-option-card').forEach(el => el.classList.remove('selected'));
             element.classList.add('selected');
+            selectedPaymentType = type;
 
             const cardDetails = document.getElementById('card-details');
             if (type === 'card') {
@@ -268,19 +347,60 @@
             }
         }
 
+        let currentDiscount = 0;
+        let appliedCouponCode = '';
+
+        async function applyCoupon() {
+            const code = document.getElementById('coupon-code').value.trim();
+            if (!code) return;
+
+            const btn = document.getElementById('btn-apply-coupon');
+            btn.disabled = true;
+            btn.innerText = '...';
+
+            try {
+                const res = await fetch('api/validate_coupon.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ coupon: code, subtotal: getCartSubtotal() })
+                });
+                const data = await res.json();
+
+                if (data.status === 'success') {
+                    currentDiscount = data.discount;
+                    appliedCouponCode = code;
+                    showToast('Coupon applied!', 'success');
+                    renderCheckoutSummary();
+                } else {
+                    showToast(data.message, 'error');
+                }
+            } catch (err) {
+                showToast('Failed to validate coupon', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerText = 'Apply';
+            }
+        }
+
         function renderCheckoutSummary() {
             const cart = getCart();
+            if (cart.length === 0) {
+                window.location.href = 'cart.html';
+                return;
+            }
             const list = document.getElementById('order-summary-list');
+            const subtotalEl = document.getElementById('checkout-subtotal');
             const totalEl = document.getElementById('checkout-total');
             const countEl = document.getElementById('cart-count');
+            const gstEl = document.getElementById('checkout-gst');
+            const discountRow = document.getElementById('discount-row');
+            const discountEl = document.getElementById('checkout-discount');
+            const couponNameEl = document.getElementById('coupon-name');
 
             list.innerHTML = '';
-            let total = 0;
 
             cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-
+                const itemTotal = Number(item.price) * Number(item.quantity);
                 const div = document.createElement('div');
                 div.className = 'order-summary-item';
                 div.innerHTML = `
@@ -288,31 +408,117 @@
                         <h6 class="my-0 fw-bold">${item.name}</h6>
                         <small class="text-muted">Qty: ${item.quantity}</small>
                     </div>
-                    <span class="text-muted">₹ ${itemTotal}</span>
+                    <span class="text-muted">${formatCurrency(itemTotal)}</span>
                 `;
                 list.appendChild(div);
             });
 
-            totalEl.innerText = '₹ ' + total;
-            countEl.innerText = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const subtotal = getCartSubtotal();
+            let subtotalAfterDiscount = subtotal;
+
+            if (currentDiscount > 0) {
+                discountRow.style.setProperty('display', 'flex', 'important');
+                discountEl.innerText = '- ' + formatCurrency(currentDiscount);
+                couponNameEl.innerText = appliedCouponCode;
+                subtotalAfterDiscount = Math.max(0, subtotal - currentDiscount);
+            } else {
+                discountRow.style.setProperty('display', 'none', 'important');
+            }
+
+            const gst = getCartGST(subtotalAfterDiscount);
+            const finalTotal = subtotalAfterDiscount + gst;
+
+            subtotalEl.innerText = formatCurrency(subtotal);
+            gstEl.innerText = formatCurrency(gst);
+            totalEl.innerText = formatCurrency(finalTotal);
+            if (countEl) countEl.innerText = cart.reduce((t, i) => t + i.quantity, 0);
         }
 
-        function handlePlaceOrder() {
+        async function handlePlaceOrder() {
             const form = document.getElementById('checkout-form');
             if (!form.checkValidity()) {
                 form.reportValidity();
                 return;
             }
 
-            // Mock processing
+            const cart = getCart();
+            if (cart.length === 0) {
+                showToast('Your cart is empty!', 'error');
+                return;
+            }
+
             const btn = document.querySelector('.btn-pay');
             const originalText = btn.innerText;
             btn.innerText = 'Processing...';
             btn.disabled = true;
 
-            setTimeout(() => {
+            const orderData = {
+                firstname: document.getElementById('firstName').value.trim() + ' ' + document.getElementById('lastName').value.trim(),
+                email: document.getElementById('emailInput').value.trim(),
+                address: document.getElementById('addressInput').value.trim(),
+                state: document.getElementById('state').value, // Updated to use input field
+                zip: document.getElementById('zip').value.trim(), // Updated to use input field
+                city: document.getElementById('city').value.trim(), // Added city
+                payment_method: selectedPaymentType,
+                coupon_code: appliedCouponCode, // Passing coupon to backend for server-side validation
+                cart: cart
+            };
+
+            try {
+                const res = await fetch('api/checkout_process.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(orderData)
+                });
+
+                const data = await res.json();
+
+                if (data.status === 'success') {
+                    if (data.redirect) {
+                        // COD success redirect
+                        clearCart();
+                        window.location.href = data.redirect;
+                    } else if (data.payu_url) {
+                        // PayU Redirect
+                        const formUrl = data.payu_url;
+                        const payuData = data.payu_data;
+
+                        const payuForm = document.createElement('form');
+                        payuForm.method = 'POST';
+                        payuForm.action = formUrl;
+                        payuForm.style.display = 'none';
+
+                        for (const key in payuData) {
+                            const input = document.createElement('input');
+                            input.type = 'hidden';
+                            input.name = key;
+                            input.value = payuData[key];
+                            payuForm.appendChild(input);
+                        }
+
+                        document.body.appendChild(payuForm);
+                        payuForm.submit();
+                    }
+                } else {
+                    showToast(data.message, 'error');
+                    btn.disabled = false;
+                    btn.innerText = originalText;
+                }
+            } catch (err) {
+                console.error(err);
+                showToast('Network error, please try again.', 'error');
+                btn.disabled = false;
+                btn.innerText = originalText;
+            }
+        }
+
+        // Show Success View if redirected back
+        function checkStatus() {
+            const params = new URLSearchParams(window.location.search);
+            const status = params.get('status');
+
+            if (status === 'success') {
                 clearCart();
-                // Replace body content with success message
                 document.querySelector('.container').innerHTML = `
                     <div class="text-center py-5">
                         <div class="mb-4">
@@ -323,14 +529,81 @@
                         <a href="index.html" class="btn btn-primary btn-tech px-5 py-3">Return to Home</a>
                     </div>
                 `;
-                window.scrollTo(0, 0);
-            }, 2000);
+            } else if (status === 'failed' || status === 'tampered') {
+                showToast('Payment failed or was tampered with.', 'error');
+            }
         }
 
-        document.addEventListener('DOMContentLoaded', renderCheckoutSummary);
+        document.addEventListener('DOMContentLoaded', () => {
+            checkStatus();
+            if (new URLSearchParams(window.location.search).get('status') !== 'success') {
+                renderCheckoutSummary();
+            }
+        });
     </script>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>AOS.init({duration: 1000, once: true});</script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
+    <script>
+        // --- Pincode Auto-fetch Logic ---
+        document.getElementById('zip').addEventListener('input', async function (e) {
+            const pincode = e.target.value.trim();
+            const statusLabel = document.getElementById('zip-status');
+            const stateInput = document.getElementById('state');
+            const cityInput = document.getElementById('city');
+
+            if (pincode.length === 6 && /^\d{6}$/.test(pincode)) {
+                statusLabel.innerText = "Fetching details...";
+                statusLabel.className = "text-primary small";
+                try {
+                    const response = await fetch(`https://api.postalpincode.in/pincode/${pincode}`);
+                    const data = await response.json();
+
+                    if (data[0].Status === "Success") {
+                        const postOffice = data[0].PostOffice[0];
+                        stateInput.value = postOffice.State;
+                        cityInput.value = postOffice.District;
+
+                        statusLabel.innerText = "Location found \u2713";
+                        statusLabel.className = "text-success small";
+                    } else {
+                        statusLabel.innerText = "Invalid Pincode";
+                        statusLabel.className = "text-danger small";
+                        stateInput.value = '';
+                        cityInput.value = '';
+                    }
+                } catch (error) {
+                    statusLabel.innerText = "Error fetching location";
+                    statusLabel.className = "text-danger small";
+                }
+            } else {
+                statusLabel.innerText = "";
+                stateInput.value = '';
+                cityInput.value = '';
+            }
+        });
+
+        // --- Location Permission Logic ---
+        document.getElementById('allowLocation').addEventListener('change', function (e) {
+            if (e.target.checked) {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            showToast("Location permissions granted successfully!", "success");
+                            // In a real app, you would send position.coords.latitude/longitude along with the order
+                            console.log("Lat:", position.coords.latitude, "Lon:", position.coords.longitude);
+                        },
+                        (error) => {
+                            showToast("Location access denied or unavailable.", "error");
+                            e.target.checked = false;
+                        }
+                    );
+                } else {
+                    showToast("Geolocation is not supported by this browser.", "error");
+                    e.target.checked = false;
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>

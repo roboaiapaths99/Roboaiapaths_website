@@ -521,3 +521,127 @@ footer .text-muted {
     border-radius: 10px;
     background-color: var(--primary);
 }
+
+/* --- FAQ SECTION STYLES --- */
+.rap-faq {
+  padding: 80px 0;
+  background-color: #f8fafc;
+}
+
+.rap-faq__header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+.rap-faq__grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.rap-faq__item {
+  background: #ffffff;
+  border: 1px solid rgba(0, 110, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.rap-faq__item:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 15px rgba(0, 110, 255, 0.05);
+}
+
+.rap-faq__question {
+  width: 100%;
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+.rap-faq__question h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: #1e293b;
+  text-transform: none;
+  font-family: 'Outfit', sans-serif;
+}
+
+.rap-faq__icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.rap-faq__icon::before,
+.rap-faq__icon::after {
+  content: '';
+  position: absolute;
+  background-color: var(--primary);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rap-faq__icon::before {
+  width: 12px;
+  height: 2px;
+}
+
+.rap-faq__icon::after {
+  width: 2px;
+  height: 12px;
+  transition: opacity 0.3s ease;
+}
+
+.rap-faq__item.active .rap-faq__icon {
+  transform: rotate(180deg);
+}
+
+.rap-faq__item.active .rap-faq__icon::after {
+  opacity: 0;
+}
+
+.rap-faq__item.active {
+  border-color: var(--primary);
+  box-shadow: 0 10px 25px rgba(0, 110, 255, 0.1);
+}
+
+.rap-faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease;
+  padding: 0 25px;
+  background-color: #fff;
+}
+
+.rap-faq__item.active .rap-faq__answer {
+  max-height: 500px;
+  padding: 0 25px 25px;
+}
+
+.rap-faq__answer p {
+  color: #64748b;
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .rap-faq {
+    padding: 60px 0;
+  }
+  .rap-faq__question {
+    padding: 15px 20px;
+  }
+}

@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 
 // REPLACE THE URL BELOW WITH YOUR DEPLOYED GOOGLE APPS SCRIPT WEB APP URL
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzd8MKeO0IWM3sfP2dnOE_3KTeIfAIKR2X3fIMfG131CUKj0rLQ4DvTbznKLSsAIa6w/exec";
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyXqI2Lkod8J2hh9jc2dGC5PiqChk1IiBu92_sSr2wUGnJ3kP-apCwFIKI7sxdDmqGtSQ/exec";
 
 // -----------------------------------------------------------------------------
 // MAIN LOGIC
@@ -48,15 +48,12 @@ document.addEventListener('DOMContentLoaded', function () {
             formData.append('formSource', document.title);
 
             // Send data to Google Apps Script
-            // Using no-cors mode to avoid CORS errors on localhost
             fetch(WEB_APP_URL, {
                 method: 'POST',
-                body: formData,
-                mode: 'no-cors'
+                body: formData
             })
                 .then(() => {
-                    // With no-cors, response is opaque. We assume success if fetch completes.
-                    alert('Thank you! Your message has been sent successfully.');
+                    showToast('Thank you! Your message has been sent successfully.', 'success');
                     form.reset();
                     if (form.classList.contains('was-validated')) {
                         form.classList.remove('was-validated');
@@ -64,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .catch(error => {
                     console.error('Error!', error.message);
-                    alert('Oops! Something went wrong. Please check your connection and try again.');
+                    showToast('Oops! Something went wrong. Please check your connection and try again.', 'error');
                 })
                 .finally(() => {
                     // Reset button state

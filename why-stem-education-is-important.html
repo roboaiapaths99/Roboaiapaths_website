@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ✅ SEO Meta -->
+    <title>Why STEM Education Is Important for Kids | Robotics and AI, Coding, STEM Education</title>
+    <meta name="description"
+        content="Learn why STEM education is important for kids and how robotics and AI and coding build problem-solving, creativity, and future-ready skills. Includes easy tables and practical examples for Nursery to 8th students." />
+    <meta name="keywords"
+        content="robotics and ai, stem education, coding, coding classes for kids, robotics classes for kids, ai for kids, stem learning, robotics learning, ai education" />
+    <link rel="canonical" href="https://www.roboaiapaths.com/" />
+
+    <!-- ✅ Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Why STEM Education Is Important for Kids | Robotics and AI + Coding" />
+    <meta property="og:description"
+        content="A complete guide to STEM education for kids with robotics and AI and coding benefits, tables, and real-world learning examples." />
+    <meta property="og:url" content="https://www.roboaiapaths.com/" />
+    <meta property="og:site_name" content="RoboAIAPaths" />
+    <meta property="og:image" content="https://www.roboaiapaths.com/assets/og-image.jpg" />
+
+    <!-- ✅ Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Why STEM Education Is Important for Kids | Robotics and AI + Coding" />
+    <meta name="twitter:description"
+        content="STEM education for kids explained with robotics and AI and coding benefits and easy tables." />
+    <meta name="twitter:image" content="https://www.roboaiapaths.com/assets/og-image.jpg" />
+
+    <style>
+        :root {
+            --bg: #0b1220;
+            --card: rgba(255, 255, 255, .05);
+            --border: rgba(255, 255, 255, .12);
+            --text: #e9eefc;
+            --muted: rgba(233, 238, 252, .86);
+            --muted2: rgba(233, 238, 252, .72);
+            --accent1: #C24DFF;
+            --accent2: #8657FF;
+            --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+            --radius: 18px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            background: radial-gradient(1200px 600px at 20% -10%, rgba(194, 77, 255, .18), transparent 60%),
+                radial-gradient(900px 450px at 90% 0%, rgba(134, 87, 255, .18), transparent 55%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.75;
+        }
+
+        a {
+            color: inherit
+        }
+
+        .wrap {
+            width: min(1100px, 92%);
+            margin: 0 auto;
+            padding: 34px 0 70px;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 28px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(194, 77, 255, .14), rgba(134, 87, 255, .10)), var(--card);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            background: radial-gradient(600px 280px at 20% 30%, rgba(255, 255, 255, .08), transparent 60%);
+            pointer-events: none;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            background: rgba(0, 0, 0, .18);
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: .2px;
+        }
+
+        .hero h1 {
+            margin: 14px 0 8px;
+            font-size: clamp(24px, 3vw, 42px);
+            line-height: 1.15;
+            letter-spacing: .2px;
+        }
+
+        .hero p {
+            margin: 0;
+            color: var(--muted);
+            max-width: 900px;
+            font-size: 16px;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            text-decoration: none;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            color: #0b1220;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .btn.secondary {
+            background: rgba(0, 0, 0, .25);
+            color: var(--text);
+        }
+
+        .meta {
+            margin-top: 10px;
+            color: var(--muted2);
+            font-size: 13.5px;
+        }
+
+        /* Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        @media (min-width: 980px) {
+            .grid {
+                grid-template-columns: 1.65fr .85fr;
+                align-items: start;
+            }
+        }
+
+        /* Cards */
+        .card {
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            background: var(--card);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .card .head {
+            padding: 16px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, .10);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .card .head h2 {
+            margin: 0;
+            font-size: 18px;
+            letter-spacing: .2px;
+        }
+
+        .card .body {
+            padding: 18px;
+            color: var(--muted);
+            font-size: 15.5px;
+        }
+
+        /* Table */
+        .table-wrap {
+            overflow: auto;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, .12);
+            background: rgba(0, 0, 0, .20);
+            margin: 14px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 680px;
+        }
+
+        th,
+        td {
+            padding: 12px 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, .10);
+            vertical-align: top;
+            text-align: left;
+        }
+
+        th {
+            color: var(--text);
+            font-size: 13px;
+            letter-spacing: .3px;
+            text-transform: uppercase;
+            background: rgba(255, 255, 255, .03);
+            position: sticky;
+            top: 0;
+        }
+
+        td {
+            color: var(--muted);
+            font-size: 14.5px;
+        }
+
+        /* TOC */
+        .toc {
+            position: sticky;
+            top: 14px;
+        }
+
+        .toc a {
+            display: block;
+            padding: 10px 12px;
+            text-decoration: none;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .10);
+            background: rgba(0, 0, 0, .18);
+            margin-bottom: 10px;
+            color: var(--muted);
+            transition: transform .12s ease, background .12s ease;
+        }
+
+        .toc a:hover {
+            transform: translateY(-1px);
+            background: rgba(255, 255, 255, .06);
+            color: var(--text);
+        }
+
+        .toc a.active {
+            border-color: rgba(194, 77, 255, .45);
+            background: rgba(194, 77, 255, .14);
+            color: var(--text);
+        }
+
+        /* Content typography */
+        .content h2 {
+            margin: 20px 0 10px;
+            color: var(--text);
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        .content h3 {
+            margin: 16px 0 8px;
+            color: var(--text);
+            font-size: 17px;
+            line-height: 1.25;
+        }
+
+        .content p {
+            margin: 0 0 12px;
+        }
+
+        .k {
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .callout {
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid rgba(194, 77, 255, .22);
+            background: linear-gradient(135deg, rgba(194, 77, 255, .14), rgba(134, 87, 255, .08));
+            margin: 14px 0;
+            color: var(--muted);
+        }
+
+        .mini {
+            font-size: 14px;
+            color: var(--muted2);
+        }
+
+        /* FAQ */
+        .faq-item {
+            border: 1px solid rgba(255, 255, 255, .10);
+            background: rgba(0, 0, 0, .18);
+            border-radius: 14px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .faq-q {
+            width: 100%;
+            padding: 14px 14px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            background: transparent;
+            border: 0;
+            color: var(--text);
+            font-weight: 800;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .faq-a {
+            padding: 0 14px 14px;
+            color: var(--muted);
+        }
+
+        .faq-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            background: rgba(194, 77, 255, .16);
+            border: 1px solid rgba(194, 77, 255, .25);
+            transition: transform .18s ease;
+            flex: 0 0 auto;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            margin-top: 18px;
+            padding: 16px;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, .12);
+            background: rgba(0, 0, 0, .18);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="wrap">
+        <section class="hero">
+            <div class="badge">Robotics and AI • STEM Education • Coding</div>
+            <h1>Why STEM Education Is Important for Kids (With Robotics and AI + Coding)</h1>
+            <p>
+                STEM education helps children build problem-solving, creativity, and future-ready skills. When kids
+                learn
+                <span class="k">robotics and AI</span> alongside <span class="k">coding</span>, they don’t just use
+                technology—they learn to create with it.
+                This guide explains STEM education in simple terms, with tables and practical examples for Nursery to
+                8th standard.
+            </p>
+            <div class="cta-row">
+                <a class="btn" href="https://www.roboaiapaths.com/" target="_blank" rel="noopener">Explore
+                    RoboAIAPaths</a>
+                <a class="btn secondary" href="#faq">Jump to FAQ</a>
+                <button class="btn secondary" id="copyLinkBtn" type="button">Copy Page Link</button>
+            </div>
+            <div class="meta">
+                Internal Link: <a href="https://www.roboaiapaths.com/" target="_blank"
+                    rel="noopener">https://www.roboaiapaths.com/</a>
+            </div>
+        </section>
+
+        <section class="grid">
+            <!-- Main Article -->
+            <article class="card content" id="article">
+                <div class="head">
+                    <h2>STEM Education for Kids: The Real Meaning</h2>
+                    <span class="mini">SEO-focused on robotics and AI, STEM education, coding</span>
+                </div>
+                <div class="body">
+                    <p>
+                        STEM education is a learning approach that blends Science, Technology, Engineering, and
+                        Mathematics into real-life activities.
+                        Instead of only reading from textbooks, children learn by building, testing, improving, and
+                        explaining their work. This makes
+                        learning natural and practical, especially when STEM education includes <span class="k">robotics
+                            and AI</span> and
+                        <span class="k">coding</span>.
+                    </p>
+
+                    <div class="callout">
+                        <strong>Simple idea:</strong> STEM education teaches kids <em>how to think</em>, not just
+                        <em>what to remember</em>.
+                        Robotics and AI and coding make that learning hands-on and exciting.
+                    </div>
+
+                    <h2 id="benefits">Top Reasons STEM Education Is Important for Kids</h2>
+
+                    <h3 id="critical">1) STEM education improves critical thinking</h3>
+                    <p>
+                        When children work on STEM challenges, they learn to analyze situations, ask better questions,
+                        and find logical solutions.
+                        In robotics and AI learning, debugging a code or fixing a robot’s movement builds patience and
+                        structured thinking. This habit
+                        of problem-solving helps children in all subjects, not only in technology.
+                    </p>
+
+                    <h3 id="foundation">2) Builds a strong foundation in robotics and AI</h3>
+                    <p>
+                        Robotics and AI are shaping how the world works—from smart assistants and self-driving tech to
+                        automated factories and medical
+                        innovations. Early STEM education introduces children to these ideas in age-appropriate ways so
+                        they become comfortable with
+                        technology and learn confidently as they grow.
+                    </p>
+
+                    <div class="table-wrap" aria-label="STEM vs Traditional Learning Table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Skill Area</th>
+                                    <th>Traditional Learning</th>
+                                    <th>STEM Education with Robotics and AI + Coding</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Learning Style</td>
+                                    <td>Mostly theory and memorization</td>
+                                    <td>Hands-on projects + real application</td>
+                                </tr>
+                                <tr>
+                                    <td>Technology Use</td>
+                                    <td>Passive usage (watch/consume)</td>
+                                    <td>Active creation (build/program)</td>
+                                </tr>
+                                <tr>
+                                    <td>Problem Solving</td>
+                                    <td>Fixed answers</td>
+                                    <td>Try, test, improve, iterate</td>
+                                </tr>
+                                <tr>
+                                    <td>Coding Skills</td>
+                                    <td>Limited exposure</td>
+                                    <td>Structured coding practice with logic</td>
+                                </tr>
+                                <tr>
+                                    <td>Confidence</td>
+                                    <td>Depends on marks</td>
+                                    <td>Builds confidence through working models</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 id="creativity">3) Coding makes kids more creative</h3>
+                    <p>
+                        Coding is not just writing commands—it’s creating solutions. Kids can build games, program
+                        robots, create animations, and design
+                        small logic-based systems. STEM education using coding helps children express creativity while
+                        also learning discipline and accuracy.
+                    </p>
+
+                    <h3 id="future">4) Prepares kids for future careers</h3>
+                    <p>
+                        The future belongs to skills like computational thinking, AI basics, robotics understanding, and
+                        digital creativity.
+                        STEM education gives kids a head start by developing these abilities early. Even if a child
+                        doesn’t become an engineer, these
+                        skills improve decision making, confidence, and adaptability.
+                    </p>
+
+                    <h3 id="math">5) Makes math and science easier to understand</h3>
+                    <p>
+                        Many kids struggle with math because it feels abstract. STEM education makes concepts visual and
+                        practical. When kids build robots,
+                        they naturally use measurements, patterns, and logic. Coding introduces loops, conditions, and
+                        sequencing which strengthens reasoning.
+                    </p>
+
+                    <h3 id="teamwork">6) Improves teamwork and communication</h3>
+                    <p>
+                        STEM projects encourage collaboration. Students learn how to explain ideas, share
+                        responsibilities, and solve problems together.
+                        Robotics and AI activities often work best in teams where children learn leadership and
+                        cooperation naturally.
+                    </p>
+
+                    <h3 id="confidence">7) Builds confidence through projects</h3>
+                    <p>
+                        When a child completes a robot model or sees their code run successfully, it becomes a proud
+                        achievement. Project completion teaches
+                        persistence and shows that improvement is possible through practice. This confidence helps kids
+                        in academics and daily life.
+                    </p>
+
+                    <h2 id="age">STEM Education by Age Group (Nursery to 8th)</h2>
+                    <p>
+                        STEM education works best when it is age-appropriate. A structured program guides children from
+                        basic logic to advanced problem-solving.
+                        This is why platforms like <a href="https://www.roboaiapaths.com/" target="_blank"
+                            rel="noopener">RoboAIAPaths</a> focus on Nursery to 8th
+                        learning pathways for robotics and AI and coding.
+                    </p>
+
+                    <div class="table-wrap" aria-label="STEM by Age Group Table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Age Group</th>
+                                    <th>STEM Focus</th>
+                                    <th>Best Learning Format</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Nursery – 2nd</td>
+                                    <td>Basic logic, shapes, observation, simple build activities</td>
+                                    <td>Play-based STEM learning</td>
+                                </tr>
+                                <tr>
+                                    <td>3rd – 5th</td>
+                                    <td>Intro coding, sensors basics, beginner robotics</td>
+                                    <td>Guided projects and demos</td>
+                                </tr>
+                                <tr>
+                                    <td>6th – 8th</td>
+                                    <td>Robotics and AI fundamentals, structured coding, real challenges</td>
+                                    <td>Project-based STEM education</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="robotics-ai">Why Robotics and AI Fits Perfectly in STEM Education</h2>
+                    <p>
+                        Robotics and AI transform STEM education into interactive learning. Robotics teaches motion,
+                        mechanics, and electronics, while AI
+                        introduces the idea of smart decisions and pattern recognition. Coding connects everything by
+                        controlling how a robot behaves or
+                        how an AI logic works. When kids learn robotics and AI with STEM education, they understand not
+                        only the “how” but also the “why.”
+                    </p>
+
+                    <h2 id="conclusion">Conclusion</h2>
+                    <p>
+                        STEM education is important for kids because it builds the skills children need for the
+                        future—critical thinking, creativity,
+                        collaboration, and technical confidence. When STEM education includes robotics and AI and
+                        coding, kids learn faster because they
+                        can see and experience results in real time. This learning style helps children become creators
+                        who can solve problems and build
+                        solutions in the modern world.
+                    </p>
+
+                    <div class="footer-cta">
+                        <div>
+                            <div class="k">Start STEM learning with Robotics and AI + Coding</div>
+                            <div class="mini">Nursery to 8th standard • Hands-on projects • Beginner-friendly</div>
+                        </div>
+                        <a class="btn" href="https://www.roboaiapaths.com/" target="_blank" rel="noopener">Visit
+                            RoboAIAPaths</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- TOC / Sidebar -->
+            <aside class="card toc" aria-label="Table of contents">
+                <div class="head">
+                    <h2>Quick Navigation</h2>
+                    <span class="mini">Scroll highlights</span>
+                </div>
+                <div class="body" id="toc">
+                    <a href="#benefits">STEM Benefits</a>
+                    <a href="#critical">Critical Thinking</a>
+                    <a href="#foundation">Robotics and AI Foundation</a>
+                    <a href="#creativity">Coding + Creativity</a>
+                    <a href="#future">Future Skills</a>
+                    <a href="#age">STEM by Age Group</a>
+                    <a href="#robotics-ai">Robotics and AI in STEM</a>
+                    <a href="#schools">Why Schools Need STEM</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#conclusion">Conclusion</a>
+                </div>
+            </aside>
+        </section>
+
+        <!-- FAQ -->
+        <section class="card" id="faq" style="margin-top:16px;">
+            <div class="head">
+                <h2>FAQ (Robotics and AI • STEM Education • Coding)</h2>
+                <span class="mini">Short answers for parents and schools</span>
+            </div>
+            <div class="body" itemscope itemtype="https://schema.org/FAQPage">
+                <div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                    <button class="faq-q" type="button" aria-expanded="false">
+                        <span itemprop="name">What is STEM education for kids?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-a" hidden itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <div itemprop="text">
+                            STEM education helps kids learn by doing—using science, technology, engineering, and math in
+                            real projects. Robotics and AI and
+                            coding make STEM education more practical and exciting for young learners.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                    <button class="faq-q" type="button" aria-expanded="false">
+                        <span itemprop="name">Why is coding important in STEM education?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-a" hidden itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <div itemprop="text">
+                            Coding teaches logic, sequencing, and problem-solving. In STEM education, coding helps kids
+                            control robots, build simple AI logic,
+                            and create real outcomes that build confidence.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                    <button class="faq-q" type="button" aria-expanded="false">
+                        <span itemprop="name">How does robotics and AI improve learning?</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
+                    </button>
+                    <div class="faq-a" hidden itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                        <div itemprop="text">
+                            Robotics and AI make learning hands-on. Kids test ideas, fix mistakes, and improve
+                            designs—this strengthens STEM education skills
+                            like critical thinking, creativity, and teamwork.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ✅ Structured Data for RoboAIAPaths Blog -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+
+        {
+          "@type": "Organization",
+          "name": "RoboAIAPaths",
+          "url": "https://www.roboaiapaths.com/",
+          "logo": "https://www.roboaiapaths.com/assets/logo.png",
+          "sameAs": [
+            "https://www.facebook.com/",
+            "https://www.instagram.com/",
+            "https://www.linkedin.com/"
+          ]
+        },
+
+        {
+          "@type": "Article",
+          "headline": "Why STEM Education Is Important for Kids with Robotics and AI and Coding Classes",
+          "description": "Learn why STEM education is important for kids and how robotics and AI and coding classes help children build problem-solving, creativity, and future-ready skills.",
+          "keywords": "robotics and ai, stem education, coding classes, coding for kids, robotics classes for kids, ai education",
+          "author": {
+            "@type": "Organization",
+            "name": "RoboAIAPaths"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "RoboAIAPaths",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.roboaiapaths.com/assets/logo.png"
+            }
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.roboaiapaths.com/"
+          },
+          "image": "https://www.roboaiapaths.com/assets/og-image.jpg",
+          "datePublished": "2024-01-01",
+          "dateModified": "2024-01-01"
+        },
+
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is STEM education and why is it important for kids?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "STEM education helps kids learn science, technology, engineering, and mathematics through practical activities. When combined with robotics and AI and coding classes, it builds problem-solving skills, creativity, and future-ready confidence."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do robotics and AI help children in STEM education?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Robotics and AI make STEM education interactive and hands-on. Children build models, write coding logic, test solutions, and improve their projects, which strengthens critical thinking and real-world understanding."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are coding classes important for young students?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, coding classes help students develop logical thinking, sequencing skills, and computational understanding. Coding supports robotics and AI learning within structured STEM education programs."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What age group is suitable for robotics and AI learning?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Robotics and AI learning through STEM education is suitable for students from Nursery to 8th standard when designed with age-appropriate projects and guided coding classes."
+              }
+            }
+          ]
+        }
+
+      ]
+    }
+    </script>
+
+    <script>
+        // Copy link button
+        document.getElementById("copyLinkBtn")?.addEventListener("click", async () => {
+            try {
+                await navigator.clipboard.writeText(window.location.href);
+                alert("Link copied!");
+            } catch (e) {
+                alert("Copy failed. Please copy the URL manually.");
+            }
+        });
+
+        // TOC active highlight on scroll
+        const tocLinks = Array.from(document.querySelectorAll("#toc a"));
+        const targets = tocLinks
+            .map(a => document.querySelector(a.getAttribute("href")))
+            .filter(Boolean);
+
+        const setActive = () => {
+            let idx = 0;
+            for (let i = 0; i < targets.length; i++) {
+                const r = targets[i].getBoundingClientRect();
+                if (r.top <= 120) idx = i;
+            }
+            tocLinks.forEach(a => a.classList.remove("active"));
+            if (tocLinks[idx]) tocLinks[idx].classList.add("active");
+        };
+        window.addEventListener("scroll", setActive, { passive: true });
+        setActive();
+
+        // FAQ accordion
+        document.querySelectorAll(".faq-item").forEach(item => {
+            const btn = item.querySelector(".faq-q");
+            const ans = item.querySelector(".faq-a");
+            btn.addEventListener("click", () => {
+                const open = btn.getAttribute("aria-expanded") === "true";
+                btn.setAttribute("aria-expanded", String(!open));
+                ans.hidden = open;
+                item.classList.toggle("open", !open);
+            });
+        });
+    </script>
+</body>
+
+</html>
