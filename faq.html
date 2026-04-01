@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ – Rashmi Kansal | Tech Educator & Robotics Expert</title>
+<meta name="description" content="Frequently Asked Questions about Rashmi Kansal, IIT Delhi certified robotics and AI educator. Learn about her background, experience, and vision for STEM education.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue-deep: #0a1628;
+    --blue-dark: #0d2147;
+    --blue-mid: #1a3a7c;
+    --blue-bright: #1e5cff;
+    --blue-electric: #3b82f6;
+    --blue-glow: #60a5fa;
+    --blue-light: #bfdbfe;
+    --blue-pale: #eff6ff;
+    --gold: #f0b429;
+    --white: #ffffff;
+    --text-muted: #94a3b8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--blue-deep);
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 0%, rgba(30,92,255,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 90% 100%, rgba(59,130,246,0.14) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(26,58,124,0.10) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.12;
+    pointer-events: none;
+    animation: drift 18s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+  .orb-1 { width: 500px; height: 500px; background: var(--blue-bright); top: -150px; left: -100px; animation-delay: 0s; }
+  .orb-2 { width: 350px; height: 350px; background: var(--blue-electric); bottom: 0; right: -80px; animation-delay: -6s; }
+  .orb-3 { width: 250px; height: 250px; background: var(--gold); top: 40%; left: 40%; animation-delay: -12s; opacity: 0.06; }
+
+  @keyframes drift {
+    from { transform: translate(0,0) scale(1); }
+    to   { transform: translate(40px, 60px) scale(1.1); }
+  }
+
+  .grid-bg {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(30,92,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30,92,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .container { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
+
+  .hero {
+    text-align: center;
+    padding: 80px 0 60px;
+    animation: fadeDown 0.9s cubic-bezier(.22,1,.36,1) both;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(30,92,255,0.15);
+    border: 1px solid rgba(96,165,250,0.3);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--blue-glow);
+    margin-bottom: 28px;
+    backdrop-filter: blur(10px);
+  }
+  .hero-badge::before { content: '●'; font-size: 8px; color: var(--gold); animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #ffffff 0%, var(--blue-glow) 60%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 1.05rem; color: var(--text-muted); max-width: 520px; margin: 0 auto 32px; line-height: 1.7;
+  }
+  .hero-stats {
+    display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+  }
+  .stat { display: flex; flex-direction: column; align-items: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--gold);
+  }
+  .stat-label { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
+
+  .search-wrap {
+    position: relative; max-width: 520px; margin: 0 auto 52px;
+    animation: fadeDown 0.9s 0.15s cubic-bezier(.22,1,.36,1) both;
+  }
+  .search-icon {
+    position: absolute; left: 18px; top: 50%; transform: translateY(-50%);
+    color: var(--blue-electric); font-size: 16px; pointer-events: none;
+  }
+  #searchInput {
+    width: 100%; padding: 16px 18px 16px 48px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(96,165,250,0.25);
+    border-radius: 14px;
+    color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+    outline: none; backdrop-filter: blur(12px);
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  #searchInput::placeholder { color: var(--text-muted); }
+  #searchInput:focus {
+    border-color: var(--blue-electric);
+    box-shadow: 0 0 0 3px rgba(30,92,255,0.18), 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  .categories {
+    display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+    margin-bottom: 48px;
+    animation: fadeDown 0.9s 0.25s cubic-bezier(.22,1,.36,1) both;
+  }
+  .cat-pill {
+    padding: 8px 20px; border-radius: 100px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(96,165,250,0.15);
+    color: var(--text-muted); font-size: 0.82rem; font-weight: 500;
+    cursor: pointer; transition: all 0.25s; letter-spacing: 0.04em;
+  }
+  .cat-pill:hover, .cat-pill.active {
+    background: rgba(30,92,255,0.2);
+    border-color: var(--blue-electric);
+    color: var(--blue-glow);
+  }
+  .cat-pill.active { box-shadow: 0 0 16px rgba(30,92,255,0.3); }
+
+  .section-label {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--blue-electric); margin-bottom: 20px; padding-left: 4px;
+  }
+
+  .faq-list { display: flex; flex-direction: column; gap: 14px; }
+
+  .faq-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(96,165,250,0.12);
+    border-radius: 16px; overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    animation: fadeUp 0.6s cubic-bezier(.22,1,.36,1) both;
+    backdrop-filter: blur(8px);
+  }
+  .faq-item:hover {
+    border-color: rgba(96,165,250,0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    transform: translateY(-2px);
+  }
+  .faq-item.open {
+    border-color: rgba(30,92,255,0.45);
+    box-shadow: 0 0 0 1px rgba(30,92,255,0.15), 0 12px 40px rgba(0,0,0,0.3);
+    transform: translateY(-2px);
+  }
+
+  .faq-q {
+    display: flex; align-items: center; gap: 16px;
+    padding: 22px 24px; cursor: pointer; user-select: none;
+  }
+  .faq-num {
+    min-width: 32px; height: 32px;
+    background: rgba(30,92,255,0.18);
+    border: 1px solid rgba(30,92,255,0.3);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; font-weight: 700; color: var(--blue-glow);
+    font-family: 'Playfair Display', serif; flex-shrink: 0;
+  }
+  .faq-item.open .faq-num {
+    background: rgba(30,92,255,0.35);
+    border-color: var(--blue-electric); color: #fff;
+  }
+  .faq-q-text {
+    flex: 1; font-size: 0.97rem; font-weight: 600; color: var(--white); line-height: 1.45;
+  }
+  .faq-icon {
+    width: 28px; height: 28px; flex-shrink: 0;
+    background: rgba(30,92,255,0.12);
+    border: 1px solid rgba(96,165,250,0.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.4s cubic-bezier(.34,1.56,.64,1), background 0.3s;
+    font-size: 14px; color: var(--blue-electric); font-weight: 300; line-height: 1;
+  }
+  .faq-item.open .faq-icon {
+    transform: rotate(45deg);
+    background: rgba(30,92,255,0.3);
+    border-color: var(--blue-electric); color: #fff;
+  }
+
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(.4,0,.2,1);
+  }
+  .faq-a.open { max-height: 600px; }
+  .faq-a-inner {
+    padding: 16px 24px 24px 72px;
+    font-size: 0.9rem; color: #a8c0e8; line-height: 1.8; font-weight: 300;
+    border-top: 1px solid rgba(96,165,250,0.08);
+    margin: 0 24px;
+  }
+
+  #noResults {
+    text-align: center; padding: 60px 20px; display: none;
+    color: var(--text-muted); font-size: 0.95rem;
+  }
+  #noResults .icon { font-size: 2.5rem; margin-bottom: 12px; opacity: 0.5; }
+
+  .footer {
+    text-align: center; margin-top: 70px;
+    padding: 40px 24px 0;
+    border-top: 1px solid rgba(96,165,250,0.1);
+    color: var(--text-muted); font-size: 0.82rem;
+  }
+  .footer strong { color: var(--blue-glow); }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--blue-deep); }
+  ::-webkit-scrollbar-thumb { background: rgba(30,92,255,0.4); border-radius: 3px; }
+
+  @media (max-width: 600px) {
+    .faq-a-inner { padding-left: 24px; margin: 0 12px; }
+    .faq-q { padding: 18px; }
+    .hero-stats { gap: 24px; }
+  }
+</style>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who is Rashmi Kansal and what does she teach in Robotics and AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rashmi Kansal is a passionate and highly dedicated tech educator specializing in Robotics, Artificial Intelligence (AI), and programming. She is committed to empowering students with future-ready skills through innovative teaching methods and hands-on learning experiences that make complex Robotics and AI technologies simple and engaging."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Rashmi Kansal's educational background in Robotics and AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rashmi Kansal holds a B.Sc and M.Sc in Computer Science, a B.Ed in Computer Science from Maharshi Dayanand University (MDU), and an M.Ed in Computer Science from Chaudhary Ranbir Singh University (CRSU), Faridabad. She also completed a prestigious Robotics Executive Course from IIT Delhi, giving her a strong academic foundation in both Robotics and Artificial Intelligence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Has Rashmi Kansal completed Robotics and AI certification from IIT Delhi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Rashmi Kansal has completed a prestigious Robotics Executive Course and holds certifications in Robotics and Artificial Intelligence (AI) from IIT Delhi. This reflects her commitment to advanced technical education and staying aligned with the latest developments in Robotics and AI."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What experience does Rashmi Kansal have in teaching Robotics and AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rashmi Kansal has extensive experience in teaching and mentoring students in Robotics, Artificial Intelligence (AI), and programming. She has successfully guided learners through hands-on Robotics and AI projects and real-world applications, helping them build strong technical foundations and confidence in these cutting-edge technologies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are Rashmi Kansal's core skills in Robotics and AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rashmi Kansal's core expertise includes Robotics development, Artificial Intelligence (AI), machine learning fundamentals, programming languages such as Python and C++, and STEM education. Her comprehensive skill set in Robotics and AI allows her to deliver practical, industry-relevant learning experiences to students worldwide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many students has Rashmi Kansal trained in Robotics and AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rashmi Kansal has successfully trained and mentored more than 800 students globally in Robotics and Artificial Intelligence (AI), providing them with valuable knowledge and helping them develop problem-solving abilities and future-ready technical skills in Robotics and AI."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What certifications does Rashmi Kansal hold in Robotics and AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rashmi Kansal holds multiple certifications in Robotics and Artificial Intelligence (AI) from IIT Delhi. These certifications validate her expertise in Robotics and AI and demonstrate her continuous effort to stay updated with the latest advancements in technology and education."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes Rashmi Kansal a unique Robotics and AI educator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "What sets Rashmi Kansal apart as a Robotics and AI educator is her focus on practical, hands-on learning combined with a student-friendly teaching approach. She simplifies complex Robotics and AI concepts and ensures that every learner understands how to apply their knowledge in real-world scenarios."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Rashmi Kansal's teaching methodology for Robotics and AI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rashmi Kansal's teaching methodology for Robotics and AI is based on project-based learning, step-by-step guidance, and interactive sessions. This approach not only enhances understanding of Robotics and Artificial Intelligence but also encourages creativity, innovation, and independent thinking among students."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Rashmi Kansal's vision for Robotics and AI education?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rashmi Kansal's vision is to empower the next generation with Robotics and AI skills by creating a strong foundation in technology. She aims to enable students to become confident innovators, problem solvers, and future leaders in the digital world through quality Robotics and Artificial Intelligence education."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What complete qualifications does Rashmi Kansal hold relevant to Robotics and AI teaching?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rashmi Kansal holds a B.Sc in Computer Science, M.Sc in Computer Science, B.Ed in Computer Science from MDU, M.Ed in Computer Science from CRSU Faridabad, and a Robotics Executive Course certification from IIT Delhi. This diverse combination of technical and educational qualifications makes her uniquely qualified to teach Robotics and Artificial Intelligence at an advanced level."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Person Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rashmi Kansal",
+  "jobTitle": "Robotics and AI Tech Educator",
+  "description": "Rashmi Kansal is a passionate tech educator specializing in Robotics, Artificial Intelligence (AI), and programming, with IIT Delhi certification and 800+ students trained globally.",
+  "knowsAbout": [
+    "Robotics",
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Python Programming",
+    "C++ Programming",
+    "STEM Education",
+    "AI Education",
+    "Robotics Development"
+  ],
+  "alumniOf": [
+    {
+      "@type": "EducationalOrganization",
+      "name": "IIT Delhi",
+      "description": "Robotics Executive Course"
+    },
+    {
+      "@type": "EducationalOrganization",
+      "name": "Maharshi Dayanand University (MDU)"
+    },
+    {
+      "@type": "EducationalOrganization",
+      "name": "Chaudhary Ranbir Singh University (CRSU), Faridabad"
+    }
+  ],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Robotics Executive Course Certification",
+      "credentialCategory": "Professional Certification",
+      "recognizedBy": {
+        "@type": "EducationalOrganization",
+        "name": "IIT Delhi"
+      }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Master of Education (M.Ed) in Computer Science",
+      "credentialCategory": "Degree"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Master of Science (M.Sc) in Computer Science",
+      "credentialCategory": "Degree"
+    }
+  ]
+}
+</script>
+
+<!-- Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.roboaiapaths.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About",
+      "item": "https://www.roboaiapaths.com/about.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Rashmi Kansal",
+      "item": "https://www.roboaiapaths.com/rashmi-kansal.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "FAQ",
+      "item": "https://www.roboaiapaths.com/faq.html"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-badge">Tech Educator · Robotics · AI</div>
+    <h1>Rashmi Kansal<br>Frequently Asked Questions</h1>
+    <p>Everything you need to know about India's passionate robotics &amp; AI educator empowering the next generation.</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">800+</span><span class="stat-label">Students Trained</span></div>
+      <div class="stat"><span class="stat-num">IIT</span><span class="stat-label">Delhi Certified</span></div>
+      <div class="stat"><span class="stat-num">11</span><span class="stat-label">FAQs Answered</span></div>
+    </div>
+  </div>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search questions about Rashmi Kansal…" autocomplete="off">
+  </div>
+
+  <div class="categories">
+    <button class="cat-pill active" data-cat="all">All Questions</button>
+    <button class="cat-pill" data-cat="background">Background</button>
+    <button class="cat-pill" data-cat="teaching">Teaching</button>
+    <button class="cat-pill" data-cat="credentials">Credentials</button>
+    <button class="cat-pill" data-cat="vision">Vision</button>
+  </div>
+
+  <div class="section-label">— Frequently Asked Questions</div>
+  <div class="faq-list" id="faqList"></div>
+  <div id="noResults"><div class="icon">🔍</div><p>No questions match your search. Try different keywords.</p></div>
+
+  <div class="footer">
+    <p>© 2026 <strong>Rashmi Kansal</strong> · Tech Educator &amp; Robotics Expert · Empowering Future Innovators</p>
+  </div>
+
+</div>
+
+<script>
+const faqs = [
+  {
+    num:"01", cat:"background",
+    q:"Who is Rashmi Kansal?",
+    a:"Rashmi Kansal is a passionate and highly dedicated tech educator specializing in robotics, artificial intelligence, and programming, who is committed to empowering students with future-ready skills through innovative teaching methods and hands-on learning experiences that make complex technologies simple and engaging."
+  },
+  {
+    num:"02", cat:"background",
+    q:"What is Rashmi Kansal's educational background?",
+    a:"Rashmi Kansal comes from a strong academic background in technology and computer science, which has helped her build deep expertise in robotics, artificial intelligence, and coding, enabling her to design structured learning programs that are both practical and industry-relevant."
+  },
+  {
+    num:"03", cat:"credentials",
+    q:"Has Rashmi Kansal studied at IIT Delhi?",
+    a:"Yes, Rashmi Kansal has enhanced her technical knowledge and skills through learning and certification programs associated with IIT Delhi, which reflects her commitment to gaining high-quality education and staying aligned with advanced technological developments in robotics and AI."
+  },
+  {
+    num:"04", cat:"teaching",
+    q:"What experience does Rashmi Kansal have in teaching robotics and AI?",
+    a:"Rashmi Kansal has extensive experience in teaching and mentoring students in robotics, artificial intelligence, and programming, where she has successfully guided learners through hands-on projects and real-world applications, helping them build strong technical foundations and confidence."
+  },
+  {
+    num:"05", cat:"credentials",
+    q:"What are Rashmi Kansal's core skills and expertise?",
+    a:"Her core expertise includes robotics development, artificial intelligence, machine learning fundamentals, programming languages such as Python and C++, as well as STEM education, allowing her to deliver comprehensive and practical learning experiences to students."
+  },
+  {
+    num:"06", cat:"teaching",
+    q:"How many students has Rashmi Kansal trained?",
+    a:"Rashmi Kansal has successfully trained and mentored more than 800 students globally, providing them with valuable knowledge in robotics and AI while helping them develop problem-solving abilities and future-ready technical skills."
+  },
+  {
+    num:"07", cat:"credentials",
+    q:"What certifications does Rashmi Kansal hold?",
+    a:"She holds multiple certifications in robotics and artificial intelligence from IIT Delhi, which validate her expertise and demonstrate her continuous effort to stay updated with the latest advancements in technology and education."
+  },
+  {
+    num:"08", cat:"teaching",
+    q:"What makes Rashmi Kansal unique as an educator?",
+    a:"What sets Rashmi Kansal apart is her focus on practical, hands-on learning combined with a student-friendly teaching approach, where she simplifies complex concepts and ensures that every learner understands how to apply their knowledge in real-world scenarios."
+  },
+  {
+    num:"09", cat:"teaching",
+    q:"What is Rashmi Kansal's teaching methodology?",
+    a:"Her teaching methodology is based on project-based learning, step-by-step guidance, and interactive sessions, which not only enhance understanding but also encourage creativity, innovation, and independent thinking among students."
+  },
+  {
+    num:"10", cat:"vision",
+    q:"What is Rashmi Kansal's vision for students and future education?",
+    a:"Rashmi Kansal's vision is to empower the next generation with robotics and AI skills by creating a strong foundation in technology, enabling students to become confident innovators, problem solvers, and future leaders in the digital world."
+  },
+  {
+    num:"11", cat:"background",
+    q:"What is Rashmi Kansal's complete educational qualification?",
+    a:"Rashmi Kansal has a strong and diverse academic background in computer science and education, having completed her B.Sc and M.Sc in Computer Science, along with a B.Ed in Computer Science from Maharshi Dayanand University (MDU). She further pursued an M.Ed in Computer Science from Chaudhary Ranbir Singh University (CRSU), Faridabad, while also completing a prestigious Robotics Executive Course from IIT Delhi — showcasing her unwavering commitment to excellence and continuous learning in robotics and artificial intelligence."
+  }
+];
+
+let activeCategory = "all";
+let searchTerm = "";
+
+function buildFAQ(items) {
+  const list = document.getElementById("faqList");
+  const noRes = document.getElementById("noResults");
+  list.innerHTML = "";
+
+  if (items.length === 0) {
+    noRes.style.display = "block";
+    return;
+  }
+  noRes.style.display = "none";
+
+  items.forEach((item, i) => {
+    const el = document.createElement("div");
+    el.className = "faq-item";
+    el.dataset.cat = item.cat;
+    el.style.animationDelay = `${i * 0.06}s`;
+    el.innerHTML = `
+      <div class="faq-q" role="button" tabindex="0" aria-expanded="false">
+        <div class="faq-num">${item.num}</div>
+        <div class="faq-q-text">${item.q}</div>
+        <div class="faq-icon">+</div>
+      </div>
+      <div class="faq-a">
+        <div class="faq-a-inner">${item.a}</div>
+      </div>
+    `;
+
+    const btn = el.querySelector(".faq-q");
+    const ans = el.querySelector(".faq-a");
+    const icon = el.querySelector(".faq-icon");
+
+    btn.addEventListener("click", () => {
+      const isOpen = el.classList.contains("open");
+      document.querySelectorAll(".faq-item.open").forEach(o => {
+        o.classList.remove("open");
+        o.querySelector(".faq-a").classList.remove("open");
+        o.querySelector(".faq-q").setAttribute("aria-expanded","false");
+      });
+      if (!isOpen) {
+        el.classList.add("open");
+        ans.classList.add("open");
+        btn.setAttribute("aria-expanded","true");
+        setTimeout(() => el.scrollIntoView({ behavior:"smooth", block:"nearest" }), 80);
+      }
+    });
+
+    btn.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); btn.click(); }
+    });
+
+    list.appendChild(el);
+  });
+}
+
+function filterFAQ() {
+  const term = searchTerm.toLowerCase();
+  const filtered = faqs.filter(f => {
+    const catMatch = activeCategory === "all" || f.cat === activeCategory;
+    const searchMatch = !term || f.q.toLowerCase().includes(term) || f.a.toLowerCase().includes(term);
+    return catMatch && searchMatch;
+  });
+  buildFAQ(filtered);
+}
+
+document.getElementById("searchInput").addEventListener("input", e => {
+  searchTerm = e.target.value;
+  filterFAQ();
+});
+
+document.querySelectorAll(".cat-pill").forEach(pill => {
+  pill.addEventListener("click", () => {
+    document.querySelectorAll(".cat-pill").forEach(p => p.classList.remove("active"));
+    pill.classList.add("active");
+    activeCategory = pill.dataset.cat;
+    filterFAQ();
+  });
+});
+
+buildFAQ(faqs);
+</script>
+</body>
+</html>

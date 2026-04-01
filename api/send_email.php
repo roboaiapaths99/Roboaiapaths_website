@@ -43,6 +43,26 @@ function sendOrderEmail($order)
             <p><strong>Payment Method:</strong> {$order['payment_method']}</p>
             <p><strong>Address:</strong> {$order['address']}, {$order['city']}, {$order['state']} - {$order['zip']}</p>
             
+            <table style='width:100%; margin-top:10px; border-collapse:collapse;'>
+                <tr style='background:#f0f4ff;'>
+                    <td style='padding:8px; border:1px solid #ddd;'><strong>Subtotal</strong></td>
+                    <td style='padding:8px; border:1px solid #ddd;'>Rs. " . ($order['subtotal'] ?? $order['amount']) . "</td>
+                </tr>" .
+                (isset($order['coupon']) && $order['coupon'] ? "
+                <tr style='background:#fff3cd;'>
+                    <td style='padding:8px; border:1px solid #ddd;'><strong>Coupon ({$order['coupon']})</strong></td>
+                    <td style='padding:8px; border:1px solid #ddd; color:#dc3545;'>- Rs. " . ($order['discount'] ?? 0) . "</td>
+                </tr>" : "") . "
+                <tr>
+                    <td style='padding:8px; border:1px solid #ddd;'><strong>GST (18%)</strong></td>
+                    <td style='padding:8px; border:1px solid #ddd;'>Rs. " . ($order['gst'] ?? 0) . "</td>
+                </tr>
+                <tr style='background:#d4edda;'>
+                    <td style='padding:8px; border:1px solid #ddd;'><strong>Final Amount Paid</strong></td>
+                    <td style='padding:8px; border:1px solid #ddd;'><strong>Rs. {$order['amount']}</strong></td>
+                </tr>
+            </table>
+
             <h3>Order Items:</h3>
             <table>
                 <thead>

@@ -480,6 +480,21 @@
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.roboaiapaths.com/"
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -619,6 +634,7 @@
           <li class="nav-item"><a href="program.html" class="nav-link">Courses</a></li>
           <li class="nav-item"><a href="kits.html" class="nav-link">Kits</a></li>
           <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          <li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
           <li class="nav-item"><a href="partner-with-school.html" class="nav-link">AIRobotic Labs</a></li>
           <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
@@ -657,8 +673,12 @@
               Join the revolution of next-gen creators.
             </p>
             <div class="d-flex flex-wrap gap-3">
-              <a href="#courses-list" class="btn btn-primary btn-tech btn-lg px-5 py-3 rounded-pill shadow-lg">
+              <a href="program.html" class="btn btn-primary btn-tech btn-lg px-5 py-3 rounded-pill shadow-lg">
                 Explore Courses <i class="fas fa-arrow-right ms-2"></i>
+              </a>
+              <a href="kits.html" class="btn btn-lg px-5 py-3 rounded-pill shadow-lg" id="explore-kits-btn"
+                style="background: linear-gradient(135deg, #006eff, #38bdf8); color: white; font-weight: 700; border: none; transition: all 0.3s ease;">
+                <i class="fas fa-robot me-2"></i> Explore Kits
               </a>
               <a href="contact.html" class="btn btn-outline-light btn-lg px-5 py-3 rounded-pill hover-scale">
                 Book a Free Demo
@@ -1379,7 +1399,7 @@
                 classes</strong> and hands-on
               <strong>STEM education</strong>?
             </p>
-            <a class="rap-cta-btn" href="/contact.html" aria-label="Book a free demo session">Book a Free Demo</a>
+            <a class="rap-cta-btn" href="faq.html" aria-label="View all frequently asked questions">View All FAQs <i class="fas fa-arrow-right ms-2"></i></a>
           </div>
         </div>
       </section>
@@ -1683,6 +1703,7 @@
             <ul class="list-unstyled small">
               <li><a href="contact.html">Demo Test</a></li>
               <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="faq.html">FAQ</a></li>
               <li><a href="index.html#testimonials">Testimonials</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>

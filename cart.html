@@ -291,6 +291,10 @@
                             <span class="text-white-50">Subtotal</span>
                             <span class="fw-bold" id="cart-total">₹ 0</span>
                         </div>
+                        <div class="d-flex justify-content-between mb-3" id="cart-discount-row" style="display: none;">
+                            <span class="text-success">Discount (<span id="cart-coupon-name"></span>)</span>
+                            <span class="fw-bold text-success" id="cart-discount">- ₹ 0</span>
+                        </div>
                         <div class="d-flex justify-content-between mb-3">
                             <span class="text-white-50">GST (18%)</span>
                             <span class="fw-bold" id="cart-gst">₹ 0</span>
@@ -299,6 +303,13 @@
                             <span class="text-white-50">Shipping</span>
                             <span class="fw-bold text-success">Free</span>
                         </div>
+                        
+                        <!-- Coupon Section -->
+                        <div class="input-group mb-4 mt-4">
+                            <input type="text" id="cart-coupon-code" class="form-control bg-dark border-secondary text-white" placeholder="Promo Code" style="border-radius: 50px 0 0 50px;">
+                            <button class="btn btn-outline-light px-3" type="button" onclick="applyCouponOnCart()" id="btn-apply-coupon-cart" style="border-radius: 0 50px 50px 0;">Apply</button>
+                        </div>
+
                         <hr class="border-secondary">
                         <div class="d-flex justify-content-between mb-4">
                             <span class="fs-5 fw-bold">Total</span>

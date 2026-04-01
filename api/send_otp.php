@@ -14,6 +14,12 @@ $_SESSION['login_otp'] = $otp;
 $_SESSION['login_mobile'] = $mobile;
 $_SESSION['login_otp_time'] = time();
 
+// Skip real SMS sending in Debug Mode
+if (defined('DEBUG_MODE') && DEBUG_MODE === true) {
+    $_SESSION['login_otp'] = DEBUG_OTP; // Use fixed OTP
+    sendJsonResponse('success', 'DEBUG MODE: Use OTP ' . DEBUG_OTP . ' to login.', ['debug' => true]);
+}
+
 // Send OTP via MetaReach using EXACT DLT Approved Template
 $message = urlencode("Welcome to AGPK Academy login. Your verification code is {$otp}. This OTP will expire in 5 minutes");
 $url = "https://sms.metareach.in/vb/apikey.php?apikey=" . METAREACH_API_KEY . "&senderid=" . METAREACH_SENDER_ID . "&number=" . $mobile . "&message=" . $message . "&templateid=" . METAREACH_TEMPLATE_ID;

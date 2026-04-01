@@ -19,8 +19,15 @@ define('METAREACH_API_KEY', 'i0caSeRfCMXWdVij');
 define('METAREACH_SENDER_ID', 'AGPKAC');
 define('METAREACH_TEMPLATE_ID', '1707177071739047190');
 
+// Debug Mode Settings (Disable for Production)
+define('DEBUG_MODE', false);
+define('DEBUG_OTP', '5555');
+
 // Email Settings
 define('ADMIN_EMAILS', 'roboaiapaths@gmail.com,roboaiapaths9@gmail.com');
+
+// Admin Settings
+define('ADMIN_MOBILE', '9990911093');
 
 // Helper to send JSON response
 function sendJsonResponse($status, $message, $data = [])

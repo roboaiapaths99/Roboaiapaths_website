@@ -1,6 +1,7 @@
 // Cart Logic utilizing localStorage with OTP Integration
 
 const CART_KEY = 'robo_aia_cart';
+const OUT_OF_STOCK = ['kit3', 'kit4', 'kit7', 'kit8']; // Otto Ninja, Plug & Play, Smart IOT Home, MR Bot
 
 // Initialize cart if not exists
 function getCart() {
@@ -21,10 +22,76 @@ function getUserMobile() {
     return localStorage.getItem('user_mobile');
 }
 
+// Session heart-beat and navbar sync
+async function syncLoginState() {
+    try {
+        const res = await fetch('api/user_session.php');
+        const data = await res.json();
+        const badge = document.getElementById('cart-badge');
+        
+        if (data.logged_in) {
+            localStorage.setItem('user_logged_in', 'true');
+            localStorage.setItem('user_mobile', data.mobile);
+            updateNavbarForLoggedIn(data.mobile);
+            
+            // Populate phone field on checkout
+            const phoneDisplay = document.getElementById('phoneDisplay');
+            if (phoneDisplay) phoneDisplay.value = "+91 " + data.mobile;
+        } else {
+            localStorage.removeItem('user_logged_in');
+            localStorage.removeItem('user_mobile');
+            updateNavbarForLoggedOut();
+        }
+    } catch (e) {
+        console.error("Session sync failed", e);
+    }
+}
+
+function updateNavbarForLoggedIn(mobile) {
+    const enrollBtn = document.querySelector('.btn-tech');
+    if (enrollBtn && enrollBtn.innerText.includes('Enroll')) {
+        enrollBtn.innerHTML = `<i class="fas fa-user-circle me-1"></i> +91 ${mobile}`;
+        enrollBtn.classList.remove('btn-primary');
+        enrollBtn.classList.add('btn-outline-primary');
+        enrollBtn.href = '#'; // Profile dropdown later
+        
+        // Add Logout Button after it
+        if (!document.getElementById('logout-nav-item')) {
+            const li = document.createElement('li');
+            li.id = 'logout-nav-item';
+            li.className = 'nav-item ms-lg-2';
+            li.innerHTML = `<a href="javascript:void(0)" onclick="logoutUser()" class="btn btn-danger btn-tech px-3"><i class="fas fa-sign-out-alt"></i></a>`;
+            enrollBtn.closest('ul').appendChild(li);
+        }
+    }
+}
+
+function updateNavbarForLoggedOut() {
+    const logoutItem = document.getElementById('logout-nav-item');
+    if (logoutItem) logoutItem.remove();
+}
+
+async function logoutUser() {
+    try {
+        await fetch('api/logout.php');
+        localStorage.removeItem('user_logged_in');
+        localStorage.removeItem('user_mobile');
+        showToast('Logged out successfully', 'info');
+        window.location.href = 'index.html';
+    } catch (e) {
+        showToast('Logout failed', 'error');
+    }
+}
+
 // Intercept Add to Cart
 let pendingCartAction = null;
 
 function addToCart(id, name, price, image) {
+    if (OUT_OF_STOCK.includes(id)) {
+        showToast(`Sorry, "${name}" is currently out of stock.`, 'error');
+        return;
+    }
+
     if (!isLoggedIn()) {
         pendingCartAction = { action: 'add', id, name, price, image };
         showOtpModal();
@@ -152,8 +219,27 @@ function renderCartPage() {
     });
 
     const subtotal = getCartSubtotal();
-    const gst = getCartGST(subtotal);
-    const finalTotal = subtotal + gst;
+    
+    // Coupon Logic for Cart Page
+    const appliedCoupon = localStorage.getItem('applied_coupon_code');
+    const discountAmount = Number(localStorage.getItem('applied_coupon_discount') || 0);
+    
+    let subtotalAfterDiscount = subtotal;
+    const discountRow = document.getElementById('cart-discount-row');
+    const discountEl = document.getElementById('cart-discount');
+    const couponNameEl = document.getElementById('cart-coupon-name');
+
+    if (appliedCoupon && discountAmount > 0) {
+        if (discountRow) discountRow.style.display = 'flex';
+        if (discountEl) discountEl.innerText = '- ' + formatCurrency(discountAmount);
+        if (couponNameEl) couponNameEl.innerText = appliedCoupon;
+        subtotalAfterDiscount = Math.max(0, subtotal - discountAmount);
+    } else {
+        if (discountRow) discountRow.style.display = 'none';
+    }
+
+    const gst = getCartGST(subtotalAfterDiscount);
+    const finalTotal = subtotalAfterDiscount + gst;
 
     if (totalContainer) totalContainer.innerText = formatCurrency(subtotal);
 
@@ -162,6 +248,47 @@ function renderCartPage() {
 
     if (gstContainer) gstContainer.innerText = formatCurrency(gst);
     if (finalContainer) finalContainer.innerText = formatCurrency(finalTotal);
+}
+
+// Coupon Support for Cart Page
+async function applyCouponOnCart() {
+    const input = document.getElementById('cart-coupon-code');
+    const code = input ? input.value.trim().toUpperCase() : '';
+    if (!code) return;
+
+    const btn = document.getElementById('btn-apply-coupon-cart');
+    if (btn) {
+        btn.disabled = true;
+        btn.innerText = '...';
+    }
+
+    try {
+        const res = await fetch('api/validate_coupon.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ coupon: code, subtotal: getCartSubtotal() })
+        });
+        const data = await res.json();
+
+        if (data.status === 'success') {
+            localStorage.setItem('applied_coupon_code', code);
+            localStorage.setItem('applied_coupon_discount', data.discount);
+            showToast('Coupon applied!', 'success');
+            renderCartPage();
+        } else {
+            showToast(data.message, 'error');
+            localStorage.removeItem('applied_coupon_code');
+            localStorage.removeItem('applied_coupon_discount');
+            renderCartPage();
+        }
+    } catch (err) {
+        showToast('Failed to validate coupon', 'error');
+    } finally {
+        if (btn) {
+            btn.disabled = false;
+            btn.innerText = 'Apply';
+        }
+    }
 }
 
 // --- OTP Logic ---
@@ -305,15 +432,27 @@ function requireLoginForCheckout(event) {
 
 // Initialize on load
 document.addEventListener('DOMContentLoaded', () => {
-    // If user is on cart page but not logged in, kick them out
-    if (window.location.pathname.endsWith('cart.html') && !isLoggedIn()) {
-        window.location.href = 'kits.html';
-        return;
-    }
-
     injectOtpModal();
     updateCartIcon();
     renderCartPage();
+    syncLoginState();
+
+    // Auto-apply coupon from URL param
+    const urlParams = new URLSearchParams(window.location.search);
+    const promoCode = urlParams.get('coupon');
+    if (promoCode && !localStorage.getItem('applied_coupon_code')) {
+        localStorage.setItem('applied_coupon_code', promoCode.toUpperCase());
+        // For checkout page special handling
+        const checkoutPromoInput = document.getElementById('coupon-code');
+        if (checkoutPromoInput) checkoutPromoInput.value = promoCode.toUpperCase();
+        
+        // For cart page special handling
+        const cartPromoInput = document.getElementById('cart-coupon-code');
+        if (cartPromoInput) {
+            cartPromoInput.value = promoCode.toUpperCase();
+            applyCouponOnCart();
+        }
+    }
 
     // Globally intercept any links to the cart page
     const cartNavLinks = document.querySelectorAll('a[href="cart.html"]');
@@ -323,6 +462,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 pendingCartAction = { action: 'view_cart' };
                 showOtpModal();
+                setTimeout(() => {
+                    const modalTitle = document.querySelector('#otpModal h4');
+                    if (modalTitle) modalTitle.innerText = 'Login to View Cart';
+                }, 100);
             }
         });
     });

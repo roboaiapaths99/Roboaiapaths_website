@@ -15,7 +15,8 @@ if (!$coupon || $subtotal <= 0) {
 // Hardcoded coupons for demonstration
 $validCoupons = [
     'ROBO10' => ['type' => 'percent', 'value' => 10], // 10% off
-    'FLAT500' => ['type' => 'fixed', 'value' => 500]  // ₹500 flat off
+    'FLAT500' => ['type' => 'fixed', 'value' => 500], // ₹500 flat off
+    'SAPNA40' => ['type' => 'percent', 'value' => 40]  // 40% off all kits
 ];
 
 if (array_key_exists($coupon, $validCoupons)) {

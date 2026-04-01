@@ -1,0 +1,5 @@
+api/db_connect.php
+api/logs/
+.DS_Store
+Thumbs.db
+node_modules/
