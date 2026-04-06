@@ -1,4 +1,4 @@
--- SQL Schema for Robo AI Paths Marketplace
+-- SQL Schema for RoboAIAPaths Marketplace
 
 -- Users table (derived from OTP login)
 CREATE TABLE IF NOT EXISTS msg_users (

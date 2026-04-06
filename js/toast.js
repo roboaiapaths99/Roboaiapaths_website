@@ -1,5 +1,5 @@
 /**
- * Toast Notification System for Robo AIA Paths
+ * Toast Notification System for RoboAIAPaths
  * Usage: showToast('Your message here', 'success' | 'error' | 'info')
  */
 

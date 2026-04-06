@@ -1,5 +1,5 @@
 /**
- * Form Handler for Robo AIA Paths
+ * Form Handler for RoboAIAPaths
  * This script intercepts form submissions and sends the data to Google Sheets via Apps Script.
  */
 
