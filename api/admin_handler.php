@@ -23,7 +23,7 @@ if ($action === 'send_otp') {
     }
 
     // Reuse MetaReach SMS Logic
-    $message = urlencode("Robo AI Paths Admin Login. Your OTP is {$otp}. Confidiential.");
+    $message = urlencode("RoboAIA Paths Admin Login. Your OTP is {$otp}. Confidiential.");
     $url = "https://sms.metareach.in/vb/apikey.php?apikey=" . METAREACH_API_KEY . "&senderid=" . METAREACH_SENDER_ID . "&number=" . $mobile . "&message=" . $message . "&templateid=" . METAREACH_TEMPLATE_ID;
 
     $ch = curl_init();

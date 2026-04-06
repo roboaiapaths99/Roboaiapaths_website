@@ -90,7 +90,7 @@ function sendOrderEmail($order)
             </table>
         </div>
         <div class='footer'>
-            <p>This is an automated email from Robo AI Paths.</p>
+            <p>This is an automated email from RoboAIA Paths.</p>
         </div>
     </div>
     </body>
@@ -104,7 +104,7 @@ function sendOrderEmail($order)
     @mail($to, $subject, $message, $headers);
 
     // Also send an email to the user optionally
-    $user_subject = "Your Order Confirmation - Robo AI Paths";
+    $user_subject = "Your Order Confirmation - RoboAIA Paths";
     $user_message = str_replace("New Order Received!", "Thank you for your order!", $message);
     @mail($order['email'], $user_subject, $user_message, $headers);
 }
