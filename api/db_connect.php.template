@@ -1,5 +1,5 @@
 <?php
-// Robo AI Paths - Database Connection Template
+// Robo RoboAiAPaths Paths - Database Connection Template
 // Fill in your credentials below
 
 $db_host = 'localhost';             // Usually localhost on Hostinger

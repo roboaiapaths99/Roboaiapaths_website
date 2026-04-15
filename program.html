@@ -65,60 +65,87 @@
 
   <!-- Course Schema -->
   <script type="application/ld+json">
-  [
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Introduction to Robotics",
-      "description": "Enroll in our Introduction to Robotics course for kids aged 7–9. Learn basics of robotics, sensors, actuators, and block-based coding with hands-on projects. Perfect for beginners!",
-      "provider": {
-        "@type": "EducationalOrganization",
-        "name": "RoboAIAPaths",
-        "sameAs": "https://roboaiapaths.com"
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Course",
+        "@id": "https://roboaiapaths.com/program.html#course-intro-robotics",
+        "name": "Introduction to Robotics",
+        "description": "Enroll in our Introduction to Robotics course for kids aged 7–9. Learn basics of robotics, sensors, actuators, and block-based coding with hands-on projects. Perfect for beginners!",
+        "url": "https://roboaiapaths.com/program.html",
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "RoboAIAPaths",
+          "url": "https://roboaiapaths.com",
+          "sameAs": "https://roboaiapaths.com"
+        },
+        "educationalLevel": "Beginner",
+        "courseMode": "Blended",
+        "offers": {
+          "@type": "Offer",
+          "category": "Paid"
+        }
       },
-      "educationalLevel": "Beginner",
-      "courseMode": ["Online", "Offline"]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Robo Expert",
-      "description": "Join Robo Expert robotics course for kids aged 10–12. Learn robotic kinematics, automation systems, IoT, and AI integration with hands-on projects. Build advanced robotics skills today!",
-      "provider": {
-        "@type": "EducationalOrganization",
-        "name": "RoboAIAPaths",
-        "sameAs": "https://roboaiapaths.com"
+      {
+        "@type": "Course",
+        "@id": "https://roboaiapaths.com/program.html#course-robo-expert",
+        "name": "Robo Expert Robotics Course",
+        "description": "Join Robo Expert robotics course for kids aged 10–12. Learn robotic kinematics, automation systems, IoT, and AI integration with hands-on projects. Build advanced robotics skills today!",
+        "url": "https://roboaiapaths.com/program.html",
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "RoboAIAPaths",
+          "url": "https://roboaiapaths.com",
+          "sameAs": "https://roboaiapaths.com"
+        },
+        "educationalLevel": "Intermediate",
+        "courseMode": "Blended",
+        "offers": {
+          "@type": "Offer",
+          "category": "Paid"
+        }
       },
-      "educationalLevel": "Intermediate",
-      "courseMode": ["Online", "Offline"]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Robo Advance",
-      "description": "Enroll in Robo Advance robotics course for teens 13+. Learn Python, C++, machine learning, and advanced coding for robotics with real-world projects and expert guidance.",
-      "provider": {
-        "@type": "EducationalOrganization",
-        "name": "RoboAIAPaths",
-        "sameAs": "https://roboaiapaths.com"
+      {
+        "@type": "Course",
+        "@id": "https://roboaiapaths.com/program.html#course-robo-advance",
+        "name": "Robo Advance AI Course",
+        "description": "Enroll in Robo Advance AI course for teens 13+. Learn Python, C++, machine learning, and advanced coding for AI and robotics with real-world projects and expert guidance.",
+        "url": "https://roboaiapaths.com/program.html",
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "RoboAIAPaths",
+          "url": "https://roboaiapaths.com",
+          "sameAs": "https://roboaiapaths.com"
+        },
+        "educationalLevel": "Advanced",
+        "courseMode": "Blended",
+        "offers": {
+          "@type": "Offer",
+          "category": "Paid"
+        }
       },
-      "educationalLevel": "Expert",
-      "courseMode": ["Online", "Offline"]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Coding & AI",
-      "description": "Join our Robotics and AI course for kids and teens. Learn coding, machine learning, neural networks, and AI algorithms with hands-on projects and multi-level training programs.",
-      "provider": {
-        "@type": "EducationalOrganization",
-        "name": "RoboAIAPaths",
-        "sameAs": "https://roboaiapaths.com"
-      },
-      "educationalLevel": "All Levels",
-      "courseMode": ["Online", "Offline"]
-    }
-  ]
+      {
+        "@type": "Course",
+        "@id": "https://roboaiapaths.com/program.html#course-coding-ai",
+        "name": "Coding & AI",
+        "description": "Join our Robotics and AI course for kids and teens. Learn coding, machine learning, neural networks, and AI algorithms with hands-on projects and multi-level training programs.",
+        "url": "https://roboaiapaths.com/program.html",
+        "provider": {
+          "@type": "EducationalOrganization",
+          "name": "RoboAIAPaths",
+          "url": "https://roboaiapaths.com",
+          "sameAs": "https://roboaiapaths.com"
+        },
+        "educationalLevel": "All Levels",
+        "courseMode": "Blended",
+        "offers": {
+          "@type": "Offer",
+          "category": "Paid"
+        }
+      }
+    ]
+  }
   </script>
 
   <!-- Breadcrumb Schema -->
