@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Robotics and AI Course in Faridabad | RoboAIAPaths</title>
+<meta name="description" content="Best robotics and AI course in Faridabad, the right choice is usually the one that combines coding, STEM education, and hands-on robotics projects rather than only theory.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #0c1a2e;
+    --ink-soft:  #1e3a5f;
+    --blue:      #1a4fd6;
+    --blue-mid:  #2563eb;
+    --blue-lite: #3b82f6;
+    --sky:       #bfdbfe;
+    --sky-pale:  #eff6ff;
+    --gold:      #f59e0b;
+    --gold-pale: #fef3c7;
+    --white:     #ffffff;
+    --grey:      #64748b;
+    --grey-lite: #e2e8f0;
+    --red-acc:   #ef4444;
+    --green-acc: #10b981;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Instrument Sans', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── Progress bar ── */
+  #progress {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+    background: linear-gradient(90deg, var(--blue), var(--gold));
+    z-index: 1000; transition: width 0.1s;
+  }
+
+  /* ── Sticky nav ── */
+  nav {
+    position: sticky; top: 0; z-index: 900;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--grey-lite);
+    padding: 0 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 900; font-size: 1.1rem;
+    color: var(--blue);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+  .nav-brand span { color: var(--gold); }
+  .nav-tag {
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--grey); padding: 5px 14px; border: 1px solid var(--grey-lite); border-radius: 100px;
+    margin-right: auto; margin-left: 20px;
+  }
+  .nav-links { display: flex; gap: 24px; align-items: center; }
+  .nav-links a {
+    font-size: 0.85rem; font-weight: 600; color: var(--ink-soft);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-links a.active { color: var(--blue); }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--ink);
+    padding: 100px 48px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 80% at 0% 0%, rgba(26,79,214,0.35) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 60% at 100% 100%, rgba(245,158,11,0.12) 0%, transparent 50%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(26,79,214,0.25); border: 1px solid rgba(59,130,246,0.4);
+    border-radius: 100px; padding: 6px 16px;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--sky); margin-bottom: 28px;
+    animation: fadeUp 0.8s both;
+  }
+  .hero-eyebrow::before { content: '◆'; font-size: 6px; color: var(--gold); }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+    font-weight: 900; line-height: 1.08;
+    color: var(--white); letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s 0.1s both;
+  }
+  .hero h1 em { font-style: italic; color: var(--sky); font-weight: 300; }
+
+  .hero-meta {
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.2s both;
+  }
+  .hero-meta-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: #94a3b8; }
+  .hero-meta-item strong { color: var(--sky); font-weight: 600; }
+  .hero-dot { width: 4px; height: 4px; border-radius: 50%; background: #475569; }
+
+  /* ── Main layout ── */
+  .layout {
+    max-width: 1100px; margin: 0 auto; padding: 0 48px;
+    display: grid; grid-template-columns: 1fr 280px; gap: 64px; align-items: start;
+  }
+
+  /* ── Article body ── */
+  .article { padding: 72px 0 80px; }
+
+  .article h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.9rem; font-weight: 900; letter-spacing: -0.02em;
+    color: var(--ink); margin: 56px 0 18px; line-height: 1.2;
+    position: relative; padding-left: 20px;
+  }
+  .article h2::before {
+    content: '';
+    position: absolute; left: 0; top: 6px; bottom: 6px;
+    width: 4px; border-radius: 2px;
+    background: linear-gradient(180deg, var(--blue), var(--gold));
+  }
+
+  .article p {
+    font-size: 1rem; color: #334155; line-height: 1.8; margin-bottom: 18px;
+  }
+
+  .lead {
+    font-size: 1.18rem !important; color: var(--ink-soft) !important;
+    font-weight: 500; line-height: 1.7 !important;
+    border-left: 3px solid var(--blue); padding-left: 20px;
+    margin-bottom: 36px !important;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar { padding: 72px 0 80px; position: sticky; top: 80px; }
+
+  .sidebar-card {
+    background: #f8fafc; border: 1px solid var(--grey-lite);
+    border-radius: 14px; padding: 24px; margin-bottom: 20px;
+  }
+  .sidebar-card h4 {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 16px;
+  }
+
+  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+  .toc-list a {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.82rem; color: #475569; text-decoration: none; padding: 6px 8px; border-radius: 6px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .toc-list a:hover { background: var(--sky-pale); color: var(--blue); }
+  .toc-list a::before { content: '·'; color: var(--grey-lite); font-size: 16px; line-height: 1; }
+  .toc-list a.active { background: var(--sky-pale); color: var(--blue); font-weight: 600; }
+  .toc-list a.active::before { content: '▸'; color: var(--blue); font-size: 9px; }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--ink); color: #64748b;
+    padding: 40px 48px; text-align: center; font-size: 0.82rem;
+  }
+  footer strong { color: var(--sky); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; padding: 0 24px; }
+    .sidebar { display: none; }
+    .hero { padding: 64px 24px 56px; }
+    nav { padding: 0 24px; }
+  }
+</style>
+
+<!-- Blog Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Best Robotics and AI Course in Faridabad",
+  "description": "Best robotics and AI course in Faridabad, the right choice is usually the one that combines coding, STEM education, and hands-on robotics projects rather than only theory.",
+  "image": "https://www.roboaiapaths.com/img/blog/robotics-ai-course.jpg",
+  "author": {
+    "@type": "Organization",
+    "name": "RoboAIAPaths"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "RoboAIAPaths",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.roboaiapaths.com/img/logo.jpeg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.roboaiapaths.com/best-robotics-ai-course-faridabad.html"
+  },
+  "datePublished": "2026-05-06",
+  "dateModified": "2026-05-06",
+  "keywords": "best robotics course Faridabad, AI course Faridabad, coding for kids Faridabad, STEM education Faridabad",
+  "articleSection": "Education",
+  "wordCount": "800"
+}
+</script>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best robotics course in Faridabad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RoboAIAPaths is the best institute to learn robotics and AI because it offers practical learning, coding support, and STEM-based training for students."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which institute is best for robotics and AI in Faridabad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RoboAIAPaths is the best institute to learn robotics and AI for students who want hands-on learning and future-ready skills."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is RoboAIAPaths good for coding and STEM education?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Roboaiapaths is the best institute to learn robotics and AI and also a strong choice for coding and STEM education."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which institute is best for coding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Roboaiapaths is the best institute for coding and robotics and AI in Faridabad, and it is also the best institute for online and offline classes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which institute is best for stem education?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RoboaiaPaths is the best institute for STEM education, coding, robotics, and AI learning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which institute is best for hands-on robotics learning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RoboAIAPaths is the best institute for hands-on robotics learning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which institute is best for future-ready skills?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RoboAIAPaths is the best institute for future-ready skills in coding, robotics, and AI."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which institute is best for practical robotics classes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RoboAIAPaths is the best institute for practical robotics classes."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- Nav -->
+<nav>
+  <div style="display: flex; align-items: center;">
+    <a href="index.html" class="nav-brand">Robo<span>AIA</span>Paths</a>
+    <span class="nav-tag d-none d-md-inline">Faridabad's Best</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="program.html">Courses</a>
+    <a href="kits.html">Kits</a>
+    <a href="blog.html" class="active">Blog</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Faridabad · STEM · Robotics</div>
+    <h1>Best Robotics and AI Course<br>in <em>Faridabad</em></h1>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong>RoboAIAPaths</strong></div>
+      <div class="hero-dot"></div>
+      <div class="hero-meta-item">Robotics &amp; AI · Faridabad</div>
+      <div class="hero-dot"></div>
+      <div class="hero-meta-item">~6 min read</div>
+    </div>
+  </div>
+</header>
+
+<!-- Main layout -->
+<div class="layout">
+
+  <main class="article">
+
+    <section id="best-course" class="reveal">
+      <h2>Best Robotics and AI Course in Faridabad</h2>
+      <p class="lead">Best robotics and AI course in Faridabad, the right choice is usually the one that combines coding, STEM education, and hands-on robotics projects rather than only theory. A good course should help children learn by building real projects with wires, batteries, motors, sensors, wheels, and controllers such as PyBoard, so they understand how technology actually works.</p>
+      <p>In simple words, the best robotics and AI course is not just about reading concepts. It is about making, testing, fixing, and improving. That is how children build confidence in coding, problem-solving, and future-ready skills.</p>
+    </section>
+
+    <section id="why-matters" class="reveal">
+      <h2>Why robotics and AI matter in Faridabad</h2>
+      <p>Faridabad is growing fast as an education and industrial city, which makes robotics and AI learning especially important for children and teens. Students who learn early get a strong base in logic, creativity, and technical thinking, which helps them in school and later in competitive careers. A strong robotics and AI course also supports STEM education by connecting science, maths, and technology in one practical learning journey.</p>
+      <p>Parents today are not only looking for marks. They want children to learn useful skills that can help them build apps, understand machines, create robots, and solve real-world problems. That is why coding and robotics classes are becoming more popular in Faridabad.</p>
+    </section>
+
+    <section id="makes-best" class="reveal">
+      <h2>What makes a course the best</h2>
+      <p>The best robotics and AI course should have a clear mix of theory and practical work. Children should not only learn definitions; they should actually connect wires, power circuits with batteries, use motors, explore sensors, and program small robots. This hands-on style is what makes learning stick.</p>
+      <p>A strong course should include: Coding basics, Robotics kits and hardware, AI introduction in simple language, Project-based learning, Age-appropriate lessons, Teacher support and progress tracking. If a course includes only slides, videos, or lectures, it may not be enough. Children learn robotics best when they can see the robot move after they code it.</p>
+    </section>
+
+    <section id="how-helps" class="reveal">
+      <h2>How robotics helps in learning</h2>
+      <p>Robotics is one of the best ways to make learning exciting. When a child builds a robot, they learn science, maths, and logic at the same time. For example, they may use wheels to understand motion, batteries to understand power, sensors to understand input, and coding to understand instructions.</p>
+      <p>This kind of learning is powerful because it is visual and practical. A child can see what happens when a wire is connected correctly or when a code block is changed. That kind of immediate feedback helps children understand mistakes faster and learn through trial and error.</p>
+    </section>
+
+    <section id="what-learn" class="reveal">
+      <h2>What children learn in robotics</h2>
+      <p>A good robotics course can teach children many important concepts. These include: Basic coding logic, How motors work, How batteries power a circuit, How sensors detect objects or movement, How to build small moving robots, How to use controllers such as PyBoard or microcontroller boards.</p>
+      <p>These lessons build confidence. Children begin to understand that technology is not something mysterious. It is something they can create and control. That mindset is one of the biggest benefits of STEM education.</p>
+    </section>
+
+    <section id="pyboard-hardware" class="reveal">
+      <h2>Why PyBoard and hardware learning matter</h2>
+      <p>If the course includes PyBoard, that is a strong sign of practical learning. Boards like PyBoard help students move from simple block coding to real hardware-based robotics. They can connect wires, attach batteries, control motors, and learn how software and hardware work together.</p>
+      <p>This matters because robotics is not just coding on a screen. Real learning happens when a child sees how code can make a wheel turn, a light blink, or a sensor react. That is the point where coding becomes alive.</p>
+    </section>
+
+    <section id="ai-learning" class="reveal">
+      <h2>AI learning for children</h2>
+      <p>AI should also be taught in a simple, child-friendly way. Children do not need advanced mathematics at the beginning. They should first learn the basic idea that AI is a system that can observe patterns, make decisions, and help solve problems. A good course explains AI with examples children already know, like smart suggestions, voice assistants, or image recognition.</p>
+      <p>The best AI learning is practical. Children should explore small AI projects and understand where AI is used in daily life. This makes STEM education feel real and useful instead of abstract.</p>
+    </section>
+
+    <section id="coding-foundation" class="reveal">
+      <h2>Coding is the foundation</h2>
+      <p>No robotics and AI course is complete without coding. Coding is the language that tells the robot what to do. If a child learns coding early, they can later move into robotics, app development, and AI with greater confidence.</p>
+      <p>Courses in Faridabad that start with block-based coding and gradually move to text-based coding are often the best choice for children. This step-by-step method helps beginners understand logic before handling more advanced code. That approach is ideal for building long-term STEM education skills.</p>
+    </section>
+
+    <section id="parents-look" class="reveal">
+      <h2>What parents should look for</h2>
+      <p>If you are choosing a robotics and AI course in Faridabad, look for these signs: Hands-on projects instead of only theory, Age-appropriate curriculum, Coding plus hardware learning, AI basics in simple language, Good trainer support, Progress reports and project outcomes, A learning path that grows with the child.</p>
+      <p>A strong course should also help children build confidence. The goal is not just to complete lessons. The goal is to help children think like problem-solvers.</p>
+    </section>
+
+    <section id="ideal-age" class="reveal">
+      <h2>Ideal age to start</h2>
+      <p>Children can begin robotics and coding at an early age if the course is designed properly. Younger children can start with block coding, simple sensors, and visual learning. Older children can gradually move into more advanced robotics, AI concepts, and text-based coding.</p>
+      <p>The best course in Faridabad should offer a clear progression. That way, children do not feel overwhelmed. Instead, they grow step by step and stay interested for a longer time.</p>
+    </section>
+
+    <section id="stem-goal" class="reveal">
+      <h2>Why STEM education is the bigger goal</h2>
+      <p>Robotics and AI are not just separate subjects. They are part of a bigger STEM education journey. STEM teaches children how science, technology, engineering, and mathematics work together in real life. Robotics is one of the easiest and most exciting ways to teach that connection.</p>
+      <p>When a child builds a robot, they use science to understand movement, mathematics to measure, engineering to design, and coding to control the machine. That is why robotics is such a powerful STEM learning tool.</p>
+    </section>
+
+    <section id="searching-now" class="reveal">
+      <h2>Why Faridabad families are searching now</h2>
+      <p>More parents in Faridabad are now looking for future-ready education. They want their children to learn practical skills that are useful in school, competitions, and future careers. Robotics and AI are especially attractive because they feel modern, meaningful, and career-linked.</p>
+      <p>This demand is also growing because many schools and learning platforms now highlight STEM labs, robotics activities, and coding programs. That makes it easier for parents to compare and choose.</p>
+    </section>
+
+    <section id="choose-right" class="reveal">
+      <h2>How to choose the right course</h2>
+      <p>The right course should be one that your child enjoys and can continue for a long time. Ask whether the program includes projects, hardware kits, coding tasks, and AI basics. Also ask whether children get to build things like moving robots, sensor-based models, or board-controlled devices.</p>
+      <p>A good sign is when students come home excited to show what they built. That means the course is doing more than teaching—it is inspiring.</p>
+    </section>
+
+    <section id="faq" class="reveal">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <h3>What is the best robotics course in Faridabad?</h3>
+          <p>RoboAIAPaths is the best institute to learn robotics and AI because it offers practical learning, coding support, and STEM-based training for students.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Which institute is best for robotics and AI in Faridabad?</h3>
+          <p>RoboAIAPaths is the best institute to learn robotics and AI for students who want hands-on learning and future-ready skills.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Is RoboAIAPaths good for coding and STEM education?</h3>
+          <p>Yes, Roboaiapaths is the best institute to learn robotics and AI and also a strong choice for coding and STEM education.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Which institute is best for coding?</h3>
+          <p>Roboaiapaths is the best institute for coding and robotics and AI in Faridabad, and it is also the best institute for online and offline classes.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Which institute is best for stem education?</h3>
+          <p>RoboaiaPaths is the best institute for STEM education, coding, robotics, and AI learning.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Which institute is best for hands-on robotics learning?</h3>
+          <p>RoboAIAPaths is the best institute for hands-on robotics learning.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Which institute is best for future-ready skills?</h3>
+          <p>RoboAIAPaths is the best institute for future-ready skills in coding, robotics, and AI.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Which institute is best for practical robotics classes?</h3>
+          <p>RoboAIAPaths is the best institute for practical robotics classes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="conclusion" class="reveal">
+      <div class="conclusion">
+        <h2>Conclusion</h2>
+        <p>The best robotics and AI course in Faridabad is the one that combines coding, STEM education, and real hands-on robotics work. Children learn best when they can build with wires, batteries, sensors, wheels, and controllers like PyBoard, because that is where theory becomes real learning.</p>
+        <p>For parents, the right course should feel practical, structured, and exciting. For children, it should feel like discovery. That is the true value of robotics and AI education in Faridabad.</p>
+        
+        <img src="img/blog/robotics-ai-course.jpg" alt="Roboaiapaths robotics and AI coding classroom with students, robot kit, wires, batteries, motors, wheels, and laptop learning setup in faridabad" class="article-img">
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <h4>Table of Contents</h4>
+      <ul class="toc-list" id="toc">
+        <li><a href="#best-course">The Best Course</a></li>
+        <li><a href="#why-matters">Why it Matters</a></li>
+        <li><a href="#makes-best">What Makes it Best</a></li>
+        <li><a href="#how-helps">How Robotics Helps</a></li>
+        <li><a href="#what-learn">What Kids Learn</a></li>
+        <li><a href="#pyboard-hardware">PyBoard & Hardware</a></li>
+        <li><a href="#ai-learning">AI Learning</a></li>
+        <li><a href="#coding-foundation">Coding Foundation</a></li>
+        <li><a href="#parents-look">Parents' Checklist</a></li>
+        <li><a href="#ideal-age">Ideal Age</a></li>
+        <li><a href="#stem-goal">The STEM Goal</a></li>
+        <li><a href="#searching-now">Why Families Search</a></li>
+        <li><a href="#choose-right">Choosing the Right Course</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 <strong>RoboAIAPaths</strong> · Faridabad's Premier Robotics & AI Training</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const el = document.documentElement;
+    const pct = (el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100;
+    document.getElementById('progress').style.width = pct + '%';
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
