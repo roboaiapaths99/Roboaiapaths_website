@@ -242,20 +242,28 @@ function extractLead($message) {
  * Save lead to MySQL chatbot_leads table.
  */
 function saveLead($conn, $lead_data, $message, $session_id) {
+    if (!$conn || $conn->connect_error) {
+        error_log("Lead Save Error: Database connection is not available.");
+        return;
+    }
     try {
         $stmt = $conn->prepare("INSERT INTO chatbot_leads (name, phone, child_class, course_interest, city, message, session_id, status) VALUES (?, ?, ?, ?, ?, ?, ?, 'New')");
-        $stmt->bind_param("sssssss",
-            $lead_data['name'],
-            $lead_data['phone'],
-            $lead_data['child_class'],
-            $lead_data['course_interest'],
-            $lead_data['city'],
-            $message,
-            $session_id
-        );
-        $stmt->execute();
-        $stmt->close();
-    } catch (Exception $e) {
+        if ($stmt) {
+            $stmt->bind_param("sssssss",
+                $lead_data['name'],
+                $lead_data['phone'],
+                $lead_data['child_class'],
+                $lead_data['course_interest'],
+                $lead_data['city'],
+                $message,
+                $session_id
+            );
+            $stmt->execute();
+            $stmt->close();
+        } else {
+            error_log("Lead Save Error: Failed to prepare statement: " . $conn->error);
+        }
+    } catch (Throwable $e) {
         error_log("Lead Save Error: " . $e->getMessage());
     }
 }
@@ -264,13 +272,21 @@ function saveLead($conn, $lead_data, $message, $session_id) {
  * Save chat conversation log to MySQL chatbot_logs table.
  */
 function saveChatLog($conn, $session_id, $user_message, $bot_reply, $lead_detected) {
+    if (!$conn || $conn->connect_error) {
+        error_log("Chat Log Error: Database connection is not available.");
+        return;
+    }
     try {
         $ld = $lead_detected ? 1 : 0;
         $stmt = $conn->prepare("INSERT INTO chatbot_logs (session_id, user_message, bot_reply, lead_detected) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("sssi", $session_id, $user_message, $bot_reply, $ld);
-        $stmt->execute();
-        $stmt->close();
-    } catch (Exception $e) {
+        if ($stmt) {
+            $stmt->bind_param("sssi", $session_id, $user_message, $bot_reply, $ld);
+            $stmt->execute();
+            $stmt->close();
+        } else {
+            error_log("Chat Log Error: Failed to prepare statement: " . $conn->error);
+        }
+    } catch (Throwable $e) {
         error_log("Chat Log Error: " . $e->getMessage());
     }
 }

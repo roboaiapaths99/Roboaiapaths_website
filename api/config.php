@@ -30,7 +30,13 @@ define('ADMIN_EMAILS', 'roboaiapaths@gmail.com,roboaiapaths9@gmail.com');
 define('ADMIN_MOBILE', '9990911093');
 
 // Chatbot AI Configuration (loaded from secrets.php - not committed to git)
-require_once __DIR__ . '/secrets.php';
+if (file_exists(__DIR__ . '/secrets.php')) {
+    require_once __DIR__ . '/secrets.php';
+} else {
+    if (!defined('GEMINI_API_KEY')) {
+        define('GEMINI_API_KEY', '');
+    }
+}
 
 // Helper to send JSON response
 function sendJsonResponse($status, $message, $data = [])
