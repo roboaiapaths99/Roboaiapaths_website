@@ -102,4 +102,166 @@ if ($action === 'update_status') {
         sendJsonResponse('error', 'Invalid status.');
     }
 }
+
+// ============================================================
+// CHATBOT ADMIN ACTIONS (replaces Python FastAPI admin endpoints)
+// ============================================================
+
+// 6. Chatbot Stats
+if ($action === 'cb_stats') {
+    $total_leads = $conn->query("SELECT COUNT(*) as c FROM chatbot_leads")->fetch_assoc()['c'];
+    $total_chats = $conn->query("SELECT COUNT(*) as c FROM chatbot_logs")->fetch_assoc()['c'];
+    $new_leads = $conn->query("SELECT COUNT(*) as c FROM chatbot_leads WHERE status = 'New'")->fetch_assoc()['c'];
+    $contacted = $conn->query("SELECT COUNT(*) as c FROM chatbot_leads WHERE status = 'Contacted'")->fetch_assoc()['c'];
+    $demo_scheduled = $conn->query("SELECT COUNT(*) as c FROM chatbot_leads WHERE status = 'Demo Scheduled'")->fetch_assoc()['c'];
+    $joined = $conn->query("SELECT COUNT(*) as c FROM chatbot_leads WHERE status = 'Joined'")->fetch_assoc()['c'];
+    $not_interested = $conn->query("SELECT COUNT(*) as c FROM chatbot_leads WHERE status = 'Not Interested'")->fetch_assoc()['c'];
+
+    $today = date('Y-m-d');
+    $today_leads = $conn->query("SELECT COUNT(*) as c FROM chatbot_leads WHERE DATE(created_at) = '$today'")->fetch_assoc()['c'];
+
+    $conversion_rate = $total_leads > 0 ? round(($joined / $total_leads) * 100, 2) : 0;
+
+    sendJsonResponse('success', 'Stats fetched.', [
+        'total_leads' => (int)$total_leads,
+        'total_chats' => (int)$total_chats,
+        'today_leads' => (int)$today_leads,
+        'new_leads' => (int)$new_leads,
+        'contacted_leads' => (int)$contacted,
+        'demo_scheduled' => (int)$demo_scheduled,
+        'joined_leads' => (int)$joined,
+        'not_interested' => (int)$not_interested,
+        'conversion_rate' => $conversion_rate
+    ]);
+}
+
+// 7. Get Chatbot Leads
+if ($action === 'cb_leads') {
+    $search = isset($data['search']) ? $conn->real_escape_string($data['search']) : '';
+    $status_filter = isset($data['status_filter']) ? $conn->real_escape_string($data['status_filter']) : 'All';
+
+    $where = [];
+    if ($status_filter && $status_filter !== 'All') {
+        $where[] = "status = '$status_filter'";
+    }
+    if ($search) {
+        $where[] = "(name LIKE '%$search%' OR phone LIKE '%$search%' OR child_class LIKE '%$search%' OR course_interest LIKE '%$search%' OR message LIKE '%$search%' OR city LIKE '%$search%')";
+    }
+
+    $where_sql = count($where) > 0 ? 'WHERE ' . implode(' AND ', $where) : '';
+    $sql = "SELECT * FROM chatbot_leads $where_sql ORDER BY created_at DESC";
+    $result = $conn->query($sql);
+
+    $leads = [];
+    while ($row = $result->fetch_assoc()) {
+        // Format dates for frontend
+        $row['followup_date'] = $row['followup_date'] ? $row['followup_date'] : '';
+        $row['demo_date'] = $row['demo_date'] ? $row['demo_date'] : '';
+        $leads[] = $row;
+    }
+
+    sendJsonResponse('success', 'Leads fetched.', [
+        'total' => count($leads),
+        'leads' => $leads
+    ]);
+}
+
+// 8. Get Chatbot Logs
+if ($action === 'cb_chats') {
+    $result = $conn->query("SELECT * FROM chatbot_logs ORDER BY created_at DESC LIMIT 200");
+    $logs = [];
+    while ($row = $result->fetch_assoc()) {
+        $logs[] = $row;
+    }
+    sendJsonResponse('success', 'Logs fetched.', [
+        'total' => count($logs),
+        'logs' => $logs
+    ]);
+}
+
+// 9. Update Chatbot Lead Status
+if ($action === 'cb_update_status') {
+    $lead_id = isset($data['lead_id']) ? intval($data['lead_id']) : 0;
+    $new_status = isset($data['status']) ? $conn->real_escape_string($data['status']) : '';
+
+    $allowed = ['New', 'Contacted', 'Demo Scheduled', 'Joined', 'Not Interested'];
+    if ($lead_id > 0 && in_array($new_status, $allowed)) {
+        $stmt = $conn->prepare("UPDATE chatbot_leads SET status = ? WHERE id = ?");
+        $stmt->bind_param("si", $new_status, $lead_id);
+        if ($stmt->execute()) {
+            sendJsonResponse('success', 'Lead status updated.');
+        } else {
+            sendJsonResponse('error', 'Failed to update status.');
+        }
+        $stmt->close();
+    } else {
+        sendJsonResponse('error', 'Invalid lead ID or status.');
+    }
+}
+
+// 10. Update Chatbot Lead CRM Details (notes, followup, demo date)
+if ($action === 'cb_update_crm') {
+    $lead_id = isset($data['lead_id']) ? intval($data['lead_id']) : 0;
+    $notes = isset($data['notes']) ? $data['notes'] : '';
+    $followup_date = isset($data['followup_date']) && !empty($data['followup_date']) ? $data['followup_date'] : null;
+    $demo_date = isset($data['demo_date']) && !empty($data['demo_date']) ? $data['demo_date'] : null;
+
+    if ($lead_id > 0) {
+        $stmt = $conn->prepare("UPDATE chatbot_leads SET notes = ?, followup_date = ?, demo_date = ? WHERE id = ?");
+        $stmt->bind_param("sssi", $notes, $followup_date, $demo_date, $lead_id);
+        if ($stmt->execute()) {
+            sendJsonResponse('success', 'CRM details updated.');
+        } else {
+            sendJsonResponse('error', 'Failed to update CRM details.');
+        }
+        $stmt->close();
+    } else {
+        sendJsonResponse('error', 'Invalid lead ID.');
+    }
+}
+
+// 11. Delete Chatbot Lead
+if ($action === 'cb_delete_lead') {
+    $lead_id = isset($data['lead_id']) ? intval($data['lead_id']) : 0;
+    if ($lead_id > 0) {
+        $stmt = $conn->prepare("DELETE FROM chatbot_leads WHERE id = ?");
+        $stmt->bind_param("i", $lead_id);
+        if ($stmt->execute()) {
+            sendJsonResponse('success', 'Lead deleted.');
+        } else {
+            sendJsonResponse('error', 'Failed to delete lead.');
+        }
+        $stmt->close();
+    } else {
+        sendJsonResponse('error', 'Invalid lead ID.');
+    }
+}
+
+// 12. Export Chatbot Leads as CSV
+if ($action === 'cb_export_csv') {
+    header('Content-Type: text/csv');
+    header('Content-Disposition: attachment; filename=roboaiapaths_chatbot_leads.csv');
+
+    $output = fopen('php://output', 'w');
+    fputcsv($output, ['Name', 'Phone', 'Class', 'Course', 'City', 'Status', 'Notes', 'Follow-up Date', 'Demo Date', 'Message', 'Created At']);
+
+    $result = $conn->query("SELECT * FROM chatbot_leads ORDER BY created_at DESC");
+    while ($row = $result->fetch_assoc()) {
+        fputcsv($output, [
+            $row['name'],
+            $row['phone'],
+            $row['child_class'],
+            $row['course_interest'],
+            $row['city'],
+            $row['status'],
+            $row['notes'],
+            $row['followup_date'],
+            $row['demo_date'],
+            $row['message'],
+            $row['created_at']
+        ]);
+    }
+    fclose($output);
+    exit;
+}
 ?>

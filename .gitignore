@@ -1,4 +1,5 @@
 api/db_connect.php
+api/secrets.php
 api/logs/
 .DS_Store
 Thumbs.db

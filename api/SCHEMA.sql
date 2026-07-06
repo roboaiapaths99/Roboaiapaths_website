@@ -75,3 +75,31 @@ INSERT INTO product_kits (id, name, selling_price, mrp, is_out_of_stock) VALUES
 ('kit9', 'PY Card', 5566, 6123, FALSE),
 ('kit10', 'PC Bot', 6593, 7252, FALSE),
 ('kit11', 'RC Drift Car', 6593, 7252, FALSE);
+
+-- Chatbot Leads (captured from AI chatbot conversations)
+CREATE TABLE IF NOT EXISTS chatbot_leads (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) DEFAULT '',
+    phone VARCHAR(20) DEFAULT '',
+    child_class VARCHAR(20) DEFAULT '',
+    course_interest VARCHAR(100) DEFAULT '',
+    city VARCHAR(100) DEFAULT '',
+    message TEXT,
+    session_id VARCHAR(100) DEFAULT '',
+    status ENUM('New', 'Contacted', 'Demo Scheduled', 'Joined', 'Not Interested') DEFAULT 'New',
+    notes TEXT,
+    followup_date DATE DEFAULT NULL,
+    demo_date DATE DEFAULT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Chatbot Conversation Logs
+CREATE TABLE IF NOT EXISTS chatbot_logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    session_id VARCHAR(100) DEFAULT '',
+    user_message TEXT,
+    bot_reply TEXT,
+    lead_detected TINYINT(1) DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

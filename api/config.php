@@ -29,6 +29,9 @@ define('ADMIN_EMAILS', 'roboaiapaths@gmail.com,roboaiapaths9@gmail.com');
 // Admin Settings
 define('ADMIN_MOBILE', '9990911093');
 
+// Chatbot AI Configuration (loaded from secrets.php - not committed to git)
+require_once __DIR__ . '/secrets.php';
+
 // Helper to send JSON response
 function sendJsonResponse($status, $message, $data = [])
 {
