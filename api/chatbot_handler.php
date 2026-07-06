@@ -147,11 +147,18 @@ exit;
 
 /**
  * Call Google Gemini API using curl.
+ * Tries multiple models for resilience against rate limits.
  * Returns the text reply or false on failure.
  */
 function callGeminiAPI($prompt) {
     $api_key = GEMINI_API_KEY;
-    $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" . $api_key;
+    if (empty($api_key)) {
+        error_log("Gemini API Error: API key is empty");
+        return false;
+    }
+
+    // Try models in order (flash-lite has higher free-tier RPM)
+    $models = ['gemini-2.0-flash-lite', 'gemini-2.0-flash'];
 
     $payload = json_encode([
         'contents' => [
@@ -163,34 +170,49 @@ function callGeminiAPI($prompt) {
         ]
     ]);
 
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Content-Type: application/json'
-    ]);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+    foreach ($models as $model) {
+        $url = "https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent?key=" . $api_key;
 
-    $response = curl_exec($ch);
-    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    $curl_error = curl_error($ch);
-    curl_close($ch);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json'
+        ]);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
 
-    if ($response === false || $http_code !== 200) {
-        error_log("Gemini API Error: HTTP {$http_code} | curl error: {$curl_error} | response: {$response}");
-        return false;
+        $response = curl_exec($ch);
+        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curl_error = curl_error($ch);
+        curl_close($ch);
+
+        if ($response === false) {
+            error_log("Gemini API Error ({$model}): curl error: {$curl_error}");
+            continue;
+        }
+
+        if ($http_code === 429) {
+            error_log("Gemini API Rate Limited ({$model}): trying next model...");
+            continue;
+        }
+
+        if ($http_code !== 200) {
+            error_log("Gemini API Error ({$model}): HTTP {$http_code} | response: {$response}");
+            continue;
+        }
+
+        $result = json_decode($response, true);
+
+        if (isset($result['candidates'][0]['content']['parts'][0]['text'])) {
+            return trim($result['candidates'][0]['content']['parts'][0]['text']);
+        }
+
+        error_log("Gemini API unexpected response ({$model}): " . $response);
     }
 
-    $result = json_decode($response, true);
-
-    if (isset($result['candidates'][0]['content']['parts'][0]['text'])) {
-        return trim($result['candidates'][0]['content']['parts'][0]['text']);
-    }
-
-    error_log("Gemini API unexpected response: " . $response);
     return false;
 }
 
