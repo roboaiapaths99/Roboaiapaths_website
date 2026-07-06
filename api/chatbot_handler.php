@@ -5,8 +5,8 @@
  * Handles: /chat (public) and /lead (public)
  * Uses Google Gemini API via curl, stores in MySQL.
  */
-require_once 'config.php';
-require_once 'db_connect.php';
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/db_connect.php';
 
 // --- CORS Headers (allow chatbot widget from any page) ---
 header('Content-Type: application/json');
