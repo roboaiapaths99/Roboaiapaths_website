@@ -20,7 +20,7 @@ define('METAREACH_SENDER_ID', 'AGPKAC');
 define('METAREACH_TEMPLATE_ID', '1707177071739047190');
 
 // Debug Mode Settings (Disable for Production)
-define('DEBUG_MODE', false);
+define('DEBUG_MODE', true); // TODO: Set back to false for production!
 define('DEBUG_OTP', '5555');
 
 // Email Settings
